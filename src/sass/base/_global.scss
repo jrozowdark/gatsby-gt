@@ -1,0 +1,92 @@
+@import "./variables";
+@import "./mixins";
+/* ------| bootstrap |----- */
+.no-padding {
+  padding: 0;
+}
+a {
+  color:$white;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color:$white;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+.font-line-orange {
+    color: transparent;
+    -webkit-text-stroke: .1rem #FB5030;
+    margin: 0;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: $h-neue;
+    font-weight: 100;
+}
+html {
+
+  .row {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  h2 {
+    font-family: $px-black;
+    font-size: 3.4rem;
+    font-weight: 100;
+    -webkit-text-stroke: .1rem black;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    color: transparent;
+    margin: 0;
+    @media(min-width: 1024px) {
+      font-size: 4rem;
+    }
+  }
+  h3 {
+    font-family: $px-black;
+    font-size: 2rem;
+    font-weight: 100;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    margin: 0;
+    color: $white;
+    @media(min-width: 1024px) {
+      font-size: 3rem;
+    }
+  }
+}
+.font-gatorade {
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: $h-neue;
+  color: #FB5030;
+}
+.font-gatorade-light {
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: $h-neuelt;
+  color: #FB5030;
+}
+
+//botons use the data_buttons variable from variables file;
+@each $class, $data_button in $data_buttons {
+  .button-#{$class} {
+    @include style-button(map-get($data_button, principal_bg), map-get($data_button, secondary_bg), map-get($data_button, first_color), map-get($data_button, second_color));
+    @media(min-width: 1024px) {
+      $map_desktop: map-get($data_buttons, map-get($data_button, data_query));
+      @include style-button(map-get($map_desktop, principal_bg), map-get($map_desktop, secondary_bg), map-get($map_desktop, first_color), map-get($map_desktop, second_color));
+    }
+  }
+}

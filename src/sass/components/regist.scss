@@ -1,0 +1,127 @@
+/**
+ * regist.scss
+ *
+ * These styles are from the first carousel.
+ *
+ * Index
+ * - Regist
+ *   |- Background image
+ *   |- Registration form box
+ *     |- Title
+ *     |- Form
+ *       |- Form field
+ *       |- Intermediate title
+ *       |- Button
+*/
+// variable import
+@import "../base/variables";
+// /*---| Regist |---*/
+.single-component {
+  position: relative;
+  height: 1020px;
+  min-height: 60rem;
+  //Background image
+  &::before {
+    content: "";
+    background-image: url('../../images/bg-regist.png');
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  //Registration form box
+  .register {
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
+    max-width: 504px;
+    @media(min-width: 1024px) {
+      top: 8rem;
+    }
+    //Title
+    .title-register {
+      text-align: center;
+      margin-bottom: 9px;
+      @media(min-width: 1024px) {
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: white;
+        -webkit-text-stroke: 0;
+        letter-spacing: 1px;
+        font-weight: 900;
+        font-size: 2.8rem;
+        @media(min-width: 1024px) {
+          font-size: 4.9rem;
+          letter-spacing: 10px;
+          font-weight: 900;
+        }
+      }
+    }
+    //Form
+    .form-register {
+      padding: 36px 19px;
+      text-align: center;
+      form {
+        display: flex;
+        flex-direction: column;
+        //Form field
+        .form-group {
+          margin: 0 auto 18px;
+          @media(min-width: 1024px) {
+            margin: 0 auto 12px;
+          }
+          &:nth-child(9) {
+           margin-bottom: 30px;
+          }
+          input,select {
+            height: 43px;
+            width: 255px;
+            text-align: left;
+            font-family: $g-medium;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: $black;
+            &::placeholder {
+              color: $black;
+              text-transform: uppercase;
+            }
+            @media(min-width: 768px) {
+              width: 390px;
+            }
+            @media(min-width: 1024px) {
+              text-align: center;
+              height: 63px;
+              font-size: 1.2rem;
+            }
+          }
+        }
+        a {
+          color: $white;
+          font-family: $h-neue;
+          font-size: 1rem;
+          text-decoration: underline;
+        }
+        //Intermediate title
+        h3 {
+          text-align: left;
+          font-size: 3.2rem;
+          line-height: 0.6;
+          letter-spacing: 0.3px;
+          margin: 65px 8px 45px;
+          span {
+            font-size: 2.1rem;
+          }
+          @media(min-width: 1024px) {
+            display: none;
+          }
+        }
+        //Button
+        .button-second {
+          margin: 30px auto 0px;
+        }
+      }
+    }
+  }
+}

@@ -8,9 +8,20 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
+import Footer from "./footer"
 import "./layout.css"
+import drupalOauth from '../components/drupal-oauth/drupalOauth';
+import withDrupalOauthProvider from '../components/drupal-oauth/withDrupalOauthProvider';
+import "bootstrap/dist/css/bootstrap.min.css"
+
+
+const drupalOauthClient = new drupalOauth({
+  drupal_root: process.env.GATSBY_DRUPAL_ROOT,
+  client_id: '772f9013-6c08-4602-b71f-04fe8298dbd1',
+  client_secret: '123',
+  scope: 'cliente',
+});
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,24 +37,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+        <Footer siteTitle={data.site.siteMetadata?.title || `Title`} />
+
     </>
   )
 }
@@ -52,4 +48,5 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default withDrupalOauthProvider(drupalOauthClient, Layout);
+

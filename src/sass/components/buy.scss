@@ -1,0 +1,298 @@
+/**
+ * buy.scss
+ *
+ * These styles are from the benefits component.
+ *
+ * Index
+ * - Benefits
+ *   |- Title
+ *   |- Side title
+ *   |- Background image
+ *   |- Text box
+ *     |- Text section
+*/
+// variable import
+@import "../base/variables";
+// /*---| Buy |---*/
+.bg-malla {
+  background-image: url('../../images/bg-regist.png');
+  padding: 0;
+  margin: 0;
+  max-width: unset !important;
+  @media(min-width: 992px) {
+    height: 100vh;
+    min-height: 820px;
+  }
+  .row-bg {
+    height: 100%;
+    @media screen and (min-height: 800px) and (min-width: 992px) {
+      align-items: center;
+    }
+  }
+}
+.text-image-orden {
+  padding-top: 6rem;
+  margin-bottom: -4rem;
+  @media(min-width: 992px) {
+    max-height: 40rem;
+  }
+  .text {
+    text-align: center;
+    max-width: 13rem;
+    margin: auto;
+    @media(min-width: 992px) {
+      max-width: 16rem;
+      height: 1rem;
+    }
+    h2 {
+      line-height: 1;
+      color: white;
+      -webkit-text-stroke: unset;
+      @media(min-width: 992px) {
+        display: flex;
+        span {
+          color: #ff4700;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  .image-gatorade {
+    height: 20rem;
+    text-align: center;
+    @media(min-width: 992px) {
+      height: 33.8rem;
+      overflow: hidden;
+    }
+    img {
+      height: 20rem;
+      margin: 0;
+      @media(min-width: 992px) {
+        height: 43rem;
+        object-fit: cover;
+      } 
+    }
+  }
+}
+.container-texts {
+  padding-bottom: 3rem;
+  @media(min-width: 992px) {
+    padding-top: 6rem;
+  }
+  form {
+    .form-group {
+      display: flex;
+      height: 5.6rem;
+      flex-wrap: wrap;
+      @media(min-width: 992px) {
+        height: 4.7rem;
+      }
+      .botellas {
+        p {
+          font-size: 3.5rem;
+          font-family: 'PlexesPro black';
+          text-transform: uppercase;
+          color: #ff4700;
+          font-weight: bold;
+          margin: 0;
+        }
+      }
+      .form-label:last-child {
+        display: none;
+      }
+      .form-label {
+        flex: 0 0 33.3%;
+        @media(min-width: 992px) {
+          position: relative;
+          max-width: 12rem;
+        }
+        .text-first {
+          font-size: 2.2rem;
+          text-transform: uppercase;
+          font-family: 'PlexesPro black';
+          color: gray;
+          margin: 0;
+          line-height: 0;
+          @media(min-width: 992px) {
+            position: absolute;
+            transform: rotate(-90deg) translate(-50%, 0%);
+            left: -3rem;
+          }
+        }
+        .text-second {
+          font-size: 5rem;
+          text-transform: uppercase;
+          font-family: 'PlexesPro black';
+          color: gray;
+          margin: 0;
+          line-height: 1.4;
+          @media(min-width: 992px) {
+            font-size: 7rem;
+            line-height: 0.8;
+            color: white;
+          }
+        }
+        .form-check  {
+          input {
+            visibility: hidden;
+          }
+        }
+      }
+      .checked {
+        .text-first,
+        .text-second {
+          color: #ff4700;
+        }
+      }
+    }
+    //
+    .select-flavor {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+      @media(min-width: 992px) {
+        min-width: 486px;
+      }
+      .form-label {
+        width: 9rem;
+        margin: 0.7rem 0;
+        text-align: center;
+        color: gray;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-size: 1.8rem;
+        margin: 0;
+        font-family: 'PlexesPro black';
+        display: block !important;
+        input {
+          font-size: 6rem;
+          background: transparent;
+          border: none;
+          color: white;
+          text-align: center;
+        }
+      } 
+    }
+  }
+  .title-pack {
+    p {
+      color: white;
+      font-family: 'PlexesPro black';
+      text-transform: uppercase;
+      font-size: 2.5rem;
+    }
+  }
+  .packs {
+    display: flex;
+    height: 5.6rem;
+    @media(min-width: 992px) {
+      height: 4.7rem;
+    }
+    .pack.active {
+      p.pack-text {
+        color: #ff4700;
+      }
+      p.pack-number {
+        color: #ff4700;
+      }
+    }
+    .pack {
+      flex: 0 0 33.3%;
+      @media(min-width: 992px) {
+        position: relative;
+        max-width: 12rem;
+      }
+      p.pack-text {
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        font-family: 'PlexesPro black';
+        color: gray;
+        margin: 0;
+        line-height: 0;
+        @media(min-width: 992px) {
+          position: absolute;
+          transform: rotate(-90deg) translate(-50%, 0%);
+          left: -3rem;
+        }
+      }
+      p.pack-number {
+        font-size: 5rem;
+        text-transform: uppercase;
+        font-family: 'PlexesPro black';
+        color: gray;
+        margin: 0;
+        line-height: 1.4;
+        @media(min-width: 992px) {
+          font-size: 7rem;
+          line-height: 0.8;
+          color: white;
+        }
+      }
+    }
+  }
+  .botellas {
+    p {
+      font-size: 3.5rem;
+      font-family: 'PlexesPro black';
+      text-transform: uppercase;
+      color: #ff4700;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  .elige {
+    p {
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.7rem;
+      font-family: 'PlexesPro black';
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+  }
+  .sabores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @media(min-width: 992px) {
+      min-width: 486px;
+    }
+    .sabor {
+      width: 9rem;
+      margin: 0.7rem 0;
+      text-align: center;
+      &.active {
+        p{
+          color: #ff4700;
+        }
+      }
+      p {
+        color: gray;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-size: 1.8rem;
+        margin: 0;
+        font-family: 'PlexesPro black';
+        &.sabor-number {
+          font-size: 6rem;
+          @media(min-width: 992px) {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .button-second {
+    margin: 75px auto 0;
+    @media(min-width: 576px) {
+      margin: 36px 0 0 40px;
+    }
+    @media(min-width: 1500px) {
+      margin: 56px 0 0 40px;
+    }
+    @media(min-width: 2000px) {
+      margin: 85px 0 0 40px;
+    }
+  }
+}
