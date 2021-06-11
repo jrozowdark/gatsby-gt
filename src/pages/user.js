@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Profile from "../components/User/profile"
 import Login from "../components/User/login"
 import Register from "../components/User/Register"
-import PrivateRoute from "../components/Utils/privateRoute"
+import PrivateRoute from "../components/Utils/PrivateRoute"
 const App = () => (
   <Layout>
     <Router>
