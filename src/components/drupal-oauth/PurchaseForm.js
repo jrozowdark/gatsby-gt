@@ -42,15 +42,15 @@ class PurchaseForm extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ processing: true });
-    const { field_name, field_lastname, birthdate, username, modality, phone, password, new_password } = this.state;
-     // con el preferenceId en mano, inyectamos el script de mercadoPago
-     const script = document.createElement('script');
-     script.type = 'text/javascript';
-     script.src =
-       'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
-     script.setAttribute('data-preference-id', preferenceId);
-     const form = document.getElementById(FORM_ID);
-     form.appendChild(script);
+    // const { field_name, field_lastname, birthdate, username, modality, phone, password, new_password } = this.state;
+    //  // con el preferenceId en mano, inyectamos el script de mercadoPago
+    //  const script = document.createElement('script');
+    //  script.type = 'text/javascript';
+    //  script.src =
+    //    'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
+    //  script.setAttribute('data-preference-id', preferenceId);
+    //  const form = document.getElementById(FORM_ID);
+    //  form.appendChild(script);
     // try {
     //   await this.props.drupalOauthClient.handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
     //   this.setState({ processing: true });
