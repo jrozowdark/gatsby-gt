@@ -5,3 +5,28 @@
  */
 
 // You can delete this file if you're not using it
+// base
+import "./src/sass/base/_fonts.scss"
+import "./src/sass/base/_global.scss"
+import "./src/sass/base/_mixins.scss"
+import "./src/sass/base/_reset.scss"
+import "./src/sass/base/_variables.scss"
+//components
+import "./src/sass/components/benefits.scss"
+import "./src/sass/components/index.scss"
+import "./src/sass/components/login.scss"
+import "./src/sass/components/page-qr.scss"
+import "./src/sass/components/page4.scss"
+import "./src/sass/components/fourt-component.scss"
+import "./src/sass/components/principal-slider.scss"
+import "./src/sass/components/regist-full.scss"
+import "./src/sass/components/regist.scss"
+import "./src/sass/components/secundary-slider.scss"
+import "./src/sass/components/thanks.scss"
+import "./src/sass/components/buy.scss"
+import "./src/sass/components/recover-password.scss"
+//layout
+import "./src/sass/layout/header.scss"
+import "./src/sass/layout/footer.scss"
+//mail
+import "./src/sass/mail/footer-mail.scss"

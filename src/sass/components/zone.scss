@@ -1,0 +1,109 @@
+/**
+ * zone.scss
+ *
+ * These styles are for the redeem page.
+ *
+ * Index
+ * - Zone 
+ *   |- Background image
+ *   |- Box zone
+ *     |- Title
+ *     |- Description
+ *     |- Form
+ *     |- Button
+ */
+// import variable sheet
+@import "../base/variables";
+// /*---| Zone |---*/
+
+.zone {
+  position: relative;
+  height: 100vh;
+  min-height: 35rem;
+  text-align: center;
+  @media(min-width: 1024px) {
+    height: 800px;
+    min-height: 100vh;
+  }
+  //Background image
+  &::before {
+    content: '';
+    background: url('../../images/bg-zone-mobil.png') center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    @media(min-width: 768px) {
+      background: url('../../images/bg-zone.png') center/cover no-repeat;
+    }
+  }
+  //Box zone
+  .box-zone {
+    z-index: 10;
+    margin-top: 100px;
+    width: 100%;
+    @media(min-width: 768px) {
+      margin-top: 220px;
+    }
+    //Title
+    h2 {
+      color: #FB5030;
+      -webkit-text-stroke: 0;
+      font-size: 3rem;
+      line-height: 0.64;
+      @media(min-width: 576px) {
+        font-size: 4.9rem;
+        letter-spacing: 10px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      span {
+        font-size: 2.2rem;
+        @media(min-width: 576px) {
+          font-size: 4.9rem;
+          letter-spacing: 10px;
+          font-weight: 900;
+        }
+      }
+    }
+    //Description
+    p {
+      color: white;
+      font-family: $g-black;
+      margin: 40px 1rem 55px;
+      @media(min-width: 576px) {
+        margin: 81px 1rem 80px;
+        font-size: 1.6rem;
+        letter-spacing: 0.5px;
+      }
+    }
+    //Form
+    .form-group {
+      input,select {
+        height: 43px;
+        width: 255px;
+        margin: 0 auto;
+        font-family: $g-medium;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: $black;
+        text-align: center;
+        &::placeholder {
+          color: $black;
+          text-transform: uppercase;
+        }
+        @media(min-width: 768px) {
+          width: 390px;
+        }
+        @media(min-width: 1024px) {
+          height: 63px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    //Button
+    .link {
+      margin: 20px auto 0px;
+    }
+  }
+}
