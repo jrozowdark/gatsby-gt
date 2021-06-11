@@ -126,7 +126,7 @@ const UserInfo = (props) => {
                       <h2 class="amount">5 unidades</h2>
                     </div>
                   </div>
-                  <div class="button-second">
+                  <div class="button-fifth">
                     <Link
                       to="/"
                       style={{

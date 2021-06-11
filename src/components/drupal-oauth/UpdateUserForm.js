@@ -129,7 +129,7 @@ class UpdateUserForm extends React.Component {
                     </Form.Group>
                   </div>
                 </div>
-                <div class="link button-second">
+                <div class="link button-fifth">
                   <input type="submit" value="Actualizar" onClick={event => this.handleChange(event)} />
                 </div>
               </form>
