@@ -96,7 +96,7 @@ $fonts: '../../fonts' !default;
 
 @font-face {
   font-family: 'HelveticaNeue regular';
-  src: url('#{$fonts}/Helvetica/helveticaneue-regular.ttf') format('truetype'),
+  src: url('#{$fonts}/Helvetica/HelveticaNeue-Regular.ttf') format('truetype'),
   url('#{$fonts}/Helvetica/helveticaneue-regular.woff') format("woff"),
   url('#{$fonts}/Helvetica/helveticaneue-regular.otf') format("opentype");
   font-display: swap;
