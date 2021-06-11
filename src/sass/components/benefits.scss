@@ -26,6 +26,7 @@
     text-align: center;
     overflow: hidden;
     line-height: 1;
+    padding: 2rem 0rem;
     @media(min-width: 1024px) {
       align-items: flex-start;
       height: auto;
@@ -90,7 +91,7 @@
     }
     //Text box
     .text-box {
-      width: 80%;
+      width: 88%;
       margin: auto;
       max-width: 450px;
       background-color: rgba($color: white, $alpha: .8);

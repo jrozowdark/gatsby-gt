@@ -121,13 +121,13 @@
       margin: auto;
       height: 10vw !important;
       width: 10vw !important;
-      max-width: 460px;
-      max-height: 460px;
+      max-width: 530px;
+      max-height: 530px;
       min-width: 180px;
       min-height: 180px;
       @media(min-width: 1024px) {
-        height: 27vw !important;
-        width: 27vw !important;
+        height: 34vw !important;
+        width: 34vw !important;
       }
     }
   }
@@ -487,6 +487,9 @@
 .ultimate-component {
   position: relative;
   height: auto;
+  @media(min-width: 1024px) {
+    margin-bottom: 8rem;
+  }
   .text-buy {
     flex-direction: column;
     align-content: flex-start;
@@ -539,9 +542,11 @@
     .background-image-ultimate {
       height: 100%;
       position: absolute;
+      width: 100%;
       div.image-bg-ultimate {
         height: 100%;
         z-index: -10;
+        width: 100%;
         &::before {
           content: "";
           position: absolute;
@@ -552,7 +557,8 @@
           opacity: 0.6;
           left: 10%;
           @media(min-width: 1024px) {
-            left: 70px;
+            left: 50%;
+            transform: translateX(-50%);
           }
         }
       }
@@ -729,6 +735,11 @@
     &:nth-child(2n+1) {
       @media(min-width: 1024px) {
         flex-direction: row-reverse;
+      }
+      .description-ultimate {
+        &::before {
+          right: 0;
+        }
       }
     }
   }
