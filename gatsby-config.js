@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://dev.gatorade/`,
+        baseUrl: `https://dev-gatorade-app.pantheonsite.io/`,
         // apiBase: `api`,
         basicAuth: {
           username: process.env.BASIC_AUTH_USERNAME,
@@ -23,21 +23,7 @@ module.exports = {
         },
       }
     },
-    `gatsby-plugin-styled-components`,
-
-    // {
-    //   resolve: `gatsby-plugin-styled-components`,
-    //   options: {
-    //     displayName: false
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
+    // `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -53,7 +39,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-
+    "gatsby-plugin-theme-ui"
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
