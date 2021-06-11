@@ -113,7 +113,7 @@ class PurchaseForm extends React.Component {
                 </Form.Label>
             ))}
             </Form.Group>
-               <div class="link button-second">
+               <div class="link button-first">
                  <input type="submit" value="Recargar" onClick={ event => this.handleSubmit(event)} />
                </div>
           </form>

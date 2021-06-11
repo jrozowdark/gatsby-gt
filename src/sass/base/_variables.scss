@@ -117,11 +117,11 @@ $plan_1: 30%, auto, transparent;
 // for use into mixin  style-button
 $data_buttons: (
   'first': (
-    principal_bg: $white,
-    secondary_bg: $black,
-    first_color: $black,
-    second_color: $white,
-    data_query: 'second'
+    principal_bg: $orange_primary,
+    secondary_bg: $white,
+    first_color: $white,
+    second_color: $black,
+    data_query: 'first'
   ),
   'second': (
     principal_bg: $orange_primary,
