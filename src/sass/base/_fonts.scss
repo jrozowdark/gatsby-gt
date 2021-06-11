@@ -56,8 +56,7 @@ $fonts: '../../fonts' !default;
 
 @font-face {
   font-family: 'Gatorade light';
-  src: url('#{$fonts}/Gatorade/Gatorade-light.ttf') format('truetype'),
-  url('#{$fonts}/Gatorade/Gatorade-light.woff') format("woff"),
+  src: url('#{$fonts}/Gatorade/Gatorade-light.woff') format("woff"),
   url('#{$fonts}/Gatorade/Gatorade-light.otf') format("opentype");
   font-display: swap;
   font-weight: 500;
@@ -143,7 +142,7 @@ $fonts: '../../fonts' !default;
   font-display: swap;
   font-weight: 400;
   font-style: normal;
-} 
+}
 .icon-allies::before {
   content: "";
 }
