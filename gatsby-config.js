@@ -16,7 +16,7 @@ module.exports = {
       resolve: `gatsby-source-drupal`,
       options: {
         baseUrl: `https://dev-gatorade-app.pantheonsite.io/`,
-        // apiBase: `api`,
+        apiBase: `jsonapi`,
         basicAuth: {
           username: process.env.BASIC_AUTH_USERNAME,
           password: process.env.BASIC_AUTH_PASSWORD,
