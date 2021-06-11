@@ -31,8 +31,8 @@
     justify-content: space-between;
     padding: 10px 60px;
   }
-  @media (min-width: 1500px) {
-    height: 180px;
+  @media (min-width: 1450px) {
+    height: 134px;
   }
   //Background image
   &::before {
@@ -89,9 +89,9 @@
           height: 36px;
           margin: 0 8px;
         }
-        @media(min-width: 1500px) {
-          width: 66px;
-          height: 66px;
+        @media(min-width: 1450px) {
+          width: 45px;
+          height: 45px;
           margin: 0 14px;
         }
         a {
@@ -121,8 +121,8 @@
     @media (min-width: 1400px) {
       left: -6.8rem;
     }
-    @media (min-width: 1500px) {
-      left: -2.4rem;
+    @media (min-width: 1450px) {
+      left: -1rem;
     }
     @media (min-width: 2000px) {
       left: -1.8rem;
@@ -160,8 +160,8 @@
         margin: 0 30px;
         height: auto;
       }
-      @media (min-width: 1500px) {
-        font-size: 1.5rem;
+      @media (min-width: 1450px) {
+        font-size: 1.1rem;
       }
       @media (min-width: 2000px) {
         margin: 0 50px;
@@ -185,6 +185,11 @@
       height: 40px;
       width: 275px;
       margin: 20px 112px 0 0;
+    }
+    @media(min-width: 1450px) {
+      height: 30px;
+      width: 210px;
+      margin: 12px 65px 0 0;
     }
     img {
       width: 100%;
