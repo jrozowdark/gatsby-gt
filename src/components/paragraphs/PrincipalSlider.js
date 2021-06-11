@@ -4,9 +4,8 @@ import Img from "gatsby-image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
-AOS.init();
+// import AOS from "aos";
+// AOS.init();
 export const PrincipalSlider = ({ node }) => {
     const settings = {
       dots: true,

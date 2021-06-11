@@ -13,7 +13,7 @@ import Footer from "./footer"
 import "./layout.css"
 import drupalOauth from '../components/drupal-oauth/drupalOauth';
 import withDrupalOauthProvider from '../components/drupal-oauth/withDrupalOauthProvider';
-import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
 
 
 const drupalOauthClient = new drupalOauth({

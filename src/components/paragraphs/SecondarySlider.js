@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 export const SecondarySlider = ({ node }) => {
-  
+
     const settings = {
       customPaging: function (i) {
         return (
@@ -25,7 +25,7 @@ export const SecondarySlider = ({ node }) => {
       slidesToScroll: 1,
       className: "secundarySlider"
     }
-    
+
     const animate =  e => {
       if (e.deltaY < 0) {
         this.slickNext();
@@ -33,7 +33,7 @@ export const SecondarySlider = ({ node }) => {
         this.slickPrev();
       }
     }
-  
+
     return (
       <div className="secundary-slider" onScroll={animate}>
 

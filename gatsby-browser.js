@@ -34,3 +34,13 @@ import "./src/sass/layout/footer.scss"
 import "./src/sass/mail/footer-mail.scss"
 import "./src/sass/mail/header-mail.scss"
 import "./src/sass/mail/mail-one.scss"
+
+//CAll dependencies bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'jquery/dist/jquery.min.js'
+import "@popperjs/core/dist/umd/popper.min.js";
+import 'bootstrap/dist/js/bootstrap.min.js'
+
+//Call dependencies Aos
+// import "aos/dist/aos.css";
+// import "aos/dist/aos.js";

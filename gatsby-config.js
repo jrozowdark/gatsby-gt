@@ -4,26 +4,16 @@ module.exports = {
     description: `Site Gatorade`,
     author: `@webdigitalark`,
   },
-  // proxy: [{
-  //   prefix: "/oauth",
-  //   url: "https://dev-gatorade-app.pantheonsite.io",
-  // }],
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-source-drupal`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        baseUrl: `https://dev-gatorade-app.pantheonsite.io/`,
-        apiBase: `jsonapi`,
-        basicAuth: {
-          username: process.env.BASIC_AUTH_USERNAME,
-          password: process.env.BASIC_AUTH_PASSWORD,
-        },
-      }
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
-    // `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -32,14 +22,26 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        // background_color: `#663399`,
-        // theme_color: `#663399`,
-        // display: `minimal-ui`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
         icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-    "gatsby-plugin-theme-ui"
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://dev.gatorade/`,
+        // apiBase: `api`,
+        basicAuth: {
+          username: process.env.BASIC_AUTH_USERNAME,
+          password: process.env.BASIC_AUTH_PASSWORD,
+        },
+      }
+    },
+    'gatsby-plugin-gatsby-cloud'
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

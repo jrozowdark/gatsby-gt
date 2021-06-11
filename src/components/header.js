@@ -2,7 +2,7 @@
 import PropTypes from "prop-types"
 import React, { useState} from "react"
 import styled, { createGlobalstyle } from "styled-components"
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navigation from './Navigation/Navigation';
 import Footer from './footer';
