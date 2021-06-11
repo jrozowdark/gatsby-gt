@@ -6,15 +6,13 @@ import RegisterForm from "../components/drupal-oauth/RegisterForm";
 const IndexPage = () => (
   <Layout>
     <SEO title="regist" />
-    <div class="">
-      <div class="single-component">
-        <div class="register">
-          <div class="title-register">
-            <h2>registro</h2>
-          </div>
-          <div class="form-register">
-            <RegisterForm/>
-          </div>
+    <div class="single-component">
+      <div class="register">
+        <div class="title-register">
+          <h2>registro</h2>
+        </div>
+        <div class="form-register">
+          <RegisterForm/>
         </div>
       </div>
     </div>
