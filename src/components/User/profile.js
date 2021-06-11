@@ -13,9 +13,13 @@ class Profile extends React.Component {
   }
 
   render() {
+    if (this.state.uid !== false){
       return (
           <UserInfo data={parseInt(this.state.uid)} />
       )
+    }else{
+      return ('');
+    }
   }
 }
 
