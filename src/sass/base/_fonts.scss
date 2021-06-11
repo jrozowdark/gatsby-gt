@@ -56,8 +56,9 @@ $fonts: '../../fonts' !default;
 
 @font-face {
   font-family: 'Gatorade light';
-  src: url('#{$fonts}/Gatorade/Gatorade-light.woff') format("woff"),
-  url('#{$fonts}/Gatorade/Gatorade-light.otf') format("opentype");
+  src: url('#{$fonts}/Gatorade/Gatorade-Light.ttf') format('truetype'),
+  url('#{$fonts}/Gatorade/Gatorade-Light.woff') format("woff"),
+  url('#{$fonts}/Gatorade/Gatorade-Light.otf') format("opentype");
   font-display: swap;
   font-weight: 500;
   font-style: normal;
