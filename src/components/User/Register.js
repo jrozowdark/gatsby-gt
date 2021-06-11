@@ -8,12 +8,12 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="single-component">
-        <div className="register">
-          <div className="title-register">
+      <div class="single-component">
+        <div class="register">
+          <div class="title-register">
             <h2>registro</h2>
           </div>
-          <div className="form-register">
+          <div class="form-register">
             <RegisterForm/>
           </div>
         </div>
