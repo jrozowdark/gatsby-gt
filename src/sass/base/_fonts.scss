@@ -117,7 +117,7 @@ $fonts: '../../fonts' !default;
 
 @font-face {
   font-family: 'PlexesPro book';
-  src: url('#{$fonts}/Plexel/Plexespro-book.otf') format('opentype'),
+  src: url('#{$fonts}/Plexel/Plexespro-Book.otf') format('opentype'),
   url('#{$fonts}/Plexel/Plexespro_book.woff') format("woff"),
   url('#{$fonts}/Plexel/Plexespro_book.ttf') format('truetype');
   font-display: swap;
