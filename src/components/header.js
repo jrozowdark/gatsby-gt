@@ -2,7 +2,6 @@
 import PropTypes from "prop-types"
 import React, { useState} from "react"
 import styled, { createGlobalstyle } from "styled-components";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Helmet from "react-helmet";
 import { withPrefix, Link } from "gatsby";
 
