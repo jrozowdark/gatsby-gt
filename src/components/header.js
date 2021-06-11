@@ -1,8 +1,10 @@
 // import * as React from "react"
 import PropTypes from "prop-types"
 import React, { useState} from "react"
-import styled, { createGlobalstyle } from "styled-components"
-// import "bootstrap/dist/css/bootstrap.min.css";
+import styled, { createGlobalstyle } from "styled-components";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Helmet from "react-helmet";
+import { withPrefix, Link } from "gatsby";
 
 import Navigation from './Navigation/Navigation';
 import Footer from './footer';
@@ -14,17 +16,20 @@ const Header = ({ siteTitle }) => {
   const [nav, showNav] = useState(false)
 
   return (
-    <header>
+    <header id="header">
+      <Helmet>
+        <script src={withPrefix('script.js')} type="text/javascript" />
+      </Helmet>
       <div className="menu-gatorade">
         <div className="logo-gatorade">
          <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
         </div>
-        <MenuIcon className="menu-icon" nav={nav} onClick={() => showNav(!nav)}>
+        <MenuIcon className="menu-icon" id="menu" nav={nav} onClick={() => showNav(!nav)}>
         <div />
         <div />
         <div />
         </MenuIcon>
-        <MenuLinks className="menu-links" nav={nav}>
+        <MenuLinks className="menu-links" id="menu-links-1" nav={nav}>
           <div className="logo-gatorade">
             <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
           </div>
@@ -45,7 +50,7 @@ const Header = ({ siteTitle }) => {
               <a href="/home">Cuenta de staff</a>
             </li>
           </ul>
-          {/* <Footer/> */}
+          <Footer/>
         </MenuLinks>
       </div>
       <Navigation/>
@@ -66,7 +71,7 @@ Header.defaultProps = {
 
 const MenuIcon = styled.button `
   div {
-    :first-child {
+    :first-child {static
       transform: ${({nav}) => (nav ? "rotate(45deg)": "rotate(0)")};
     }
 
@@ -82,3 +87,7 @@ const MenuIcon = styled.button `
 const MenuLinks = styled.div `
   display: ${({nav}) => nav ? "flex": "none"};
 `
+
+// const MenuLinks = styled.div `
+//   transform: ${({nav}) => nav ? "translateX(0)": "translate(100%)"};
+// `
