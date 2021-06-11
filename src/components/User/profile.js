@@ -1,6 +1,5 @@
 import React from "react"
 import UserInfo from "./Profile/UserInfo";
-import Spinner from 'react-bootstrap/Spinner'
 class Profile extends React.Component {
   state = {
     uid: false,
@@ -13,9 +12,9 @@ class Profile extends React.Component {
   }
 
   render() {
-      return (
-          <UserInfo data={parseInt(this.state.uid)} />
-      )
+    return (
+        <UserInfo data={parseInt(this.state.uid)} />
+    )
   }
 }
 
