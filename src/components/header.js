@@ -2,7 +2,7 @@
 import PropTypes from "prop-types"
 import React, { useState} from "react"
 import styled, { createGlobalstyle } from "styled-components";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Helmet from "react-helmet";
 import { withPrefix, Link } from "gatsby";
 
@@ -71,7 +71,7 @@ Header.defaultProps = {
 
 const MenuIcon = styled.button `
   div {
-    :first-child {static
+    :first-child {
       transform: ${({nav}) => (nav ? "rotate(45deg)": "rotate(0)")};
     }
 
