@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
@@ -13,14 +13,17 @@ import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 //   return <Component {...rest} />
 // }
 const PrivateRoute = ({ component: Component, location, userAuthenticated, ...rest }) => {
-  const user = useContext(userAuthenticated)
+  if (userAuthenticated) {
+    const user = useContext(userAuthenticated)
+  }
   useEffect(() => {
     checkLoginStatus()
   }, [])
 
   const checkLoginStatus = () => {
-    if (!user && location.pathname !== `/login`) {
-      navigate("/login")
+    if (!userAuthenticated) {
+      navigate("/login");
+      return null
     }
   }
 
@@ -28,6 +31,8 @@ const PrivateRoute = ({ component: Component, location, userAuthenticated, ...re
 }
 PrivateRoute.propTypes = {
   component: PropTypes.any.isRequired,
+  location: '',
+  userAuthenticated: false
 }
 
 export default withDrupalOauthConsumer(PrivateRoute);
