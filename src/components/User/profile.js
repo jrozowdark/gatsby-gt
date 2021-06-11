@@ -18,7 +18,7 @@ class Profile extends React.Component {
           <UserInfo data={parseInt(this.state.uid)} />
       )
     }else{
-      return ('');
+      return (<div></div>);
     }
   }
 }
