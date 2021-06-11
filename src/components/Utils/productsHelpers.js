@@ -32,7 +32,7 @@ export const getPack = node => {
           <div class="image-bg-benefits"><Img fluid={node.background.field_image.localFile.childImageSharp.fluid} /></div>
         </div>
       </div>
-      <div class="button-second">
+      <div class="button-seven">
         <Link
           to="/user/login"
         >
