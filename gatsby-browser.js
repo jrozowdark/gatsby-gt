@@ -39,7 +39,10 @@ import "./src/sass/mail/mail-one.scss"
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'jquery/dist/jquery.min.js'
 import "@popperjs/core/dist/umd/popper.min.js";
+<<<<<<< HEAD
 import 'bootstrap/dist/js/bootstrap.min.js'
+=======
+>>>>>>> a529e68... adding cahnges for header
 
 //Call dependencies Aos
 // import "aos/dist/aos.css";
