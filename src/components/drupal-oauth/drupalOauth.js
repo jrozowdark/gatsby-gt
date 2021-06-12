@@ -15,6 +15,7 @@ class drupalOauth {
     this.config.authorize_url = `${this.config.drupal_root}/oauth/authorize`;
     this.config.register_url = `${this.config.drupal_root}/user/register?_format=json`;
     this.config.register_update_url = `${this.config.drupal_root}/user/6?_format=json`;
+    this.config.pack_user_url = `${this.config.drupalOauth}/mp_transactions/getdatauser?_format=json`;
   }
 
   /**
@@ -88,6 +89,9 @@ console.log(token);
   };
   async handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password) {
     return this.updateUserForm(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
+  };
+  async handlePackUser(field_name) {
+    return this.packUser(field_name);
   };
   async handleData() {
     return  Promise.resolve(this.isLoggedIn());
@@ -346,6 +350,44 @@ console.log(token);
         }).catch(err => {
           throw new Error(err);
         });
+  };
+  /**
+   * Exchange your refresh token for a new auth token.
+   *
+   * @param token
+   *
+   * @returns {Promise<void>}
+   *  Returns a Promise that resolves with the new token retrieved from Drupal.
+   */
+   async packUser(field_name) {
+    const token = this.isLoggedIn();
+    const response = await fetch(this.config.packUser, {
+      method: 'get',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `${token.token_type} ${token.access_token}`
+      }),
+      body: JSON.stringify({
+        "field_name": [{
+          "value": field_name
+        }]
+      }),
+    })
+    .then(response => response.json())
+    .then(json => {
+      //throw new Error(text.message);
+      if (json.error) {
+        console.log("error",json.message);
+        throw new Error(json.message);
+      } else {
+        // return this.handleLogin(username, password, scope);
+        // return this.storeToken(json);
+      }
+    }).catch(err => {
+      throw new Error(err);
+    });
+    console.log(this.field_name);
   };
 
 }
