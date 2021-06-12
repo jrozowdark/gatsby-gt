@@ -52,7 +52,7 @@ class RegisterForm extends React.Component {
                 }/>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
-                <Form.Control type="date" placeholder="fecha de nacimiento" format="YYYY-MM-DD" name="birthdate" onChange={event =>
+                <Form.Control type="text" placeholder="fecha de nacimiento" format="DD-MM-YYYY" name="birthdate"   onFocus={(e) => (e.currentTarget.type = "date")} onBlur={(e) => (e.currentTarget.type = "text")} onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
               </Form.Group>
