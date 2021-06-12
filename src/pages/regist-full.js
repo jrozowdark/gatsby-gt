@@ -13,7 +13,7 @@ const IndexPage = () => (
       <div className="box-register col-12 col-sm-6">
         <h2>registro exitoso</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="button-first">
+        <div className="button-first">
           <Link to="/user/profile"> ir a mi cuenta </Link>
         </div>
       </div>

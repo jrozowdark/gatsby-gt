@@ -9,7 +9,7 @@ export const SecondarySlider = ({ node }) => {
     const settings = {
       customPaging: function (i) {
         return (
-          <a class="dot">
+          <a className="dot">
             {(i+1 < 10 ? '0'+(i+1) : '')}
           </a>
         );

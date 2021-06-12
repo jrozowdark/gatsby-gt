@@ -19,7 +19,7 @@ const Login = () => (
               this.setState({ [event.target.name]: event.target.value })
             }/>
           </Form.Group>
-          <div class="link button-second">
+          <div className="link button-first">
             <Link to="/"> enviar </Link>
           </div>
         </form>

@@ -55,7 +55,7 @@ class LoginForm extends React.Component {
               <div>
                <Link to="/regist">Solicitar nueva contraseña</Link>
               </div>
-              <div class="link button-fifth">
+              <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>
               <div>
