@@ -70,7 +70,7 @@ Header.defaultProps = {
 
 const MenuIcon = styled.button `
   div {
-    :first-child {
+    :first-child {static
       transform: ${({nav}) => (nav ? "rotate(45deg)": "rotate(0)")};
     }
 
