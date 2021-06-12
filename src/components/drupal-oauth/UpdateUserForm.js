@@ -11,41 +11,6 @@ class UpdateUserForm extends React.Component {
     uid: false,
   };
 
-  componentDidMount() {
-    const token = this.props.drupalOauthClient.isLoggedIn();
-    const url = `${process.env.GATSBY_DRUPAL_ROOT}/oauth/debug`;
-    const opts = {
-      method: "GET",
-      headers: {
-        'Accept': 'application/vnd.api+json',
-        'Content-Type': 'application/vnd.api+json',
-        'Authorization': `${token.token_type} ${token.access_token}`
-      },
-    };
-    fetch(url, opts)
-      .then(res => res.json())
-      .then(data =>{
-        if(!data.message){
-          fetch(`${process.env.GATSBY_DRUPAL_ROOT}/jsonapi/user/user?filter[uid][value]=${data.id}`, opts)
-            .then(resp => resp.json())
-            .then(userData => {
-              const profile = userData.data.shift().id;
-              this.setState({
-                uid: profile
-              })
-            }).catch(console.error)
-        }else{
-          this.props.drupalOauthClient.handleLogout();
-          navigate('/user/login')
-        }
-      })
-      .catch(console.error);
-  }
-
-  handleChange = async (event) => {
-    this.setState({value: event.target.value});
-  };
-
   handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ processing: true });
@@ -81,8 +46,9 @@ class UpdateUserForm extends React.Component {
               <form onSubmit={event => this.handleSubmit(event)}>
                 <div className="container-one">
                   <Form.Group controlId="formBasicText-one">
-                    <Form.Control type="text" defaultValue={data.field_name} placeholder="nombres" name="field_name" onChange={this.handleChange}
-                     />
+                    <Form.Control type="text" defaultValue={data.field_name} placeholder="nombres" name="field_name" onChange={event =>
+                      this.setState({ [event.target.name]: event.target.value })
+                      } />
                   </Form.Group>
                   <Form.Group controlId="formBasicText-two">
                     <Form.Control type="text" defaultValue={data.field_lastname} placeholder="apellidos" name="field_lastname" onChange={event =>
