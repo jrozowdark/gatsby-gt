@@ -10,39 +10,39 @@ import "../sass/base/_fonts.scss"
 const IndexPage = () => (
   <Layout>
     <SEO title="tnaks" />
-    <main class="thanks">
-      <div class="tanks-component-fisrt">
-        <div class="box-thanks">
+    <main className="thanks">
+      <div className="tanks-component-fisrt">
+        <div className="box-thanks">
           <h2>gracias por tu compra</h2>
           <h4>resumen de la compra</h4>
-          <div class="text-three">
-            <small class="text-rotate">pack</small>
-            <h2 class="text-number">01<span>pack</span></h2>
+          <div className="text-three">
+            <small className="text-rotate">pack</small>
+            <h2 className="text-number">01<span>pack</span></h2>
           </div>
-          <div class="text-four">
-            <div class="unit">
-              <h3 class="fruit">mandarina</h3>
-              <h4 class="number-units">10 unidades</h4>
+          <div className="text-four">
+            <div className="unit">
+              <h3 className="fruit">mandarina</h3>
+              <h4 className="number-units">10 unidades</h4>
             </div>
-            <div class="unit">
-              <h3 class="fruit">maracuya</h3>
-              <h4 class="number-units">10 unidades</h4>
+            <div className="unit">
+              <h3 className="fruit">maracuya</h3>
+              <h4 className="number-units">10 unidades</h4>
             </div>
           </div>
-          <div class="button-second">
+          <div className="button-first">
              <Link to="/">ingresa</Link>
           </div>
         </div>
       </div>
-      <div class="tanks-component-second">
-      <div class="ultimate-component">
-        <div class="text-buy">
-          <h2 class="font-line-black">mis</h2>
+      <div className="tanks-component-second">
+      <div className="ultimate-component">
+        <div className="text-buy">
+          <h2 className="font-line-black">mis</h2>
           <h3>compra</h3>
         </div>
-        <div class="container-ultimate">
-          <div class="background-image-ultimate">
-            <StaticImage class="image-bg-ultimate"
+        <div className="container-ultimate">
+          <div className="background-image-ultimate">
+            <StaticImage className="image-bg-ultimate"
               src="../images/bg-ultimate-qr.png"
               // width={300}
               // height={500}
@@ -52,8 +52,8 @@ const IndexPage = () => (
               alt="Logo gatorade"
             />
           </div>
-          <div class="image-ultimate">
-            <StaticImage class="camisa-buy"
+          <div className="image-ultimate">
+            <StaticImage className="camisa-buy"
               src="../images/camisa-buy.png"
               // width={300}
               // height={500}
@@ -63,27 +63,27 @@ const IndexPage = () => (
               alt="Logo gatorade"
             />
           </div>
-          <div class="description-ultimate">
-            <div class="title">
-              <h5 class="text-rotate">pack</h5>
-              <h2 class="font-line-orange">camiseta</h2>
-              <h2 class="third-text">pack</h2>
+          <div className="description-ultimate">
+            <div className="title">
+              <h5 className="text-rotate">pack</h5>
+              <h2 className="font-line-orange">camiseta</h2>
+              <h2 className="third-text">pack</h2>
             </div>
-            <div class="units">
-              <div class="unit">
-                <h2 class="taste">maracuya</h2>
-                <h2 class="amount">20 unidades</h2>
+            <div className="units">
+              <div className="unit">
+                <h2 className="taste">maracuya</h2>
+                <h2 className="amount">20 unidades</h2>
               </div>
-              <div class="unit">
-                <h2 class="taste">mandarina</h2>
-                <h2 class="amount">10 unidades</h2>
+              <div className="unit">
+                <h2 className="taste">mandarina</h2>
+                <h2 className="amount">10 unidades</h2>
               </div>
-              <div class="unit">
-                <h2 class="taste">tropical</h2>
-                <h2 class="amount">5 unidades</h2>
+              <div className="unit">
+                <h2 className="taste">tropical</h2>
+                <h2 className="amount">5 unidades</h2>
               </div>
             </div>
-            <div class="button-first">
+            <div className="button-first">
               <Link
                 to="/"
                 style={{

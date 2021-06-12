@@ -11,7 +11,7 @@ export const Benefits = ({ node }) => {
       <div className="body-benefits">
         <h3 className="side-title" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} />
         <div className="image-benefits">
-          <div class="image-bg-benefits"><Img fluid={node.background.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
+          <div className="image-bg-benefits"><Img fluid={node.background.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
         </div>
         <div className="text-box">
           {node.data_step.field_steps.map((step) => (

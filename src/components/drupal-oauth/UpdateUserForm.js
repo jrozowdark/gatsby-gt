@@ -70,16 +70,16 @@ class UpdateUserForm extends React.Component {
 
     return (
       <>
-        <div class="lateral-left">
-          <h2 class="text-lateral-update">mis datos</h2>
+        <div className="lateral-left">
+          <h2 className="text-lateral-update">mis datos</h2>
         </div>
-        <div class="container-right">
-          <div class="containers-form">
+        <div className="container-right">
+          <div className="containers-form">
             {processing ?
               <div>Loading ...</div>
               :
               <form onSubmit={event => this.handleSubmit(event)}>
-                <div class="container-one">
+                <div className="container-one">
                   <Form.Group controlId="formBasicText-one">
                     <Form.Control type="text" defaultValue={data.field_name} placeholder="nombres" name="field_name" onChange={this.handleChange}
                      />
@@ -116,9 +116,9 @@ class UpdateUserForm extends React.Component {
                     } />
                   </Form.Group>
                 </div>
-                <div class="container-two">
+                <div className="container-two">
                 <h3>Cambio de contraseña</h3>
-                  <div class="form">
+                  <div className="form">
                     <Form.Group controlId="formBasicPassword-one">
                       <Form.Control type="password" minlength="8" name="password" placeholder="contraseña" onChange={event =>
                         this.setState({ [event.target.name]: event.target.value })
@@ -129,7 +129,7 @@ class UpdateUserForm extends React.Component {
                     </Form.Group>
                   </div>
                 </div>
-                <div class="link button-fifth">
+                <div className="link button-fifth">
                   <input type="submit" value="Actualizar" onClick={event => this.handleChange(event)} />
                 </div>
               </form>

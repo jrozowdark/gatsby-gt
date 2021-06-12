@@ -81,8 +81,8 @@ class PurchaseForm extends React.Component {
                   this.setState({ 'PackGroup': d.id })
                   this.setState({'quantity': d.field_quantity_bottles })
                   }} >
-                <div class="text-first">{d.field_lateral_title}</div>
-                <div class="text-second">{d.field_title}</div>
+                <div className="text-first">{d.field_lateral_title}</div>
+                <div className="text-second">{d.field_title}</div>
               <Form.Check
                 key={i}
                 value = {d.id}
@@ -103,7 +103,7 @@ class PurchaseForm extends React.Component {
             <div className="botellas">
               <p> {this.state.quantity > 0 ? `${this.state.quantity} Botellas` : ''} </p>
             </div>
-            <div className="text-data" dangerouslySetInnerHTML={{ __html: this.state.quantity > 0 ? `<div class="elige"><p>elige tu sabor y cantidad</p><p>Puedes escoger hasta ${this.state.quantity} Botellas</p></div>` : ''}} />
+            <div className="text-data" dangerouslySetInnerHTML={{ __html: this.state.quantity > 0 ? `<div className="elige"><p>elige tu sabor y cantidad</p><p>Puedes escoger hasta ${this.state.quantity} Botellas</p></div>` : ''}} />
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label>{d.title}
@@ -113,7 +113,7 @@ class PurchaseForm extends React.Component {
                 </Form.Label>
             ))}
             </Form.Group>
-               <div class="link button-first">
+               <div className="link button-first">
                  <input type="submit" value="Recargar" onClick={ event => this.handleSubmit(event)} />
                </div>
           </form>
@@ -159,11 +159,11 @@ class PurchaseForm extends React.Component {
     console.log(this.state.radios);
     // return (
     //   <>
-    //     <div class="lateral-left">
-    //       <h2 class="text-lateral-update">mis datos</h2>
+    //     <div className="lateral-left">
+    //       <h2 className="text-lateral-update">mis datos</h2>
     //     </div>
-    //     <div class="container-right">
-    //       <div class="containers-form">
+    //     <div className="container-right">
+    //       <div className="containers-form">
     //         {processing ?
     //           <div>Loading ...</div>
     //           :
@@ -215,7 +215,7 @@ class PurchaseForm extends React.Component {
     //             <Form.Control type="password" name="repeat_password" placeholder="repetir contraseña" />
     //           </Form.Group>
     //           {/* <Link to="/login"> Ya tienes cuenta?</Link> */}
-    //           <div class="link button-second">
+    //           <div className="link button-second">
     //             <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
     //           </div>
     //         </form>
