@@ -12,9 +12,9 @@ const PageTemplate = ({ data }) => {
         <Layout>
             {/* <h1>{data.page.title}</h1> */}
             {paragraphs}
-            <div class="fourth-component">
-                <div class="text-buy">
-                    <h2 class="font-line-black">compra</h2>
+            <div className="fourth-component">
+                <div className="text-buy">
+                    <h2 className="font-line-black">compra</h2>
                     <h3>tu pack</h3>
                 </div>
                 {packs}

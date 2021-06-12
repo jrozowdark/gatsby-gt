@@ -37,7 +37,7 @@ const IndexPage = () => (
             name="group2"
             id="radio2"
           />
-          <div class="link button-second">
+          <div className="link button-first">
             <Link to="/"> redimir </Link>
           </div>
         </div>

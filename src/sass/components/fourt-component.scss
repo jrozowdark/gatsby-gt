@@ -331,7 +331,7 @@
         }
       }
     }
-    .button-second {
+    .button-seven {
       transform: skewX(-31deg) translateX(-55%);
       left: 50%;
       position: relative;
@@ -375,7 +375,7 @@
 @media(min-width: 1024px) {
   .container-buy {
     &:hover {
-      .button-second {
+      .button-seven {
         opacity: 1;
       }
       // .image-buy-two {

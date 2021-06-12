@@ -117,18 +117,18 @@ $plan_1: 30%, auto, transparent;
 // for use into mixin  style-button
 $data_buttons: (
   'first': (
-    principal_bg: $white,
-    secondary_bg: $black,
-    first_color: $black,
-    second_color: $white,
-    data_query: 'second'
+    principal_bg: $orange_primary,
+    secondary_bg: $white,
+    first_color: $white,
+    second_color: $black,
+    data_query: 'first'
   ),
   'second': (
     principal_bg: $orange_primary,
-    secondary_bg: $black,
+    secondary_bg: $white,
     first_color: $white,
-    second_color: $white,
-    data_query: 'first'
+    second_color: $black,
+    data_query: 'bedroom'
   ),
   'third': (
     principal_bg: $black,
@@ -150,5 +150,26 @@ $data_buttons: (
     first_color: $white,
     second_color: $black,
     data_query: 'fifth'
+  ),
+  'six': (
+    principal_bg: $black,
+    secondary_bg: $orange_primary,
+    first_color: $white,
+    second_color: $white,
+    data_query: 'six'
+  ),
+  'seven': (
+    principal_bg: $orange_primary,
+    secondary_bg: $black,
+    first_color: $white,
+    second_color: $white,
+    data_query: 'third'
+  ),
+  'eight': (
+    principal_bg: $orange_primary,
+    secondary_bg: $black,
+    first_color: $white,
+    second_color: $white,
+    data_query: 'seven'
   )
 );

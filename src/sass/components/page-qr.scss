@@ -186,7 +186,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-content: center;
-        justify-content: space-evenly;
+        justify-content: start;
         align-items: center;
         width: 60%;
         padding-left: 5%;
@@ -238,7 +238,6 @@
           color: #FB5030;
           @media(min-width: 1024px) {
             font-size: 3.3rem;
-            flex: 0 0 10%;
             margin: 0;
           }
         }
@@ -251,7 +250,6 @@
           padding-bottom: 7px;
           @media(min-width: 1024px) {
             padding-bottom: 10px;
-            flex: 0 0 70%;
             margin: 0;
             font-size: 1.7rem;
           }
@@ -461,7 +459,7 @@
           }
         }
       }
-      .button-second {
+      .button-fifth {
           position: absolute;
           top: 93%;
           left: 50%;
@@ -708,7 +706,7 @@
           }
         }
       }
-      .button-second {
+      .button-fifth {
         margin: 3rem 0 0 0;
         transform: skewX(-31deg) translate(-60%, -50%);
         width: 220px;

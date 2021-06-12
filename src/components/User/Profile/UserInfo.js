@@ -44,29 +44,29 @@ const UserInfo = (props) => {
                   <span className="welcome-name">{usr.node.field_name} <span>{usr.node.field_lastname}</span></span></h2>
               </div>
               <div className="welcome-qr">
-                <QRCode value={usr.node.field_name} class="d-flex" size="900" includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
+                <QRCode value={usr.node.field_name} className="d-flex" size="900" includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
               </div>
-              <div class="description-qr">
-                <div class="decription-title">
-                  <h2 class="number">72</h2>
-                  <h2 class="bottle">botellas</h2>
+              <div className="description-qr">
+                <div className="decription-title">
+                  <h2 className="number">72</h2>
+                  <h2 className="bottle">botellas</h2>
                 </div>
-                <div class="decription-units">
-                  <div class="unit">
-                    <h2 class="text-rotate">pack</h2>
-                    <h2 class="number-one">01</h2>
-                    <h2 class="number-two">2</h2>
-                    <h2 class="text-end">un</h2>
+                <div className="decription-units">
+                  <div className="unit">
+                    <h2 className="text-rotate">pack</h2>
+                    <h2 className="number-one">01</h2>
+                    <h2 className="number-two">2</h2>
+                    <h2 className="text-end">un</h2>
                   </div>
                 </div>
               </div>
-              <div class="button-second">
+              <div className="button-second">
                 <a href="/">recargar</a>
               </div>
             </div>
             <div className="account-update">
-              <div class="text-buy">
-                <h2 class="font-line-black">mis</h2>
+              <div className="text-buy">
+                <h2 className="font-line-black">mis</h2>
                 <h3>compra</h3>
               </div>
               <div className="container-update">
@@ -78,14 +78,14 @@ const UserInfo = (props) => {
                 <UpdateUserForm data={usr.node} />
               </div>
             </div>
-            <div class="ultimate-component">
-              <div class="text-buy">
-                <h2 class="font-line-black">mis</h2>
+            <div className="ultimate-component">
+              <div className="text-buy">
+                <h2 className="font-line-black">mis</h2>
                 <h3>compra</h3>
               </div>
-              <div class="container-ultimate">
-                <div class="background-image-ultimate">
-                  <StaticImage class="image-bg-ultimate"
+              <div className="container-ultimate">
+                <div className="background-image-ultimate">
+                  <StaticImage className="image-bg-ultimate"
                     src="../../../images/bg-ultimate-qr.png"
                     // width={300}
                     // height={500}
@@ -95,8 +95,8 @@ const UserInfo = (props) => {
                     alt="Logo gatorade"
                   />
                 </div>
-                <div class="image-ultimate">
-                  <StaticImage class="camisa-buy"
+                <div className="image-ultimate">
+                  <StaticImage className="camisa-buy"
                     src="../../../images/camisa-buy.png"
                     // width={300}
                     // height={500}
@@ -106,27 +106,27 @@ const UserInfo = (props) => {
                     alt="Logo gatorade"
                   />
                 </div>
-                <div class="description-ultimate">
-                  <div class="title">
-                    <h5 class="text-rotate">pack</h5>
-                    <h2 class="font-line-orange">camiseta</h2>
-                    <h2 class="third-text">pack</h2>
+                <div className="description-ultimate">
+                  <div className="title">
+                    <h5 className="text-rotate">pack</h5>
+                    <h2 className="font-line-orange">camiseta</h2>
+                    <h2 className="third-text">pack</h2>
                   </div>
-                  <div class="units">
-                    <div class="unit">
-                      <h2 class="taste">maracuya</h2>
-                      <h2 class="amount">20 unidades</h2>
+                  <div className="units">
+                    <div className="unit">
+                      <h2 className="taste">maracuya</h2>
+                      <h2 className="amount">20 unidades</h2>
                     </div>
-                    <div class="unit">
-                      <h2 class="taste">mandarina</h2>
-                      <h2 class="amount">10 unidades</h2>
+                    <div className="unit">
+                      <h2 className="taste">mandarina</h2>
+                      <h2 className="amount">10 unidades</h2>
                     </div>
-                    <div class="unit">
-                      <h2 class="taste">tropical</h2>
-                      <h2 class="amount">5 unidades</h2>
+                    <div className="unit">
+                      <h2 className="taste">tropical</h2>
+                      <h2 className="amount">5 unidades</h2>
                     </div>
                   </div>
-                  <div class="button-second">
+                  <div className="button-fifth">
                     <Link
                       to="/"
                       style={{
