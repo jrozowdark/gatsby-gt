@@ -3,17 +3,41 @@ import UserInfo from "./Profile/UserInfo";
 class Profile extends React.Component {
   state = {
     uid: false,
+    products: {},
+    packs: {},
+    total: 0
   }
   componentDidMount() {
     const token = this.props.drupalOauthClient.isLoggedIn();
+
+    const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/getdatauser?_format=json`, {
+        method: 'GET',
+        headers: new Headers({
+          'Authorization': `${token.token_type} ${token.access_token}`
+        })
+      }).then(response => response.json())
+      .then(json => {
+        console.log(json.data)
+          const products = json.data.purchased_products != undefined ? json.data.purchased_products :{};
+
+        const packs = json.data.packs != undefined ? json.data.packs : {};
+        const total = json.data.total != undefined ? json.data.total : 0;
+        this.setState({
+          products: products,
+          packs: packs,
+          total: total
+        })
+      }).catch(error => console.log('error', error));
     this.setState({
       uid: token.dump
     })
   }
 
   render() {
+    console.log(this.state.products)
+    console.log(this.state.packs)
     return (
-        <UserInfo data={parseInt(this.state.uid)} />
+        <UserInfo data={parseInt(this.state.uid)} products={this.state.products} packs={this.state.packs} total={this.state.total} />
     )
   }
 }
