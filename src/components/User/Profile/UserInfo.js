@@ -108,7 +108,8 @@ const UserInfo = (props) => {
                     <h2 className="third-text">pack</h2>
                   </div>
                   <div className="units">
-                  {Object.keys(props.packs[step].products).map((p, k) => (
+                  {
+                    Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => (
                     <div className="unit" key={k}>
                       <h2 className="taste">{props.packs[step].products.[p].product}</h2>
                       <h2 className="amount">{props.packs[step].products.[p].quantity} unidades</h2>
