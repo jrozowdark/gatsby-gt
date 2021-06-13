@@ -52,7 +52,8 @@ const UserInfo = (props) => {
                   < h2 className = "number" > {props.total} </h2>
                   <h2 className="bottle">botellas</h2>
                 </div>
-                {Object.keys(props.products).map((step, k) => (
+                {
+                  Object.keys(props.products != undefined ? props.products :{}).map((step, k) => (
                   <div className="decription-units">
                     <div className="unit">
                       <h2 className="text-rotate"></h2>
@@ -86,7 +87,7 @@ const UserInfo = (props) => {
                 <h2 className="font-line-black">mis</h2>
                 <h3>compra</h3>
               </div>
-                {Object.keys(props.packs).map((step, k) => (
+                {Object.keys(props.packs != undefined ? props.packs :{}).map((step, k) => (
                 <div className="container-ultimate" key={step}>
                   <div className="image-ultimate">
 
