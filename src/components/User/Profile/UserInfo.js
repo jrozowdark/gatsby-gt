@@ -87,7 +87,7 @@ const UserInfo = (props) => {
                 <h3>compra</h3>
               </div>
                 {Object.keys(props.packs).map((step, k) => (
-                <div className="container-ultimate">
+                <div className="container-ultimate" key={step}>
                   <div className="image-ultimate">
 
                     {/* <StaticImage className="camisa-buy"
@@ -108,7 +108,7 @@ const UserInfo = (props) => {
                   </div>
                   <div className="units">
                   {Object.keys(props.packs[step].products).map((p, k) => (
-                    <div className="unit">
+                    <div className="unit" key={k}>
                       <h2 className="taste">{props.packs[step].products.[p].product}</h2>
                       <h2 className="amount">{props.packs[step].products.[p].quantity} unidades</h2>
                     </div>
