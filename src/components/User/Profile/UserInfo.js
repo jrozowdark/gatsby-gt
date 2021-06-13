@@ -89,16 +89,16 @@ const UserInfo = (props) => {
                 {Object.keys(props.packs).map((step, k) => (
                 <div className="container-ultimate">
                   <div className="image-ultimate">
-                  {props.packs[step].pack_image}
-                    <StaticImage className="camisa-buy"
-                      src={props.packs[step].pack_image}
+
+                    {/* <StaticImage className="camisa-buy"
+                      src={props.packs[step].pack_image ? props.packs[step].pack_image : ''}
                       // width={300}
                       // height={500}
                       objectFit="contain"
                       quality={99}
                       formats={["AUTO", "WEBP", "AVIF"]}
                       alt="Logo gatorade"
-                    />
+                    /> */}
                   </div>
                 <div className="description-ultimate">
                   <div className="title">
