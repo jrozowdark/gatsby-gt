@@ -194,7 +194,7 @@ console.log(token);
    *  Returns a Promise that resolves with the new token retrieved from Drupal.
    */
   async refreshOauthToken(token, scope) {
-    if (token !== null) {
+    if (token !== null && token !== undefined) {
       let formData = new FormData();
       formData.append('grant_type', 'refresh_token');
       formData.append('client_id', this.config.client_id);
@@ -214,13 +214,13 @@ console.log(token);
         const json = await response.json();
 
         if (json.error) {
-          throw new Error(json.error.message);
+          return null;
         }
 
         return this.storeToken(json);
       }
 
-      throw new Error(response.status);
+      return null;
     }
   };
 

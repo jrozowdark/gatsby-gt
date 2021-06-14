@@ -1,5 +1,6 @@
 import React from "react"
 import UserInfo from "./Profile/UserInfo";
+import SEO from "../seo"
 class Profile extends React.Component {
   state = {
     uid: false,
@@ -9,7 +10,7 @@ class Profile extends React.Component {
   }
   componentDidMount() {
     const token = this.props.drupalOauthClient.isLoggedIn();
-
+   if( token != undefined) {
     const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/getdatauser?_format=json`, {
         method: 'GET',
         headers: new Headers({
@@ -18,7 +19,7 @@ class Profile extends React.Component {
       }).then(response => response.json())
       .then(json => {
         console.log(json.data)
-          const products = json.data.purchased_products != undefined ? json.data.purchased_products :{};
+        const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
 
         const packs = json.data.packs != undefined ? json.data.packs : {};
         const total = json.data.total != undefined ? json.data.total : 0;
@@ -28,16 +29,21 @@ class Profile extends React.Component {
           total: total
         })
       }).catch(error => console.log('error', error));
-    this.setState({
-      uid: token.dump
-    })
+      this.setState({
+        uid: token.dump
+      })
+   }
+
   }
 
   render() {
     console.log(this.state.products)
     console.log(this.state.packs)
     return (
+        <>
+        <SEO title="Profile" />
         <UserInfo data={parseInt(this.state.uid)} products={this.state.products} packs={this.state.packs} total={this.state.total} />
+        </>
     )
   }
 }

@@ -1,11 +1,11 @@
 import React, { useState} from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import "../sass/base/_fonts.scss"
-import GatoradeOne from "../images/gatorade-red.png";
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import "../../sass/base/_fonts.scss"
+import GatoradeOne from "../../images/gatorade-red.png";
 import { graphql } from "gatsby";
-import PurchaseForm from '../components/drupal-oauth/PurchaseForm';
+import PurchaseForm from '../../components/drupal-oauth/PurchaseForm';
 const IndexPage = ({ data }) => {
   return(
   <Layout>
