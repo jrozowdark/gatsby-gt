@@ -19,7 +19,7 @@ const PrivateRoute = ({ component: Component, location, userAuthenticated, ...re
 
   const checkLoginStatus = () => {
     if (!userAuthenticated) {
-      navigate("/login");
+      navigate("/user/login");
       return null
     }
   }

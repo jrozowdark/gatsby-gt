@@ -41,8 +41,9 @@ export const pageQuery = graphql`
                 }
             }
         }
-        packs: allNodePack {
+        packs: allNodePack (sort: {fields: field_weight}) {
             nodes {
+                drupal_internal__nid
                 title
                 background: relationships {
                     field_image {

@@ -1,0 +1,56 @@
+import React, {useEffect} from "react"
+import SEO from "../seo"
+import GatoradeOne from "../../images/gatorade-red.png";
+import BuyFunctions from './buyFunction';
+class Buy extends React.Component {
+
+  componentDidMount(){
+  }
+  render(){
+    console.log("this",this.props.id)
+  return(
+    <>
+    <SEO title="buy" />
+    <div className="container bg-malla">
+      <div className="row row-bg">
+        <div className="col-12 col-lg-6 text-image-orden">
+          <div className="text">
+            <h2><span>tu </span>orden</h2>
+          </div>
+          <div className="image-gatorade">
+            <img src={GatoradeOne} alt="gatorade" title="gatorade" />
+          </div>
+        </div>
+        <div className="col-12 col-lg-6 container-texts">
+          <BuyFunctions pid={this.props.id}/>
+        </div>
+      </div>
+    </div>
+    </>);
+  }
+
+}
+
+export default Buy
+
+
+// export const pageQuery = graphql `
+//     {
+//         packs: allNodePack {
+//             nodes {
+//                 drupal_internal__nid
+//                 title
+//                 field_lateral_title
+//                 field_title
+//                 field_title_second_line
+//                 field_quantity_bottles
+//             }
+//         }
+//         products: allNodeProduct {
+//           nodes {
+//             title
+//             field_unique
+//           }
+//         }
+//     }
+// `;

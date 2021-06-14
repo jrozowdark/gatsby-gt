@@ -19,7 +19,10 @@ class PurchaseForm extends React.Component {
 
   componentDidMount() {
     const data = this.props.data;
-    console.log(data.packs);
+    if (this.props.pid != undefined){
+      this.setState({PackGroup: this.props.pid})
+    }
+    console.log("datap",this.props.pid);
     const radios = data.packs.nodes.map(node => {
       return {'id' : node.drupal_internal__nid, 'field_lateral_title' : node.field_lateral_title,'field_title' : node.field_title, 'field_quantity_bottles': node.field_quantity_bottles}
     });

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image";
+import RedirectLoggedPacks from '../RedirectLoggedPacks';
 export const getPack = node => {
-  console.log(node)
   return (<div className="container-buy" >
     <div className="text-buy-lateral">
       <h2>{node.title}</h2>
@@ -32,13 +32,7 @@ export const getPack = node => {
           <div className="image-bg-benefits"><Img fluid={node.background.field_image.localFile.childImageSharp.fluid} /></div>
         </div>
       </div>
-      <div className="button-seven">
-        <Link
-          to="/user/login"
-        >
-          {node.field_link.title}
-        </Link>
-      </div>
+      <RedirectLoggedPacks title={node.field_link.title} pid={node.drupal_internal__nid}/>
     </div>
   </div>);
 
