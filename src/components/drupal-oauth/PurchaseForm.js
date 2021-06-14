@@ -22,7 +22,6 @@ class PurchaseForm extends React.Component {
     if (this.props.pid != undefined){
       this.setState({PackGroup: this.props.pid})
     }
-    console.log("datap",this.props.pid);
     const radios = data.packs.nodes.map(node => {
       return {'id' : node.drupal_internal__nid, 'field_lateral_title' : node.field_lateral_title,'field_title' : node.field_title, 'field_quantity_bottles': node.field_quantity_bottles}
     });
@@ -71,7 +70,7 @@ class PurchaseForm extends React.Component {
   render() {
     if (this.state.radios != null){
       let {PackGroup} = this.state
-
+      let quantity = 0;
         return (
           <>
            <form onSubmit={ event => this.handleSubmit(event)}>
@@ -79,7 +78,11 @@ class PurchaseForm extends React.Component {
               <p>elige tu pack</p>
            </div>
            <Form.Group >
-            {this.state.radios.map((d, i) => (
+            {this.state.radios.map((d, i) => {
+              if (parseInt(this.state.PackGroup) != 0 && d.id == parseInt(this.state.PackGroup)) {
+                  this.state.quantity = d.field_quantity_bottles;
+              }
+              return (
               <Form.Label key={i} className={PackGroup == d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
                   this.setState({ 'PackGroup': d.id })
                   this.setState({'quantity': d.field_quantity_bottles })
@@ -101,7 +104,8 @@ class PurchaseForm extends React.Component {
                 checked={PackGroup == d.id}
               />
               </Form.Label>
-            ))}
+              )
+            })}
             </Form.Group>
             <div className="botellas">
               <p> {this.state.quantity > 0 ? `${this.state.quantity} Botellas` : ''} </p>
@@ -110,7 +114,7 @@ class PurchaseForm extends React.Component {
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label>{d.title}
-                <Form.Control type="number" placeholder="00" name="field_quantity" onChange={event =>
+                <Form.Control type="number" placeholder="00" name={`field_quantity-${i}`} onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
                 </Form.Label>
