@@ -32,25 +32,3 @@ class Buy extends React.Component {
 }
 
 export default Buy
-
-
-// export const pageQuery = graphql `
-//     {
-//         packs: allNodePack {
-//             nodes {
-//                 drupal_internal__nid
-//                 title
-//                 field_lateral_title
-//                 field_title
-//                 field_title_second_line
-//                 field_quantity_bottles
-//             }
-//         }
-//         products: allNodeProduct {
-//           nodes {
-//             title
-//             field_unique
-//           }
-//         }
-//     }
-// `;
