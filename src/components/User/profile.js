@@ -18,7 +18,6 @@ class Profile extends React.Component {
         })
       }).then(response => response.json())
       .then(json => {
-        console.log(json.data)
         const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
 
         const packs = json.data.packs != undefined ? json.data.packs : {};
@@ -37,8 +36,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    console.log(this.state.products)
-    console.log(this.state.packs)
     return (
         <>
         <SEO title="Profile" />

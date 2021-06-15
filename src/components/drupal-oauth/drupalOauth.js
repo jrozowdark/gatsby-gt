@@ -16,6 +16,7 @@ class drupalOauth {
     this.config.register_url = `${this.config.drupal_root}/user/register?_format=json`;
     this.config.register_update_url = `${this.config.drupal_root}/user/6?_format=json`;
     this.config.pack_user_url = `${this.config.drupal_root}/mp_transactions/getdatauser?_format=json`;
+    this.config.purchase_order_url = `${this.config.drupal_root}/mp_purchase/order?_format=json`;
   }
 
   /**
@@ -38,7 +39,6 @@ class drupalOauth {
     if (token === null) {
       return false;
     }
-console.log(token);
     // If we've got an active token, assume the user is logged in.
     if (token !== null && token.expirationDate > Math.floor(Date.now() / 1000)) {
       token.dump = localStorage.getItem('drupal-oauth-uid') !== null ? JSON.parse(localStorage.getItem('drupal-oauth-uid')) : null
@@ -95,8 +95,10 @@ console.log(token);
   };
   async handleData() {
     return  Promise.resolve(this.isLoggedIn());
-
   };
+  async handleSendOrder(sendData){
+    return this.getUrlOrder(sendData);
+  }
   /**
    * Get an OAuth token from Drupal.
    *
@@ -294,7 +296,6 @@ console.log(token);
         .then(json => {
           //throw new Error(text.message);
           if (json.error) {
-            console.log("error",json.message);
             throw new Error(json.message);
           } else {
             return this.handleLogin(username, password, scope);
@@ -341,7 +342,6 @@ console.log(token);
         .then(json => {
           //throw new Error(text.message);
           if (json.error) {
-            console.log("error",json.message);
             throw new Error(json.message);
           } else {
             // return this.handleLogin(username, password, scope);
@@ -359,39 +359,30 @@ console.log(token);
    * @returns {Promise<void>}
    *  Returns a Promise that resolves with the new token retrieved from Drupal.
    */
-   async packUser() {
-    // const token = this.isLoggedIn();
+   async getUrlOrder(senData) {
+    const token = this.isLoggedIn();
+    if (token != undefined) {
+      const service = await fetch(this.config.purchase_order_url, {
+          method: 'POST',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `${token.token_type} ${token.access_token}`
+          }),
+          body: senData
+        });
+        if (service.ok) {
+          const json = await service.json();
 
+          if (json.error) {
+            return null;
+          }
 
-    // if (response.ok) {
-    //   const json = await response.json();
+          return json.id_mp;
+        }
 
-    //   if (json.error) {
-    //     throw new Error(json.error.message);
-    //   }
-
-    //   return json;
-    // }
-    // const response = await fetch(this.config.pack_user_url, {
-    //   method: 'get',
-    //   headers: new Headers({
-    //     'Authorization': `Bearer ${token.token_type} ${token.access_token}`
-    //   })
-    // })
-    // .then(response => response.json())
-    // .then(json => {
-    //   //throw new Error(text.message);
-    //   if (json.error) {
-    //     console.log("error",json.message);
-    //     throw new Error(json.message);
-    //   } else {
-    //     // return this.handleLogin(username, password, scope);
-    //     // return this.storeToken(json);
-    //   }
-    // }).catch(err => {
-    //   throw new Error(err);
-    // });
-    // console.log(this.field_name);
+        return null;
+    }
   };
 
 }

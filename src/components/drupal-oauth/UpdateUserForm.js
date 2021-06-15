@@ -86,7 +86,7 @@ class UpdateUserForm extends React.Component {
                 <h3>Cambio de contraseña</h3>
                   <div className="form">
                     <Form.Group controlId="formBasicPassword-one">
-                      <Form.Control type="password" minlength="8" name="password" placeholder="contraseña" onChange={event =>
+                      <Form.Control type="password" minLength="8" name="password" placeholder="contraseña" onChange={event =>
                         this.setState({ [event.target.name]: event.target.value })
                       } />
                     </Form.Group>

@@ -35,13 +35,13 @@ export const SecondarySlider = ({ node }) => {
     }
 
     return (
-      <div className="secundary-slider" onScroll={animate}>
+      <div className="secundary-slider" onScroll={animate} >
 
         <div className="title-component" > <h2 className="font-line-black" dangerouslySetInnerHTML={{ __html: node.field_title}} /> </div>
 
     <Slider {...settings} >
-      {node.data_slide.field_slide.map((slide) => (
-        <div className="container-slick">
+      {node.data_slide.field_slide.map((slide, i) => (
+        <div className="container-slick" key={i}>
           <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
           <div className="bodySlider">
             <div className="text-lateral-body">

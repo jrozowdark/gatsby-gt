@@ -14,8 +14,8 @@ export const Benefits = ({ node }) => {
           <div className="image-bg-benefits"><Img fluid={node.background.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
         </div>
         <div className="text-box">
-          {node.data_step.field_steps.map((step) => (
-            <div className="text-section">
+          {node.data_step.field_steps.map((step, i) => (
+            <div className="text-section" key={i}>
               <h2 dangerouslySetInnerHTML={{ __html: step.field_numeration}} />
               <h2 dangerouslySetInnerHTML={{ __html: step.field_title}} />
               <p dangerouslySetInnerHTML={{ __html: step.field_short_description}} />

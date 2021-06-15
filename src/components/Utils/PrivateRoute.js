@@ -27,9 +27,7 @@ const PrivateRoute = ({ component: Component, location, userAuthenticated, ...re
   return <Component {...rest} />
 }
 PrivateRoute.propTypes = {
-  component: PropTypes.any.isRequired,
-  location: '',
-  userAuthenticated: false
+  component: PropTypes.any.isRequired
 }
 
 export default withDrupalOauthConsumer(PrivateRoute);

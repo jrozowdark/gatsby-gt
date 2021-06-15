@@ -15,7 +15,6 @@
 //         }
 //     `
 //   )
-//   console.log(data);
 //   return data.allUserUser.edges;
 
 // }

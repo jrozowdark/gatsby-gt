@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image";
 import RedirectLoggedPacks from '../RedirectLoggedPacks';
 export const getPack = node => {
-  return (<div className="container-buy" >
+  return (<div className="container-buy" key={node.drupal_internal__nid} >
     <div className="text-buy-lateral">
       <h2>{node.title}</h2>
     </div>

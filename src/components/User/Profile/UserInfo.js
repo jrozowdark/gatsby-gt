@@ -25,7 +25,7 @@ const UserInfo = (props) => {
     }
   `);
   const edges = data.allUserUser.edges;
-  console.log(props)
+  let packs = props.packs;
   return (
 
     edges.map(function (usr, i) {
@@ -45,7 +45,7 @@ const UserInfo = (props) => {
                   <span className="welcome-name">{usr.node.field_name} <span>{usr.node.field_lastname}</span></span></h2>
               </div>
               <div className="welcome-qr">
-                <QRCode value={usr.node.field_name} className="d-flex" size="900" includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
+                <QRCode value={usr.node.field_name} className="d-flex" size={900} includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
               </div>
               <div className="description-qr">
                 <div className="decription-title">
@@ -54,7 +54,7 @@ const UserInfo = (props) => {
                 </div>
                 {
                   Object.keys(props.products != undefined ? props.products :{}).map((step, k) => (
-                  <div className="decription-units">
+                  <div className="decription-units" key={`u-${k}`}>
                     <div className="unit">
                       <h2 className="text-rotate"></h2>
                       <h2 className="number-one">{props.products[step].product}</h2>
@@ -65,7 +65,7 @@ const UserInfo = (props) => {
                 ))}
               </div>
               <div className="button-second">
-                <a href="/">recargar</a>
+                <a href="/user/buy">recargar</a>
               </div>
             </div>
             <div className="account-update">
@@ -88,18 +88,12 @@ const UserInfo = (props) => {
                 <h3>compra</h3>
               </div>
                 {Object.keys(props.packs != undefined ? props.packs :{}).map((step, k) => (
-                <div className="container-ultimate" key={step}>
+                <div className="container-ultimate" key={`p-${step}`}>
                   <div className="image-ultimate">
-
-                    {/* <StaticImage className="camisa-buy"
-                      src={props.packs[step].pack_image ? props.packs[step].pack_image : ''}
-                      // width={300}
-                      // height={500}
-                      objectFit="contain"
-                      quality={99}
-                      formats={["AUTO", "WEBP", "AVIF"]}
+                    <img className="camisa-buy"
+                      src={packs[step].pack_image}
                       alt="Logo gatorade"
-                    /> */}
+                    />
                   </div>
                 <div className="description-ultimate">
                   <div className="title">
@@ -109,16 +103,18 @@ const UserInfo = (props) => {
                   </div>
                   <div className="units">
                   {
-                    Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => (
-                    <div className="unit" key={k}>
-                      <h2 className="taste">{props.packs[step].products.[p].product}</h2>
-                      <h2 className="amount">{props.packs[step].products.[p].quantity} unidades</h2>
-                    </div>
-                  ))}
+                    Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
+                    return(
+                      <div className="unit" key={`u-${k}`}>
+                        <h2 className="taste">{props.packs[step].products[p].product}</h2>
+                        <h2 className="amount">{props.packs[step].products[p].quantity} unidades</h2>
+                      </div>
+                    )
+                  })}
                   </div>
                   <div className="button-fifth">
                     <Link
-                      to="/"
+                      to={`/user/buy/${props.packs[step].pack_buy}`}
                       style={{
                         textDecoration: `none`,
                       }}

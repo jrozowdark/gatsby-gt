@@ -8,7 +8,6 @@ import Buy from "../components/User/buy"
 
 import PrivateRoute from "../components/Utils/PrivateRoute"
 const App = (props) => {
-console.log("props",props)
   return(
     <Layout>
       <Router>
