@@ -25,8 +25,8 @@ class Scanner extends Component {
       width: 320,
     }
     var divStyle = {
-      'padding-top': '10%',
-      'text-align': 'center',
+      paddingTop: '10%',
+      textAlign: 'center',
       background: 'black',
     }
     return(
