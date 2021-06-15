@@ -123,7 +123,7 @@ const UserInfo = (props) => {
                       <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
                       <h2 className="font-line-orange">{props.packs[step].pack_title}</h2>
                       <h2 className="font-line-orange d-none d-lg-block">{props.packs[step].pack_title}</h2>
-                      <h2 className="font-line-orange d-lg-none">{props.packs[step].products[k].quantity}</h2>
+                      {/* <h2 className="font-line-orange d-lg-none">{props.packs[step].products[k].quantity}</h2> */}
                       <h2 className="third-text">pack</h2>
                     </div>
                     <div className="units">
