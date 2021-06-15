@@ -91,7 +91,7 @@ const UserInfo = (props) => {
                 <div className="container-ultimate" key={step}>
                   <div className="image-ultimate">
 
-                    {/* <StaticImage className="camisa-buy"
+                    <StaticImage className="camisa-buy"
                       src={props.packs[step].pack_image ? props.packs[step].pack_image : ''}
                       // width={300}
                       // height={500}
@@ -99,7 +99,7 @@ const UserInfo = (props) => {
                       quality={99}
                       formats={["AUTO", "WEBP", "AVIF"]}
                       alt="Logo gatorade"
-                    /> */}
+                    />
                   </div>
                 <div className="description-ultimate">
                   <div className="title">
@@ -111,8 +111,8 @@ const UserInfo = (props) => {
                   {
                     Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => (
                     <div className="unit" key={k}>
-                      <h2 className="taste">{props.packs[step].products.[p].product}</h2>
-                      <h2 className="amount">{props.packs[step].products.[p].quantity} unidades</h2>
+                      <h2 className="taste">{props.packs[step].products.product}</h2>
+                      <h2 className="amount">{props.packs[step].products.quantity} unidades</h2>
                     </div>
                   ))}
                   </div>
