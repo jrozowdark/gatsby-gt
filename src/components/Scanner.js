@@ -36,6 +36,8 @@ class Scanner extends Component {
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
+          FaceMode="enviroment"
+          showViewFinder={true}
           />
         <p>{this.state.result}</p>
       </div>
