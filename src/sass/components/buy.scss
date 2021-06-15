@@ -4,7 +4,7 @@
  * These styles are from the benefits component.
  *
  * Index
- * - Benefits
+ * - Buy
  *   |- Title
  *   |- Side title
  *   |- Background image
@@ -14,285 +14,236 @@
 // variable import
 @import "../base/variables";
 // /*---| Buy |---*/
-.bg-malla {
-  background-image: url('../../images/bg-regist.png');
-  padding: 0;
-  margin: 0;
-  max-width: unset !important;
+.buy {
+  position: relative;
+  text-align: center;
+  //Background image
+  &::before {
+    content: '';
+    background: url('../../images/bg-buy-mobil.png') center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -10;
+    @media(min-width: 768px) {
+      background: url('../../images/bg-buy-desktop.png') center/cover no-repeat;
+    }
+  }
   @media(min-width: 992px) {
     height: 100vh;
     min-height: 820px;
   }
-  .row-bg {
+  .row {
     height: 100%;
     @media screen and (min-height: 800px) and (min-width: 992px) {
       align-items: center;
     }
   }
-}
-.text-image-orden {
-  padding-top: 6rem;
-  margin-bottom: -4rem;
-  @media(min-width: 992px) {
-    max-height: 40rem;
-  }
-  .text {
-    text-align: center;
-    max-width: 13rem;
-    margin: auto;
+  .left-side {
+    margin-top: 100px;
     @media(min-width: 992px) {
-      max-width: 16rem;
-      height: 1rem;
+      max-height: 40rem;
     }
+    //Title
     h2 {
       line-height: 1;
       color: white;
       -webkit-text-stroke: unset;
+      max-width: 13rem;
+      margin: auto;
+      font-size: 2.1rem;
+      span {
+        font-size: 2.9rem;
+      }
       @media(min-width: 992px) {
         display: flex;
+        height: 1rem;
+        max-width: 16rem;
         span {
           color: #ff4700;
           margin-right: 1rem;
+          font-size: 2.9rem;
         }
       }
     }
-  }
-  .image-gatorade {
-    height: 20rem;
-    text-align: center;
-    @media(min-width: 992px) {
-      height: 33.8rem;
-      overflow: hidden;
-    }
-    img {
-      height: 20rem;
-      margin: 0;
+    //Img
+    .image-gatorade {
+      height: 22.2rem;
       @media(min-width: 992px) {
-        height: 43rem;
-        object-fit: cover;
-      } 
-    }
-  }
-}
-.container-texts {
-  padding-bottom: 3rem;
-  @media(min-width: 992px) {
-    padding-top: 6rem;
-  }
-  form {
-    .form-group {
-      display: flex;
-      height: 5.6rem;
-      flex-wrap: wrap;
-      @media(min-width: 992px) {
-        height: 4.7rem;
+        height: 33.8rem;
+        overflow: hidden;
       }
+      img {
+        height: 100%;
+        margin: -20px 0 0 0;
+        @media(min-width: 992px) {
+          height: 43rem;
+          object-fit: cover;
+        } 
+      }
+    }
+  }
+  //Side right
+  .container-texts {
+    margin: -87px 0 0 0;
+    text-align: left;
+    @media(min-width: 992px) {
+      padding-top: 6rem;
+    }
+    form {
+      .select-button {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 26px;
+        @media(min-width: 992px) {
+          height: 4.7rem;
+        } 
+        .form-label {
+          padding-left: 7px;
+          flex: 0 0 33.3%;
+          height: 75px;
+          margin-bottom: 0px;
+          @media(min-width: 992px) {
+            position: relative;
+            max-width: 12rem;
+            flex: 0 0 33.3%;
+          }
+          .text-first {
+            text-transform: uppercase;
+            font-family: $g-black;
+            color: $gray;
+            margin: 0;
+            line-height: 0;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            @media(min-width: 992px) {
+              position: absolute;
+              transform: rotate(-90deg) translate(-50%, 0%);
+              left: -3rem;
+            }
+          }
+          .text-second {
+            text-transform: uppercase;
+            font-family: $px-black;
+            color: gray;
+            margin: 0;
+            line-height: 1.4;
+            font-size: 3.2rem;
+            margin: 2px 0 0 0;
+            letter-spacing: 4px;
+            @media(min-width: 992px) {
+              font-size: 7rem;
+              line-height: 0.8;
+              color: white;
+              overflow: hidden;
+              width: 200px;
+              height: 85px;
+            }
+          }
+          .form-check  {
+            input {
+              visibility: hidden;
+            }
+          }
+        }
+        .checked {
+          .text-first,
+          .text-second {
+            color: #ff4700;
+          }
+        }
+      }
+      //Text botellas
       .botellas {
         p {
-          font-size: 3.5rem;
-          font-family: 'PlexesPro black';
+          font-family: $px-black;
           text-transform: uppercase;
           color: #ff4700;
           font-weight: bold;
           margin: 0;
+          font-size: 2.7rem;
+          letter-spacing: 3.4px;
+          padding-left: 5px;
         }
       }
-      .form-label:last-child {
-        display: none;
-      }
-      .form-label {
-        flex: 0 0 33.3%;
-        @media(min-width: 992px) {
-          position: relative;
-          max-width: 12rem;
-        }
-        .text-first {
-          font-size: 2.2rem;
-          text-transform: uppercase;
-          font-family: 'PlexesPro black';
-          color: gray;
-          margin: 0;
-          line-height: 0;
-          @media(min-width: 992px) {
-            position: absolute;
-            transform: rotate(-90deg) translate(-50%, 0%);
-            left: -3rem;
-          }
-        }
-        .text-second {
-          font-size: 5rem;
-          text-transform: uppercase;
-          font-family: 'PlexesPro black';
-          color: gray;
-          margin: 0;
-          line-height: 1.4;
-          @media(min-width: 992px) {
-            font-size: 7rem;
-            line-height: 0.8;
+      //text elige
+      .text-data {
+        height: auto;
+        .elige {
+          margin: 10px 0 0 5px;
+          p {
             color: white;
-          }
-        }
-        .form-check  {
-          input {
-            visibility: hidden;
-          }
-        }
-      }
-      .checked {
-        .text-first,
-        .text-second {
-          color: #ff4700;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-family: $g-black;
+            line-height: 1.3;
+            @media(min-width: 992px) {
+              margin-bottom: 0.6rem;
+              line-height: 1;
+              font-size: 1.7rem;
+            }
+          }    
         }
       }
-    }
-    //
-    .select-flavor {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      height: auto;
-      @media(min-width: 992px) {
-        min-width: 486px;
-      }
-      .form-label {
-        width: 9rem;
-        margin: 0.7rem 0;
-        text-align: center;
-        color: gray;
-        text-transform: uppercase;
-        line-height: 1.2;
-        font-size: 1.8rem;
-        margin: 0;
-        font-family: 'PlexesPro black';
-        display: block !important;
-        input {
-          font-size: 6rem;
-          background: transparent;
-          border: none;
-          color: white;
+      //
+      .select-flavor {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        @media(min-width: 992px) {
+          min-width: 486px;
+        }
+        .form-label {
           text-align: center;
-        }
-      } 
-    }
-  }
-  .title-pack {
-    p {
-      color: white;
-      font-family: 'PlexesPro black';
-      text-transform: uppercase;
-      font-size: 2.5rem;
-    }
-  }
-  .packs {
-    display: flex;
-    height: 5.6rem;
-    @media(min-width: 992px) {
-      height: 4.7rem;
-    }
-    .pack.active {
-      p.pack-text {
-        color: #ff4700;
-      }
-      p.pack-number {
-        color: #ff4700;
-      }
-    }
-    .pack {
-      flex: 0 0 33.3%;
-      @media(min-width: 992px) {
-        position: relative;
-        max-width: 12rem;
-      }
-      p.pack-text {
-        font-size: 2.2rem;
-        text-transform: uppercase;
-        font-family: 'PlexesPro black';
-        color: gray;
-        margin: 0;
-        line-height: 0;
-        @media(min-width: 992px) {
-          position: absolute;
-          transform: rotate(-90deg) translate(-50%, 0%);
-          left: -3rem;
-        }
-      }
-      p.pack-number {
-        font-size: 5rem;
-        text-transform: uppercase;
-        font-family: 'PlexesPro black';
-        color: gray;
-        margin: 0;
-        line-height: 1.4;
-        @media(min-width: 992px) {
-          font-size: 7rem;
-          line-height: 0.8;
-          color: white;
-        }
-      }
-    }
-  }
-  .botellas {
-    p {
-      font-size: 3.5rem;
-      font-family: 'PlexesPro black';
-      text-transform: uppercase;
-      color: #ff4700;
-      font-weight: bold;
-      margin: 0;
-    }
-  }
-  .elige {
-    p {
-      color: white;
-      text-transform: uppercase;
-      font-size: 1.7rem;
-      font-family: 'PlexesPro black';
-      line-height: 1;
-      margin-bottom: 0.6rem;
-    }
-  }
-  .sabores {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    @media(min-width: 992px) {
-      min-width: 486px;
-    }
-    .sabor {
-      width: 9rem;
-      margin: 0.7rem 0;
-      text-align: center;
-      &.active {
-        p{
-          color: #ff4700;
-        }
-      }
-      p {
-        color: gray;
-        text-transform: uppercase;
-        line-height: 1.2;
-        font-size: 1.8rem;
-        margin: 0;
-        font-family: 'PlexesPro black';
-        &.sabor-number {
-          font-size: 6rem;
+          color: gray;
+          text-transform: uppercase;
+          line-height: 1.2;
+          font-size: 1.2rem;
+          margin: 0;
+          font-family: $g-black;
+          display: block !important;
+          flex: 0 0 33.33%;
           @media(min-width: 992px) {
-            color: white;
+            font-size: 1.8rem;
           }
-        }
+          input {
+            font-size: 6rem;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            font-family: $px-black;
+            @media(min-width: 992px) {
+              font-size: 6rem;
+            }
+          }
+        } 
       }
     }
-  }
-  .button-second {
-    margin: 75px auto 0;
-    @media(min-width: 576px) {
-      margin: 36px 0 0 40px;
+    .title-pack {
+      p {
+        color: $white;
+        font-family: $g-black;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        padding-left: 5px;
+      }
     }
-    @media(min-width: 1500px) {
-      margin: 56px 0 0 40px;
-    }
-    @media(min-width: 2000px) {
-      margin: 85px 0 0 40px;
+    //button
+    .button-first {
+      margin: 75px auto 0;
+      @media(min-width: 576px) {
+        margin: 36px 0 0 40px;
+      }
+      @media(min-width: 1500px) {
+        margin: 56px 0 0 40px;
+      }
+      @media(min-width: 2000px) {
+        margin: 85px 0 0 40px;
+      }
     }
   }
 }

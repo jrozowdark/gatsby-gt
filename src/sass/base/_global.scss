@@ -6,6 +6,7 @@
 }
 a {
   color:$white;
+  text-decoration: none;
 }
 
 a:hover {
@@ -50,6 +51,9 @@ html {
     margin: 0;
     @media(min-width: 1024px) {
       font-size: 4rem;
+    }
+    @media(min-width: 1450px) {
+      font-size: 6rem;
     }
   }
   h3 {
