@@ -18,7 +18,7 @@ export const SecondarySlider = ({ node }) => {
       dotsClass: "slick-list",
       fade: false,
       infinite: false,
-      vertical: true,
+      // vertical: true,
       speed: 500,
       slidesToShow: 1,
       arrows: true,
