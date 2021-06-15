@@ -6,7 +6,9 @@ import SEO from "../components/seo"
 import "../sass/base/_fonts.scss"
 import { Form } from "react-bootstrap"
 
-const IndexPage = () => (
+const IndexPage = ({code}) => {
+  console.log(code)
+  return(
   <Layout>
     <SEO title="zone" />
     <div className="zone container-fluid">
@@ -44,6 +46,7 @@ const IndexPage = () => (
       </div>
     </div>
   </Layout>
-)
+  );
+}
 
 export default IndexPage
