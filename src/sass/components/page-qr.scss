@@ -144,7 +144,7 @@
       flex: 0 0 50%;
       padding-left: 5.4%;
       position: relative;
-      margin-top: 1rem;
+      margin-top: 6rem;
     }
     .decription-title {
       padding: 1rem;
@@ -152,8 +152,9 @@
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        top: -4.5rem;
+        top: -6.5rem;
         position: absolute;
+        padding: 1rem 1rem 1rem 0;
       }
       h2 {
         -webkit-text-stroke: unset;
@@ -200,11 +201,12 @@
         width: 96vw;
         padding-left: 5%;
         padding: .6rem 0;
+        max-width: 18rem;
         @media(min-width: 1024px) {
           flex-wrap: nowrap;
           width: 68%;
           min-width: 10rem;
-          padding-left: 2.4%;
+          padding: 0;
           height: unset;
         }
         h2 {
@@ -272,7 +274,7 @@
     margin-bottom: 3rem;
     @media(min-width: 1024px) {
       transform: skewX(-31deg) translate(0%, -50%);
-      top: 81%;
+      top: 86%;
       left: 55%;
       position: absolute;
       margin: 0;
