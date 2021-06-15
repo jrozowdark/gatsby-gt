@@ -42,5 +42,5 @@ import 'jquery/dist/jquery.min.js'
 import "@popperjs/core/dist/umd/popper.min.js";
 
 //Call dependencies Aos
-// import "aos/dist/aos.css";
+import "aos/dist/aos.css";
 // import "aos/dist/aos.js";

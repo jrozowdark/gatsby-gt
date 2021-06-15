@@ -28,6 +28,9 @@
         font-size: 2.2rem;
         -webkit-text-stroke: black;
         font-weight: 100;
+        @media(min-width: 1024px) {
+          padding-left: .5rem;
+        }
       }
     }
   }

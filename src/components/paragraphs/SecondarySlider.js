@@ -18,7 +18,7 @@ export const SecondarySlider = ({ node }) => {
       dotsClass: "slick-list",
       fade: false,
       infinite: false,
-      vertical: true,
+      // vertical: true,
       speed: 500,
       slidesToShow: 1,
       arrows: true,
@@ -37,7 +37,7 @@ export const SecondarySlider = ({ node }) => {
     return (
       <div className="secundary-slider" onScroll={animate} >
 
-        <div className="title-component" > <h2 className="font-line-black" dangerouslySetInnerHTML={{ __html: node.field_title}} /> </div>
+        <div className="title-component" id="secundary-slider" > <h2 className="font-line-black" dangerouslySetInnerHTML={{ __html: node.field_title}} /> </div>
 
     <Slider {...settings} >
       {node.data_slide.field_slide.map((slide, i) => (

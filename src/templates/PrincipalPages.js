@@ -15,7 +15,7 @@ const PageTemplate = ({ data }) => {
             {/* <h1>{data.page.title}</h1> */}
             {paragraphs}
             <div className="fourth-component">
-                <div className="text-buy">
+                <div className="text-buy" id="buy-packs">
                     <h2 className="font-line-black">compra</h2>
                     <h3>tu pack</h3>
                 </div>

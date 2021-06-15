@@ -27,74 +27,59 @@ header {
     width: 100%;
     height: 175px;
     justify-content: space-between;
-
     @media (min-width: 1024px) {
       display: flex;
     }
-
     @media (min-width: 1500px) {
       height: 200px;
     }
-
     @media (min-width: 2000px) {
       height: 285px;
     }
-
     .navbar {
       padding: .5rem 15px;
-
       @media (min-width: 1300px) {
         padding: .5rem 60px;
       }
-
       .logo-navbar {
         width: 64px;
         position: relative;
         margin: 20px 33px 0;
-
         @media (min-width: 1500px) {
           width: 85px;
           margin: 60px 70px 0;
         }
-
         @media (min-width: 2000px) {
           width: 110px;
           margin: 60px 120px 0;
         }
-
         img {
           margin: 0;
           width: 100%;
         }
       }
-
       a,
       button {
         position: absolute;
         width: 100%;
         height: 100%;
       }
-
       //Links section
       .links-section {
         display: flex;
         padding: 0 30px 0 0;
         margin-top: 25px;
-
         @media (min-width: 1500px) {
           padding: 0 60px 0 0;
           margin-top: 70px;
         }
-
         @media (min-width: 2000px) {
           padding: 0 110px 0 0;
         }
-
         .link-login,
         .link-my-account,
         .link-log-out {
           position: relative;
-
           &::before {
             content: '';
             width: 100%;
@@ -103,7 +88,6 @@ header {
             left: 0;
           }
         }
-
         //Link regist
         .link-regist {
           width: 117px;
@@ -112,80 +96,66 @@ header {
           align-items: center;
           margin: 0 30px 0 0;
           position: relative;
-
           @media (min-width: 1500px) {
             width: 150px;
           }
-
           @media (min-width: 2000px) {
             width: 190px;
             margin: 8px 60px 0 0;
           }
-
           a {
             font-family: $px-black;
             font-size: 1.3rem;
             color: $white;
             text-transform: uppercase;
+            text-decoration: none;
             height: auto;
-
             @media (min-width: 1500px) {
               font-size: 1.6rem;
             }
-
             @media (min-width: 2000px) {
               font-size: 2.2rem;
             }
           }
         }
-
         //Icon login
         .link-login {
           width: 24px;
           height: 40px;
-
           &::before {
             background: url('../../images/logo-user.png') center/contain no-repeat;
           }
         }
-
         //Icon my acoount
         .link-my-account {
           width: 24px;
           height: 34px;
           margin-right: 30px;
-
           @media (min-width: 1500px) {
             width: 60px;
             height: 46px;
           }
-
           @media (min-width: 2000px) {
             margin-right: 50px;
             height: 60px;
           }
-
           &::before {
             background: url('../../images/logo-bottle.png') center/contain no-repeat;
           }
         }
-
         //Icon login close
         .link-log-out {
           width: 30px;
           height: 40px;
-
           @media (min-width: 1500px) {
             width: 37px;
             height: 43px;
           }
-
           @media (min-width: 2000px) {
             width: 45px;
             height: 50px;
             ;
           }
-
           &::before {
             background: url('../../images/logo-user-close.png') center/contain no-repeat;
           }
@@ -200,7 +170,6 @@ header {
   @media (min-width: 1024px) {
     display: none;
   }
-
   .logo-gatorade {
     z-index: 10;
     position: absolute;
@@ -209,7 +178,6 @@ header {
     height: 38px;
     top: 1.6rem;
   }
-
   // icono hambuguer
   .menu-icon {
     position: absolute;
@@ -224,7 +192,6 @@ header {
     border: none;
     cursor: pointer;
     z-index: 5;
-
     div {
       width: 2rem;
       height: 0.2rem;
@@ -234,7 +201,6 @@ header {
       transition: opacity 300ms, transform 300ms;
     }
   }
-
   // menu links
   .menu-links {
     position: relative;
@@ -242,7 +208,6 @@ header {
     width: 100%;
     min-height: 660px;
     transition: transform 300ms;
-
     height: 100vh;
     flex-direction: column;
     align-items: center;
@@ -255,14 +220,11 @@ header {
       left: 0;
       z-index: 1;
     }
-
     ul {
       list-style-type: none;
       z-index: 10;
       margin: 0;
       width: 100%;
-
-
       text-align: left;
       width: 85vw;
       position: absolute;
@@ -271,12 +233,10 @@ header {
       @media (min-width: 360px) {
       }
     }
-
     li {
       width: 100%;
       margin: 0;
     }
-
     a {
       text-decoration: none;
       color: $white;

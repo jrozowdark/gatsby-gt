@@ -2,6 +2,7 @@
  * login.scss
  *
  * These styles apply to the login page.
+ * The (.link-text) class was used to style the link type texts.
  *
  * Index
  * - Login
@@ -75,6 +76,9 @@
             font-size: 4.9rem;
             letter-spacing: 10px;
             font-weight: 900;
+          }
+          @media(min-width: 1450px) {
+            font-size: 6rem;
           }
         }
       }
@@ -153,10 +157,11 @@
         }
       }
       //Link
-      a {
+      .link-text {
         font-family: $g-black;
         font-size: 1.1rem;
         text-decoration: underline;
+        color: $white;
         @media(min-width: 1024px) {
           font-size: 1.3rem;
           letter-spacing: -0.3px;
