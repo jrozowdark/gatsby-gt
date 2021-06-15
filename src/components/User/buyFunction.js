@@ -3,10 +3,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import PurchaseForm from '../drupal-oauth/PurchaseForm';
   const BuyFunctions = (props) => {
-    console.log("BF",props)
     const data = useStaticQuery(graphql `
       query {
-        packs: allNodePack {
+        packs: allNodePack (sort: {fields: field_weight})  {
           nodes {
             drupal_internal__nid
             title
@@ -20,6 +19,7 @@ import PurchaseForm from '../drupal-oauth/PurchaseForm';
           nodes {
             title
             field_unique
+            drupal_internal__nid
           }
         }
       }

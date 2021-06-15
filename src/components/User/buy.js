@@ -7,7 +7,6 @@ class Buy extends React.Component {
   componentDidMount(){
   }
   render(){
-    console.log("this",this.props.id)
   return(
     <>
     <SEO title="buy" />
@@ -22,7 +21,7 @@ class Buy extends React.Component {
           </div>
         </div>
         <div className="col-12 col-lg-6 container-texts">
-          <BuyFunctions pid={this.props.id}/>
+          <BuyFunctions pid={this.props.id != undefined ? this.props.id : 0 }/>
         </div>
       </div>
     </div>
