@@ -19,7 +19,7 @@ const PrivateRoutePoint = ({ component: Component, location, userAuthenticated, 
 
   const checkLoginStatus = () => {
     if (!userAuthenticated) {
-      navigate("/user/zone");
+      navigate("/user/login");
       return null
     }
   }

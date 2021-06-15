@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 export const Benefits = ({ node }) => {
   return (
     <div className="benefits-component">
-      <div className="title-benefits">
+      <div className="title-benefits" id="#secondary-benefits">
         <h2 dangerouslySetInnerHTML={{ __html: node.field_title}} />
       </div>
       <div className="body-benefits">

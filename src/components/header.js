@@ -35,20 +35,20 @@ const Header = ({ siteTitle }) => {
           </div>
           <ul>
             <li>
-              <a href="/home">Inicio</a>
+              <a href="/">Inicio</a>
             </li>
             <li>
-              <a href="/home">Como funciona?</a>
+              <a href="/#secundary-slider">Como funciona?</a>
             </li>
             <li>
-              <a href="/home">Comprar packs</a>
+              <a href="/#buy-packs">Comprar packs</a>
             </li>
             <li>
-              <a href="/home">Mi cuenta</a>
+              <a href="/user/profile">Mi cuenta</a>
             </li>
-            <li>
+            {/* <li>
               <a href="/home">Cuenta de staff</a>
-            </li>
+            </li> */}
           </ul>
           <Footer/>
         </MenuLinks>
