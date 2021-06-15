@@ -65,7 +65,7 @@ const UserInfo = (props) => {
                 ))}
               </div>
               <div className="button-second">
-                <a href="/">recargar</a>
+                <a href="/user/buy">recargar</a>
               </div>
             </div>
             <div className="account-update">
@@ -114,7 +114,7 @@ const UserInfo = (props) => {
                   </div>
                   <div className="button-fifth">
                     <Link
-                      to="/"
+                      to={`/user/buy/${props.packs[step].pack_buy}`}
                       style={{
                         textDecoration: `none`,
                       }}
