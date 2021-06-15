@@ -6,6 +6,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { Link } from "gatsby"
 
 import Logocarlos from "../../../images/bg-ultimate-qr.png";
+import bgQr from "../../../images/bg-ultimate-qr.png";
 
 const UserInfo = (props) => {
   const data = useStaticQuery(graphql`
@@ -40,9 +41,12 @@ const UserInfo = (props) => {
                 <h2 className="text-packs">mis packs</h2>
               </div>
               <div className="bg-image-qr">
-                <StaticImage className="bg-qr" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
-                  quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" />
+                {/* <StaticImage className="bg-qr" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
+                  quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" /> */}
                 {/* <img src={Logocarlos} alt="logo-gatorade" title="gatorade" /> */}
+                <div className="bg-qr">
+                  <img src={bgQr} alt="Background QR" title="background QR" />
+                </div>
               </div>
               <div className="welcome">
                 <h2><span className="text-welcome">Bienvenido</span>
