@@ -19,8 +19,8 @@ export const PrincipalSlider = ({ node }) => {
     }
     return (
       <Slider {...settings}>
-        {node.data_slide.field_slide.map((slide) => (
-          <div className="container-principalSlider" >
+        {node.data_slide.field_slide.map((slide, i ) => (
+          <div className="container-principalSlider" key={i}>
             <div className="text-prinicpal-slider">
               <h2 data-aos="fade-up" data-aos-delay="800" data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
               <div className="paraf"  data-aos="zoom-in" data-aos-offset="5"  dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
