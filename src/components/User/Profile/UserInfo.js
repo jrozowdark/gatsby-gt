@@ -91,7 +91,7 @@ const UserInfo = (props) => {
                 {Object.keys(props.packs != undefined ? props.packs :{}).map((step, k) => (
                 <div className="container-ultimate" key={`p-${step}`}>
                   <div class="background-image-ultimate">
-                    <StaticImage class="image-bg-ultimate"
+                    {/* <StaticImage class="image-bg-ultimate"
                       src="../../../images/bg-ultimate-qr.png"
                       // width={300}
                       // height={500}
@@ -99,7 +99,9 @@ const UserInfo = (props) => {
                       quality={99}
                       formats={["AUTO", "WEBP", "AVIF"]}
                       alt="Logo gatorade"
-                    />
+                    /> */}
+                    <StaticImage className="image-bg-ultimate" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
+                    quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" />
                   </div>
                   <div className="image-ultimate">
                     <img className="camisa-buy"
