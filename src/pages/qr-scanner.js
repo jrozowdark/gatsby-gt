@@ -1,12 +1,19 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-// import Scanner from "../components/Scanner";
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Qr Scanner" />
-    {/* <Scanner/> */}
-  </Layout>
-)
+import React, {useState, useEffect} from 'react';
+import Scanner from "../components/Scanner";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+export default function App(){
 
-export default IndexPage
+  const [a,setA] = useState();
+  useEffect(() => {
+    setA(<Scanner/>)
+  },[]);
+
+
+  return (
+    <Layout>
+      <SEO title="Qr Scanner" />
+      {a}
+    </Layout>
+  );
+}
