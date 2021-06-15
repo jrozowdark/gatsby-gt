@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 export default function App(){
 
   const [a,setA] = useState();
+  const [isIE, setIsIE] = useState(false);
   useEffect(() => {
     setA(<Scanner/>)
   },[]);

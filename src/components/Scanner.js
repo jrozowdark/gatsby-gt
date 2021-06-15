@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import QrReader from 'react-qr-scanner'
+import QrReader from 'react-qr-reader'
 
 class Scanner extends Component {
   constructor(props){
@@ -7,6 +7,8 @@ class Scanner extends Component {
     this.state = {
       delay: 100,
       result: 'No result',
+      FaceMode: 'enviroment',
+      showViewFinder: true
     }
 
     this.handleScan = this.handleScan.bind(this)
@@ -33,6 +35,7 @@ class Scanner extends Component {
       <div style={divStyle}>
         <QrReader
           delay={this.state.delay}
+          facingMode='environment'
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
