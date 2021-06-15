@@ -549,6 +549,7 @@
       height: 100%;
       position: absolute;
       width: 100%;
+      z-index: -10;
       div.image-bg-ultimate {
         height: 100%;
         z-index: -10;
@@ -566,6 +567,11 @@
             left: 50%;
             transform: translateX(-50%);
           }
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -589,6 +595,17 @@
         @media(min-width: 1024px) {
           position: absolute;
           left: 0;
+        }
+      }
+      img {
+        object-fit: contain;
+        @media(min-width: 1024px) {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          transform: translateX(-50%);
+          left: 54%;
         }
       }
     }
@@ -761,5 +778,12 @@
         }
       }
     }
+  }
+}
+
+.ultimate-component .container-ultimate:nth-child(2n+1) .image-ultimate img {
+  @media(min-width: 1024px) {
+    transform: translateX(-50%);
+    left: 46%;
   }
 }

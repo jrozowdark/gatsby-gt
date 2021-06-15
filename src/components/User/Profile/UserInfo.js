@@ -1,9 +1,11 @@
-import React,{ useEffect} from 'react';
+import React, { useEffect } from 'react';
 import QRCode from "qrcode.react"
 import { useStaticQuery, graphql } from "gatsby";
 import UpdateUserForm from "../../drupal-oauth/UpdateUserForm"
 import { StaticImage } from 'gatsby-plugin-image';
 import { Link } from "gatsby"
+
+import Logocarlos from "../../../images/bg-ultimate-qr.png";
 
 const UserInfo = (props) => {
   const data = useStaticQuery(graphql`
@@ -40,6 +42,7 @@ const UserInfo = (props) => {
               <div className="bg-image-qr">
                 <StaticImage className="bg-qr" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
                   quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" />
+                {/* <img src={Logocarlos} alt="logo-gatorade" title="gatorade" /> */}
               </div>
               <div className="welcome">
                 <h2><span className="text-welcome">Bienvenido</span>
@@ -50,20 +53,20 @@ const UserInfo = (props) => {
               </div>
               <div className="description-qr">
                 <div className="decription-title">
-                  < h2 className = "number" > {props.total} </h2>
+                  < h2 className="number" > {props.total} </h2>
                   <h2 className="bottle">botellas</h2>
                 </div>
                 {
-                  Object.keys(props.products != undefined ? props.products :{}).map((step, k) => (
-                  <div className="decription-units" key={`u-${k}`}>
-                    <div className="unit">
-                      <h2 className="text-rotate"></h2>
-                      <h2 className="number-one">{props.products[step].product}</h2>
-                      <h2 className="number-two">{props.products[step].quantity}</h2>
-                      <h2 className="text-end">un</h2>
+                  Object.keys(props.products != undefined ? props.products : {}).map((step, k) => (
+                    <div className="decription-units" key={`u-${k}`}>
+                      <div className="unit">
+                        <h2 className="text-rotate"></h2>
+                        <h2 className="number-one">{props.products[step].product}</h2>
+                        <h2 className="number-two">{props.products[step].quantity}</h2>
+                        <h2 className="text-end">un</h2>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
               <div className="button-second">
                 <a href="/user/buy">recargar</a>
@@ -88,20 +91,22 @@ const UserInfo = (props) => {
                 <h2 className="font-line-black">mis</h2>
                 <h3>compra</h3>
               </div>
-                {Object.keys(props.packs != undefined ? props.packs :{}).map((step, k) => (
+              {Object.keys(props.packs != undefined ? props.packs : {}).map((step, k) => (
                 <div className="container-ultimate" key={`p-${step}`}>
                   <div class="background-image-ultimate">
+                    <div className="image-bg-ultimate">
+                      <img className="image-bg-ultimate" src={Logocarlos} alt="logo-gatorade" title="gatorade" />
+                    </div>
                     {/* <StaticImage class="image-bg-ultimate"
                       src="../../../images/bg-ultimate-qr.png"
-                      // width={300}
-                      // height={500}
                       objectFit="cover"
                       quality={99}
                       formats={["AUTO", "WEBP", "AVIF"]}
                       alt="Logo gatorade"
                     /> */}
-                    <StaticImage className="image-bg-ultimate" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
-                    quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" />
+                    {/* <StaticImage className="image-bg-ultimate" src="/../../images/bg-ultimate-qr.png" objectFit="cover"
+                      quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" /> */}
+
                   </div>
                   <div className="image-ultimate">
                     <img className="camisa-buy"
@@ -109,36 +114,36 @@ const UserInfo = (props) => {
                       alt="Logo gatorade"
                     />
                   </div>
-                <div className="description-ultimate">
-                  <div className="title">
-                    <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
-                    <h2 className="font-line-orange">{props.packs[step].pack_title}</h2>
-                    <h2 className="third-text">pack</h2>
-                  </div>
-                  <div className="units">
-                  {
-                    Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
-                    return(
-                      <div className="unit" key={`u-${k}`}>
-                        <h2 className="taste">{props.packs[step].products[p].product}</h2>
-                        <h2 className="amount">{props.packs[step].products[p].quantity} unidades</h2>
-                      </div>
-                    )
-                  })}
-                  </div>
-                  <div className="button-fifth">
-                    <Link
-                      to={`/user/buy/${props.packs[step].pack_buy}`}
-                      style={{
-                        textDecoration: `none`,
-                      }}
-                    >
-                      Recargar
+                  <div className="description-ultimate">
+                    <div className="title">
+                      <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
+                      <h2 className="font-line-orange">{props.packs[step].pack_title}</h2>
+                      <h2 className="third-text">pack</h2>
+                    </div>
+                    <div className="units">
+                      {
+                        Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
+                          return (
+                            <div className="unit" key={`u-${k}`}>
+                              <h2 className="taste">{props.packs[step].products[p].product}</h2>
+                              <h2 className="amount">{props.packs[step].products[p].quantity} unidades</h2>
+                            </div>
+                          )
+                        })}
+                    </div>
+                    <div className="button-fifth">
+                      <Link
+                        to={`/user/buy/${props.packs[step].pack_buy}`}
+                        style={{
+                          textDecoration: `none`,
+                        }}
+                      >
+                        Recargar
                     </Link>
+                    </div>
                   </div>
                 </div>
-                </div>
-                ))}
+              ))}
               {/* <div className="container-ultimate">
                 <div className="image-ultimate">
                   <StaticImage className="camisa-buy"
