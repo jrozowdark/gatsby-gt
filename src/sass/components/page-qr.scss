@@ -95,7 +95,7 @@
       @media(min-width: 1024px) {
         position: absolute;
         left: 55%;
-        top: 38.3%;
+        top: 28%;
         font-size: 5rem;
         line-height: 0.8;
         span {
@@ -136,7 +136,7 @@
       flex: 0 0 50%;
       padding-left: 5.4%;
       position: relative;
-      margin-top: 7rem;
+      margin-top: 1rem;
     }
     .decription-title {
       @media(min-width: 1024px) {
@@ -192,8 +192,8 @@
         padding-left: 5%;
         height: 3.6rem;
         @media(min-width: 1024px) {
-          flex-wrap: wrap;
-          width: 30%;
+          flex-wrap: nowrap;
+          width: 68%;
           min-width: 10rem;
           padding-left: 2.4%;
           height: unset;
@@ -224,7 +224,7 @@
           font-weight: bold;
           margin-right: 1rem;
           @media(min-width: 1024px) {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             flex: 0 0 100%;
             margin: 0;
             height: 3rem;
