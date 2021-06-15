@@ -38,13 +38,13 @@ const Header = ({ siteTitle }) => {
               <a href="/">Inicio</a>
             </li>
             <li>
-              <a href="/#secundary-slider">Como funciona?</a>
+              <a href="/#secundary-slider"  onClick={() => showNav(!nav)}>Como funciona?</a>
             </li>
             <li>
-              <a href="/#buy-packs">Comprar packs</a>
+              <a href="/#buy-packs"  onClick={() => showNav(!nav)}>Comprar packs</a>
             </li>
             <li>
-              <a href="/user/profile">Mi cuenta</a>
+              <a href="/user/profile"  onClick={() => showNav(!nav)}>Mi cuenta</a>
             </li>
             {/* <li>
               <a href="/home">Cuenta de staff</a>
