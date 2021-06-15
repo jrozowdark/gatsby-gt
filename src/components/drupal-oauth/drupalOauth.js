@@ -60,6 +60,7 @@ class drupalOauth {
    *
    */
   async handleLogin(username, password, scope) {
+    console.log(this.config)
     this.fetchUserId(username, password);
     return this.fetchOauthToken(username, password, scope);
   };
@@ -75,6 +76,7 @@ class drupalOauth {
   };
 
   async getOauthToken(username, password, scope) {
+    console.log(this.config)
     return this.fetchOauthToken(username, password, scope);
   };
 
@@ -114,7 +116,7 @@ class drupalOauth {
     formData.append('grant_type', 'password');
     formData.append('client_id', this.config.client_id);
     formData.append('client_secret', this.config.client_secret);
-    formData.append('scope', scope);
+    formData.append('scope', this.config.scope);
     formData.append('username', username);
     formData.append('password', password);
 

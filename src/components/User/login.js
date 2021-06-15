@@ -13,7 +13,7 @@ class Login extends React.Component {
         <SEO title="login" />
         <div className="login">
             <div className="box-form">
-              <LoginForm/>
+              <LoginForm r="/user/profile" />
             </div>
         </div>
       </div>

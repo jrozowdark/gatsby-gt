@@ -19,6 +19,7 @@ const UserInfo = (props) => {
             field_born_date(formatString: "DD/MM/Y")
             field_bike_type
             field_phone
+            field_qr_code
           }
         }
       }
@@ -45,7 +46,7 @@ const UserInfo = (props) => {
                   <span className="welcome-name">{usr.node.field_name} <span>{usr.node.field_lastname}</span></span></h2>
               </div>
               <div className="welcome-qr">
-                <QRCode value={usr.node.field_name} className="d-flex" size={900} includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
+                <QRCode value={usr.node.field_qr_code != null ? usr.node.field_qr_code : ''} className="d-flex" size={900} includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
               </div>
               <div className="description-qr">
                 <div className="decription-title">

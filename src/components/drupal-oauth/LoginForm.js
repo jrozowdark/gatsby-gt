@@ -30,7 +30,8 @@ class LoginForm extends React.Component {
   render() {
     const { error, processing } = this.state;
     if (this.props.userAuthenticated) {
-      navigate(`/user/profile`)
+      console.log(this.props)
+      navigate(`${this.props.r}`)
     }
     return (
        <>

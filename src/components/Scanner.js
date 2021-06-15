@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
-
+import { navigate } from 'gatsby';
 class Scanner extends Component {
   constructor(props){
     super(props)
@@ -17,6 +17,13 @@ class Scanner extends Component {
     this.setState({
       result: data,
     })
+    if (data != undefined){
+      console.log(data)
+      localStorage.setItem('redem', data);
+      navigate('redemption');
+    }
+
+
   }
   handleError(err){
     console.error(err)
