@@ -101,7 +101,7 @@ class PurchaseForm extends React.Component {
            <div className="title-pack">
               <p>elige tu pack</p>
            </div>
-           <Form.Group >
+           <Form.Group className="select-button">
             {this.state.radios.map((d, i) => {
               if (parseInt(this.state.PackGroup) != 0 && d.id == parseInt(this.state.PackGroup)) {
                   this.state.quantity = d.field_quantity_bottles;
@@ -140,7 +140,7 @@ class PurchaseForm extends React.Component {
             <div className="botellas">
               <p> {this.state.quantity > 0 ? `${this.state.quantity} Botellas` : ''} </p>
             </div>
-            <div className="text-data" dangerouslySetInnerHTML={{ __html: this.state.quantity > 0 ? `<div className="elige"><p>elige tu sabor y cantidad</p><p>Puedes escoger hasta ${this.state.quantity} Botellas</p></div>` : ''}} />
+            <div className="text-data" dangerouslySetInnerHTML={{ __html: this.state.quantity > 0 ? `<div class="elige"><p>elige tu sabor y cantidad</p><p>Puedes escoger hasta ${this.state.quantity} Botellas</p></div>` : ''}} />
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label key={`pid_${i}`} >{d.title}

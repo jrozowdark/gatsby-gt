@@ -89,7 +89,7 @@
     margin: -87px 0 0 0;
     text-align: left;
     @media(min-width: 992px) {
-      padding-top: 6rem;
+      margin: 205px 0 0 0;
     }
     form {
       .select-button {
@@ -97,17 +97,19 @@
         flex-wrap: wrap;
         margin-top: 26px;
         @media(min-width: 992px) {
-          height: 4.7rem;
+          height: auto;
         } 
         .form-label {
           padding-left: 7px;
-          flex: 0 0 33.3%;
           height: 75px;
           margin-bottom: 0px;
           @media(min-width: 992px) {
             position: relative;
-            max-width: 12rem;
             flex: 0 0 33.3%;
+            height: 95px;
+          }
+          @media(min-width: 1024px) {
+            margin-bottom: 30px;
           }
           .text-first {
             text-transform: uppercase;
@@ -137,11 +139,13 @@
               line-height: 0.8;
               color: white;
               overflow: hidden;
-              width: 200px;
               height: 85px;
             }
           }
           .form-check  {
+            @media(min-width: 1024px) {
+              margin-bottom: .125rem;
+            }
             input {
               visibility: hidden;
             }
@@ -234,16 +238,16 @@
     }
     //button
     .button-first {
-      margin: 75px auto 0;
-      @media(min-width: 576px) {
-        margin: 36px 0 0 40px;
-      }
-      @media(min-width: 1500px) {
-        margin: 56px 0 0 40px;
-      }
-      @media(min-width: 2000px) {
-        margin: 85px 0 0 40px;
-      }
+      margin: 25px auto 0;
+      // @media(min-width: 576px) {
+      //   margin: 36px 0 0 40px;
+      // }
+      // @media(min-width: 1500px) {
+      //   margin: 56px 0 0 40px;
+      // }
+      // @media(min-width: 2000px) {
+      //   margin: 85px 0 0 40px;
+      // }
     }
   }
 }
