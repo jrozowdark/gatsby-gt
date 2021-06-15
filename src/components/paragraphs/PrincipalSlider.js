@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import AOS from "aos";
-// AOS.init();
+import AOS from "aos";
+
 export const PrincipalSlider = ({ node }) => {
+    useEffect(() => {
+      AOS.init({ duration:2000 });
+    },[]);
     const settings = {
       dots: true,
       fade: true,
