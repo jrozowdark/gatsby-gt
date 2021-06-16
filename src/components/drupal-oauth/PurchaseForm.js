@@ -10,7 +10,7 @@ class PurchaseForm extends React.Component {
     password: '',
     PackGroup : 0,
     quantity : 0,
-    error: null,
+    error: '',
     uid: false,
     radios: null,
     input: null,
@@ -47,7 +47,15 @@ class PurchaseForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value })
     this.setState({ [`${event.target.name}_pid`]: pid })
     if (event.target.name.includes('field_quantity_') && event.target.value % 12 !== 0) {
-      console.log('contain set error', this.state.input)
+      this.setState({
+        processing: false,
+        error: 'La cantidad de botellas debe ser multiplo de 12',
+      });
+    }else{
+      this.setState({
+        processing: false,
+        error: '',
+      });
     }
   };
 
@@ -57,12 +65,20 @@ class PurchaseForm extends React.Component {
       let sum = 0;
       var items = [];
       for (var i = 0; i < this.state.input.length; i++) {
-        sum = sum + parseInt(this.state[`field_quantity_${i}`]);
-        items.push({[this.state[`field_quantity_${i}_pid`]] : this.state[`field_quantity_${i}`]});
+        sum = sum + parseInt(this.state[`field_quantity_${i}`] != 0 ? this.state[`field_quantity_${i}`] : 0);
+        items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
       }
-      if (sum > parseInt(this.state.quantity)) {
-        console.log('max updated set Error')
-      }else{
+      console.log(sum)
+      if (sum != parseInt(this.state.quantity)) {
+        this.setState({
+          processing: false,
+          error: `Debes escoger la cantidad indicada ${this.state.quantity} botellas`,
+        });
+      } else if (this.state.error == '') {
+        this.setState({
+          processing: false,
+          error: '',
+        });
         let dataSend = JSON.stringify({'idp':this.state.PackGroup,'products':items,total:sum});
         try {
           const response = await this.props.drupalOauthClient.handleSendOrder(dataSend).then(data => {
@@ -92,6 +108,7 @@ class PurchaseForm extends React.Component {
      handleClose = () => this.setState({show :false});
      handleShow = () => this.setState({show :true});
   render() {
+    const { error } = this.state;
     if (this.state.radios != null){
       let {PackGroup} = this.state
       let quantity = 0;
@@ -147,6 +164,7 @@ class PurchaseForm extends React.Component {
                 <Form.Control type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
                 </Form.Label>
             ))}
+            { error && <Form.Text>{error} </Form.Text>}
             </Form.Group>
                <div className="link button-first">
                  <input type="submit" value="Recargar" onClick={ event => this.handleSubmit(event)} />

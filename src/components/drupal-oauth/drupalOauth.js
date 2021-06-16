@@ -330,7 +330,6 @@ class drupalOauth {
       data[key] = {"value":data[key]}
      })
       const token = this.isLoggedIn();
-      console.log("token", token.dump);
       const response = await fetch(`${this.config.register_update_url}${token.dump}?_format=json`, {
         method: 'PATCH',
         headers: new Headers({
@@ -345,6 +344,8 @@ class drupalOauth {
           if (json.error) {
             throw new Error(json.message);
           } else {
+            this.handleLogout();
+            return true;
             // return this.handleLogin(username, password, scope);
             // return this.storeToken(json);
           }
