@@ -40,6 +40,7 @@
     h2 {
       @media(min-width: 1024px) {
         padding: 0 3rem;
+        font-size: 5rem;
       }
     }
   }
@@ -69,7 +70,7 @@
     max-height: 890px;
     min-height: 650px;
     @media(min-width: 1450px) {
-      max-height: 1084px;
+      max-height: 1228px;
     }
     //Background image
     .image-benefits {
@@ -97,6 +98,7 @@
       background-color: rgba($color: white, $alpha: .8);
       padding: 1rem;
       @media(min-width: 1024px) {
+        max-width: 610px;
         margin: unset;
         margin-left: 5%;
       }
@@ -107,6 +109,11 @@
       // Text section
       .text-section {
         h2:nth-child(1) {
+          -webkit-text-stroke: 0.1rem #FB5030;
+          @media(min-width: 1024px) {
+            line-height: .5 !important;
+            padding-top: 3rem !important;
+          }
           @media(min-width: 1450px) {
             font-size: 7rem;
             line-height: 0.55;
@@ -132,6 +139,11 @@
           @media(min-width: 1450px) {
             font-size: 1.4rem;
             padding: 0.8rem 0 1.5rem 0;
+          }
+        }
+        h2 {
+          @media(min-width: 1045px) {
+            font-size: 5.6rem;
           }
         }
       }
