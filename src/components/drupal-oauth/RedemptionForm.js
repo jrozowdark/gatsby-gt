@@ -120,7 +120,7 @@ class RedemptionForm extends React.Component {
           <div className="box-zone">
             <form onSubmit={ event => this.handleSubmit(event)}>
               <h2>zona de <span>redención</span></h2>
-              <p>"Por favor selecciona la cantidad de producto y el sabor"</p>
+              <p>"Por favor selecciona el sabor dentro de los productos que tienes disponible"</p>
               <Form.Group controlId="formBasicText">
                 <Form.Control type="text" placeholder="Id usuario" name="field_name" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
