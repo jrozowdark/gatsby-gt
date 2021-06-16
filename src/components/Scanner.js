@@ -29,25 +29,17 @@ class Scanner extends Component {
     console.error(err)
   }
   render(){
-    const previewStyle = {
-      height: 240,
-      width: 320,
-    }
-    var divStyle = {
-      paddingTop: '10%',
-      textAlign: 'center',
-      background: 'black',
-    }
     return(
-      <div style={divStyle}>
-        <QrReader
-          delay={this.state.delay}
-          facingMode='environment'
-          style={previewStyle}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          />
-        <p>{this.state.result}</p>
+      <div className="zone-scanner">
+        <div className="box-scanner">
+          <QrReader 
+            delay={this.state.delay}
+            facingMode='environment'
+            onError={this.handleError}
+            onScan={this.handleScan}
+            />
+          <p>{this.state.result}</p>
+        </div>
       </div>
     )
   }
