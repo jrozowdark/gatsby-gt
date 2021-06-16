@@ -13,7 +13,7 @@ class UpdateUserForm extends React.Component {
   };
   componentDidMount() {
     this.setState({
-      modality: this.props.data.field_bike_type != 'null' ? this.props.data.field_bike_type : ""
+      modality: this.props.data.field_bike_type != null ? this.props.data.field_bike_type : ""
     })
   }
   handleSubmit = async (event) => {
@@ -37,6 +37,7 @@ class UpdateUserForm extends React.Component {
   render() {
     const data = this.props.data
     const { processing } = this.state;
+    console.log(this.state.modality != null)
     return (
       <>
         <div className="lateral-left">
