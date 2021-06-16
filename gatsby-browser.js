@@ -27,6 +27,7 @@ import "./src/sass/components/thanks.scss"
 import "./src/sass/components/buy.scss"
 import "./src/sass/components/zone.scss"
 import "./src/sass/components/recover-password.scss"
+import "./src/sass/components/privacy.scss"
 // //layout
 import "./src/sass/layout/header.scss"
 import "./src/sass/layout/footer.scss"
