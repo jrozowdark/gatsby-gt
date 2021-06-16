@@ -119,13 +119,23 @@ const UserInfo = (props) => {
                     />
                   </div>
                   <div className="description-ultimate">
-                    <div className="title">
+                    {
+                      Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
+                        return (
+                          <div className="title" key={`u-${k}`}>
+                            {/* <h2 className="taste">{props.packs[step].products[p].product}</h2> */}
+                            <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
+                            <h2 className="font-line-orange title-mobile">{props.packs[step].products[p].quantity} botellas</h2>
+                            <h2 className="font-line-orange title-desktop">{props.packs[step].pack_title}</h2>
+                            <h2 className="third-text">pack</h2>
+                          </div>
+                        )
+                      })}
+                    {/* <div className="title">
                       <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
                       <h2 className="font-line-orange">{props.packs[step].pack_title}</h2>
-                      <h2 className="font-line-orange d-none d-lg-block">{props.packs[step].pack_title}</h2>
-                      {/* <h2 className="font-line-orange d-lg-none">{props.packs[step].products[k].quantity}</h2> */}
                       <h2 className="third-text">pack</h2>
-                    </div>
+                    </div> */}
                     <div className="units">
                       {
                         Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {

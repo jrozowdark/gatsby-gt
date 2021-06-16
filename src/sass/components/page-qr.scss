@@ -582,7 +582,7 @@
     }
     .image-ultimate {
       text-align: center;
-      padding-top: 30%;
+      padding-top: 10rem;
       @media(min-width: 1024px) {
         flex: 0 0 50%;
         padding-top: 0;
@@ -644,6 +644,17 @@
           width: 76%;
           flex-direction: row;
           flex-wrap: wrap;
+        }
+        .title-mobile {
+          @media(min-width: 1024px) {
+            display: none;
+          }
+        }
+        .title-desktop {
+          display: none;
+          @media(min-width: 1024px) {
+            display: block;
+          }
         }
         .text-rotate {
           display: none;
