@@ -14,7 +14,7 @@ class drupalOauth {
     this.config.user_url = `${this.config.drupal_root}/user/login?_format=json`;
     this.config.authorize_url = `${this.config.drupal_root}/oauth/authorize`;
     this.config.register_url = `${this.config.drupal_root}/user/register?_format=json`;
-    this.config.register_update_url = `${this.config.drupal_root}/user/6?_format=json`;
+    this.config.register_update_url = `${this.config.drupal_root}/user/`;
     this.config.pack_user_url = `${this.config.drupal_root}/mp_transactions/getdatauser?_format=json`;
     this.config.purchase_order_url = `${this.config.drupal_root}/mp_purchase/order?_format=json`;
   }
@@ -320,9 +320,7 @@ class drupalOauth {
      var data = {
        'field_name': field_name,
        'field_lastname': field_lastname,
-       'birthdate': birthdate,
-       'username': username,
-       'modality': modality,
+       'field_bike_type': modality,
        'phone': phone,
        'password': password,
        'new_password': new_password
@@ -332,7 +330,8 @@ class drupalOauth {
       data[key] = {"value":data[key]}
      })
       const token = this.isLoggedIn();
-      const response = await fetch(this.config.register_update_url, {
+      console.log("token", token.dump);
+      const response = await fetch(`${this.config.register_update_url}${token.dump}?_format=json`, {
         method: 'PATCH',
         headers: new Headers({
           'Content-Type': 'application/json',

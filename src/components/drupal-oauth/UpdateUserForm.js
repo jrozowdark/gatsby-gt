@@ -32,7 +32,6 @@ class UpdateUserForm extends React.Component {
   render() {
     const data = this.props.data
     const { processing } = this.state;
-
     return (
       <>
         <div className="lateral-left">
@@ -56,9 +55,9 @@ class UpdateUserForm extends React.Component {
                     } />
                   </Form.Group>
                   <Form.Group controlId="formBasicDate-one">
-                    <Form.Control type="date" defaultValue={data.field_born_date} placeholder="fecha de nacimiento" format="YYYY-MM-DD" name="birthdate" onChange={event =>
+                    <Form.Control type="date" value={data.field_born_date != 'null' ? '': data.field_born_date} placeholder="fecha de nacimiento" format="YYYY-MM-DD" name="birthdate" onChange={event =>
                       this.setState({ [event.target.name]: event.target.value })
-                    } />
+                    } readOnly />
                   </Form.Group>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control type="email" defaultValue={data.display_name} placeholder="correo" name="username"
@@ -67,17 +66,24 @@ class UpdateUserForm extends React.Component {
                       } />
                   </Form.Group>
                   <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control defaultValue={this.value} as="select" name="modality" onChange={event =>
+                    < Form.Control defaultValue = {
+                      this.value
+                    }
+                    as = "select"
+                    name = "modality"
+                    value = {data.field_bike_type != 'null' ? '' : data.field_bike_type}
+                    onChange = {
+                        event =>
                       this.setState({ [event.target.name]: event.target.value })
                     }>
                       <option value="" >MODALIDAD DE CICLISMO</option>
-                      <option value="ruta">Ruta</option>
+                      <option value="ruta" >Ruta</option>
                       <option value="montaña">Montaña</option>
                       <option value="bmx">Bmx</option>
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlId="formBasicDate-two">
-                    <Form.Control type="tel" defaultValue={data.field_phone} placeholder="teléfono" name="phone" onChange={event =>
+                    <Form.Control type="tel" defaultValue={data.field_phone == 'null' ? '' : data.field_phone} placeholder="teléfono" name="phone" onChange={event =>
                       this.setState({ [event.target.name]: event.target.value })
                     } />
                   </Form.Group>
@@ -88,15 +94,15 @@ class UpdateUserForm extends React.Component {
                     <Form.Group controlId="formBasicPassword-one">
                       <Form.Control type="password" minLength="8" name="password" placeholder="contraseña" onChange={event =>
                         this.setState({ [event.target.name]: event.target.value })
-                      } />
+                      } autoComplete="off"/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword-two">
-                      <Form.Control type="password" name="repeat_password" placeholder="repetir contraseña" />
+                      <Form.Control type="password" name="repeat_password" placeholder="Nueva contraseña" autoComplete="off"/>
                     </Form.Group>
                   </div>
                 </div>
                 <div className="link button-fifth">
-                  <input type="submit" value="Actualizar" onClick={event => this.handleChange(event)} />
+                  <input type="submit" value="Actualizar" onClick={event => this.handleSubmit(event)} />
                 </div>
               </form>
             }

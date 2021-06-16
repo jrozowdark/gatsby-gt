@@ -19,7 +19,7 @@ const UserInfo = (props) => {
             display_name
             field_name
             field_lastname
-            field_born_date(formatString: "DD/MM/Y")
+            field_born_date(formatString: "Y-MM-DD  ")
             field_bike_type
             field_phone
             field_qr_code
@@ -41,9 +41,6 @@ const UserInfo = (props) => {
                 <h2 className="text-packs">mis packs</h2>
               </div>
               <div className="bg-image-qr">
-                {/* <StaticImage className="bg-qr" src="../../../images/bg-ultimate-qr.png" objectFit="cover"
-                  quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" /> */}
-                {/* <img src={Logocarlos} alt="logo-gatorade" title="gatorade" /> */}
                 <div className="bg-qr">
                   <img src={bgQr} alt="Background QR" title="background QR" />
                 </div>
@@ -90,27 +87,18 @@ const UserInfo = (props) => {
                 <UpdateUserForm data={usr.node} />
               </div>
             </div>
+            {Object.keys(props.packs).length !== 0 ?
             <div className="ultimate-component">
-              <div className="text-buy">
-                <h2 className="font-line-black">mis</h2>
-                <h3>compra</h3>
-              </div>
+                <div className="text-buy">
+                  <h2 className="font-line-black">mis</h2>
+                  <h3>compra</h3>
+                </div>
               {Object.keys(props.packs != undefined ? props.packs : {}).map((step, k) => (
                 <div className="container-ultimate" key={`p-${step}`}>
                   <div class="background-image-ultimate">
                     <div className="image-bg-ultimate">
                       <img className="image-bg-ultimate" src={Logocarlos} alt="logo-gatorade" title="gatorade" />
                     </div>
-                    {/* <StaticImage class="image-bg-ultimate"
-                      src="../../../images/bg-ultimate-qr.png"
-                      objectFit="cover"
-                      quality={99}
-                      formats={["AUTO", "WEBP", "AVIF"]}
-                      alt="Logo gatorade"
-                    /> */}
-                    {/* <StaticImage className="image-bg-ultimate" src="/../../images/bg-ultimate-qr.png" objectFit="cover"
-                      quality={99} formats={["AUTO", "WEBP", "AVIF"]} alt="logo gatorade" /> */}
-
                   </div>
                   <div className="image-ultimate">
                     <img className="camisa-buy"
@@ -119,11 +107,17 @@ const UserInfo = (props) => {
                     />
                   </div>
                   <div className="description-ultimate">
-                    <div className="title">
-                      <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
-                      <h2 className="font-line-orange">{props.packs[step].pack_title}</h2>
-                      <h2 className="third-text">pack</h2>
-                    </div>
+                    {
+                      Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
+                        return (
+                          <div className="title" key={`u-${k}`}>
+                            <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
+                            <h2 className="font-line-orange title-mobile">{props.packs[step].products[p].quantity} botellas</h2>
+                            <h2 className="font-line-orange title-desktop">{props.packs[step].pack_title}</h2>
+                            <h2 className="third-text">pack</h2>
+                          </div>
+                        )
+                      })}
                     <div className="units">
                       {
                         Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
@@ -148,51 +142,8 @@ const UserInfo = (props) => {
                   </div>
                 </div>
               ))}
-              {/* <div className="container-ultimate">
-                <div className="image-ultimate">
-                  <StaticImage className="camisa-buy"
-                    src="../../../images/camisa-buy.png"
-                    // width={300}
-                    // height={500}
-                    objectFit="contain"
-                    quality={99}
-                    formats={["AUTO", "WEBP", "AVIF"]}
-                    alt="Logo gatorade"
-                  />
-                </div>
-                <div className="description-ultimate">
-                  <div className="title">
-                    <h5 className="text-rotate">pack</h5>
-                    <h2 className="font-line-orange">camiseta</h2>
-                    <h2 className="third-text">pack</h2>
-                  </div>
-                  <div className="units">
-                    <div className="unit">
-                      <h2 className="taste">maracuya</h2>
-                      <h2 className="amount">20 unidades</h2>
-                    </div>
-                    <div className="unit">
-                      <h2 className="taste">mandarina</h2>
-                      <h2 className="amount">10 unidades</h2>
-                    </div>
-                    <div className="unit">
-                      <h2 className="taste">tropical</h2>
-                      <h2 className="amount">5 unidades</h2>
-                    </div>
-                  </div>
-                  <div className="button-fifth">
-                    <Link
-                      to="/"
-                      style={{
-                        textDecoration: `none`,
-                      }}
-                    >
-                      Recargar
-                    </Link>
-                  </div>
-                </div>
-              </div> */}
             </div>
+            : ''}
           </div>
         )
       }

@@ -13,7 +13,7 @@ class Buy extends React.Component {
     <div className="container-fluid buy">
       <div className="row">
         <div className="col-12 col-lg-6 left-side">
-          <h2><span>tu </span><br/>orden</h2>
+          <h2><span>tu </span>orden</h2>
           <div className="image-gatorade">
             <img src={GatoradeOne} alt="gatorade" title="gatorade" />
           </div>
