@@ -9,8 +9,13 @@ class UpdateUserForm extends React.Component {
     password: '',
     error: null,
     uid: false,
+    modality: ''
   };
-
+  componentDidMount() {
+    this.setState({
+      modality: this.props.data.field_bike_type != 'null' ? this.props.data.field_bike_type : ""
+    })
+  }
   handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ processing: true });
@@ -71,12 +76,12 @@ class UpdateUserForm extends React.Component {
                     }
                     as = "select"
                     name = "modality"
-                    value = {data.field_bike_type != 'null' ? '' : data.field_bike_type}
+                    value = {this.state.modality}
                     onChange = {
                         event =>
                       this.setState({ [event.target.name]: event.target.value })
                     }>
-                      <option value="" >MODALIDAD DE CICLISMO</option>
+                      <option value="">MODALIDAD DE CICLISMO</option>
                       <option value="ruta" >Ruta</option>
                       <option value="montaña">Montaña</option>
                       <option value="bmx">Bmx</option>
