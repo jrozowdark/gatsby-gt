@@ -57,7 +57,7 @@ const UserInfo = (props) => {
               </div>
               <div className="description-qr">
                 <div className="decription-title">
-                  < h2 className="number" > {props.total} </h2>
+                  <h2 className="number" > {props.total} </h2>
                   <h2 className="bottle">botellas</h2>
                 </div>
                 {
@@ -100,7 +100,7 @@ const UserInfo = (props) => {
 
               {Object.keys(props.packs != undefined ? props.packs : {}).map((step, k) => (
                 <div className="container-ultimate" key={`p-${step}`}>
-                  <div class="background-image-ultimate">
+                  <div className="background-image-ultimate">
                     <div className="image-bg-ultimate">
                       <img className="image-bg-ultimate" src={Logocarlos} alt="logo-gatorade" title="gatorade" />
                     </div>
