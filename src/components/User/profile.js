@@ -18,15 +18,21 @@ class Profile extends React.Component {
         })
       }).then(response => response.json())
       .then(json => {
-        const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
+        console.log(json)
+        if(!json.message){
+          const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
 
-        const packs = json.data.packs != undefined ? json.data.packs : {};
-        const total = json.data.total != undefined ? json.data.total : 0;
-        this.setState({
-          products: products,
-          packs: packs,
-          total: total
-        })
+          const packs = json.data.packs != undefined ? json.data.packs : {};
+          const total = json.data.total != undefined ? json.data.total : 0;
+          this.setState({
+            products: products,
+            packs: packs,
+            total: total
+          })
+        }else{
+          return false;
+        }
+
       }).catch(error => console.log('error', error));
       this.setState({
         uid: token.dump

@@ -25,7 +25,7 @@ class UpdateUserForm extends React.Component {
       await this.props.drupalOauthClient.handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
       this.setState({ processing: true });
       // this.props.updateAuthenticatedUserState(true);
-      navigate("/user/profile");
+      navigate("/");
     } catch(err) {
       this.setState({
         processing: false,
