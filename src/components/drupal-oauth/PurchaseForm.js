@@ -58,7 +58,7 @@ class PurchaseForm extends React.Component {
       var items = [];
       for (var i = 0; i < this.state.input.length; i++) {
         sum = sum + parseInt(this.state[`field_quantity_${i}`]);
-        items.push({[this.state[`field_quantity_${i}_pid`]] : this.state[`field_quantity_${i}`]});
+        items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
       }
       if (sum > parseInt(this.state.quantity)) {
         console.log('max updated set Error')
