@@ -17,6 +17,7 @@ class drupalOauth {
     this.config.register_update_url = `${this.config.drupal_root}/user/`;
     this.config.pack_user_url = `${this.config.drupal_root}/mp_transactions/getdatauser?_format=json`;
     this.config.purchase_order_url = `${this.config.drupal_root}/mp_purchase/order?_format=json`;
+    this.config.redemption_url = `${this.config.drupal_root}/mp_purchase/redemption?_format=json`;
   }
 
   /**
@@ -100,6 +101,9 @@ class drupalOauth {
   };
   async handleSendOrder(sendData){
     return this.getUrlOrder(sendData);
+  }
+  async handleSendRedemption(sendData) {
+    return this.setRedemption(sendData);
   }
   /**
    * Get an OAuth token from Drupal.
@@ -386,7 +390,39 @@ class drupalOauth {
         return null;
     }
   };
+/**
+   * Exchange your refresh token for a new auth token.
+   *
+   * @param token
+   *
+   * @returns {Promise<void>}
+   *  Returns a Promise that resolves with the new token retrieved from Drupal.
+   */
+   async setRedemption(senData) {
+    const token = this.isLoggedIn();
+    if (token != undefined) {
+      const service = await fetch(this.config.redemption_url, {
+          method: 'POST',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `${token.token_type} ${token.access_token}`
+          }),
+          body: senData
+        });
+        if (service.ok) {
+          const json = await service.json();
 
+          if (json.error) {
+            return null;
+          }
+
+          return '/thanks';
+        }
+
+        return null;
+    }
+  };
 }
 
 export default drupalOauth;

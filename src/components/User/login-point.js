@@ -24,7 +24,7 @@ class LoginPoint extends React.Component {
 }
 const drupalOauthClient = new drupalOauth({
   drupal_root: process.env.GATSBY_DRUPAL_ROOT,
-  client_id: 'b8ac7732-1221-40b8-88d6-42e9f350c3c1',
+  client_id: '4e6a7f86-fefe-45ed-b12e-5c71fd2a9851',
   client_secret: 'master',
   scope: 'vendedor',
 });

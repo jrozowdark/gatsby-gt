@@ -53,11 +53,11 @@ class LoginForm extends React.Component {
                 }/>
                 { error && <Form.Text>{error} </Form.Text>}
               </Form.Group>
-              <Link className="link-text" to="/regist">Solicitar nueva contraseña</Link>
+              <Link className="link-text" to="/recover-password">Solicitar nueva contraseña</Link>
               <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>
-              <Link className="link-text" to="/regist">No tienes cuenta</Link>
+              <Link className="link-text" to="/user/register">No tienes cuenta</Link>
             </form>
           }
         </>

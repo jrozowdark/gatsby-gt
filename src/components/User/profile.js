@@ -9,7 +9,7 @@ class Profile extends React.Component {
     total: 0
   }
   componentDidMount() {
-    const token = this.props.drupalOauthClient.isLoggedIn();
+   const token = this.props.drupalOauthClient.isLoggedIn();
    if( token != undefined) {
     const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/getdatauser?_format=json`, {
         method: 'GET',
