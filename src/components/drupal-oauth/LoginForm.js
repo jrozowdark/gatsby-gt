@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
                 }/>
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
-                <Form.Control type="password" minlength="8" name="password" placeholder="A2371KNS" onChange={event =>
+                <Form.Control type="password" minLength="8" name="password" placeholder="A2371KNS" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
                 { error && <Form.Text>{error} </Form.Text>}

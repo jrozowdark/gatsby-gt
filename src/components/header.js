@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => {
         <div className="logo-gatorade">
          <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
         </div>
-        <MenuIcon className="menu-icon" id="menu" nav={nav} onClick={() => showNav(!nav)}>
+        <MenuIcon className="menu-icon" id="menu"  nav={nav} onClick={() => showNav(!nav)}>
         <div />
         <div />
         <div />
