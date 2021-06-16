@@ -15,11 +15,11 @@ class RedemptionForm extends React.Component {
     radios: null,
     input: null,
     show: null,
+    field_name: null
   };
 
   componentDidMount() {
     const data = this.props.data;
-    console.log(data)
     // if (this.props.pid != 0){
     //   this.setState({PackGroup :this.props.pid});
     // }
@@ -37,6 +37,7 @@ class RedemptionForm extends React.Component {
       return el !== undefined;
     });
     this.setState({"input" : filtered});
+    this.setState({field_name: this.props.redem})
     // for (var i = 0; i < filtered.length; i++) {
     //   this.setState({[`field_quantity_${i}`] : 0})
     //   this.setState({[`field_quantity_${i}_pid`] : filtered[i].pid})
@@ -62,49 +63,24 @@ class RedemptionForm extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ processing: true });
-      let sum = 0;
-      var items = [];
-      for (var i = 0; i < this.state.input.length; i++) {
-        sum = sum + parseInt(this.state[`field_quantity_${i}`] != 0 ? this.state[`field_quantity_${i}`] : 0);
-        items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
-      }
-      console.log(sum)
-      if (sum != parseInt(this.state.quantity)) {
-        this.setState({
-          processing: false,
-          error: `Debes escoger la cantidad indicada ${this.state.quantity} botellas`,
-        });
-      } else if (this.state.error == '') {
-        this.setState({
-          processing: false,
-          error: '',
-        });
-        let dataSend = JSON.stringify({'idp':this.state.PackGroup,'products':items,total:sum});
-        try {
-          const response = await this.props.drupalOauthClient.handleSendOrder(dataSend).then(data => {
-            navigate(data)
-          });
-          this.setState({
-            processing: true
-          });
-        } catch (err) {
-          this.setState({
-            processing: false,
-            error: err.message,
-          });
-        }
-      }
-    // const { field_name, field_lastname, birthdate, username, modality, phone, password, new_password } = this.state;
-    //  // con el preferenceId en mano, inyectamos el script de mercadoPago
-    //  const script = document.createElement('script');
-    //  script.type = 'text/javascript';
-    //  script.src =
-    //    'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
-    //  script.setAttribute('data-preference-id', preferenceId);
-    //  const form = document.getElementById(FORM_ID);
-    //  form.appendChild(script);
-
+    console.log(this.state);
+    console.log(this.props.redem)
+    const {PackGroup, field_name} = this.state;
+    let dataSend = JSON.stringify({"code": this.props.redem, "idp": PackGroup, "total": 1});
+    console.log(dataSend);
+    try {
+      const response = await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
+        navigate(data)
+      });
+      this.setState({
+        processing: true
+      });
+    } catch (err) {
+      this.setState({
+        processing: false,
+        error: err.message,
+      });
+    }
   };
      handleClose = () => this.setState({show :false});
      handleShow = () => this.setState({show :true});
