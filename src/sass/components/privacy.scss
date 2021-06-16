@@ -1,0 +1,35 @@
+.privacy {
+  position: relative;
+  .bg-privacy {
+    position: absolute;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    img {
+      object-fit: cover;
+      height: 100%;
+      object-position: top;
+      width: 100%;
+    }
+  }
+  .paragraph {
+    padding: 5rem 1rem 1rem 1rem;
+    @media(min-width: 556px) {
+      padding: 3rem 8% 5rem 8%;
+    }
+    @media(min-width: 1024px) {
+      padding: 12%;
+    }
+    h1, p {
+      color: white;
+    }
+    h1 {
+      font-size: 1.5rem;
+      padding-top: 2rem;
+      @media(min-width: 1024px) {
+        font-size: 2rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+}
