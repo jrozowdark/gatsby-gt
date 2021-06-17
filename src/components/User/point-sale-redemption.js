@@ -37,7 +37,8 @@ class PointSaleRedemption extends React.Component {
         if(!json.message){
           const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
           this.setState({
-            products: products
+            products: products,
+            'redem': localStorage.getItem('redem')
           })
         }else{
           return false;
