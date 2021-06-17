@@ -73,7 +73,7 @@ class RegisterForm extends React.Component {
                 </Form.Control>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
-                <Form.Control type="tel" placeholder="teléfono" name="phone" onChange={event =>
+                <Form.Control type="number" placeholder="teléfono" name="phone" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
               </Form.Group>

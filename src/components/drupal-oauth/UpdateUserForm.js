@@ -9,12 +9,14 @@ class UpdateUserForm extends React.Component {
     password: '',
     error: null,
     uid: false,
-    modality: ''
+    modality: '',
+    birthdate: ''
   };
   componentDidMount() {
-    this.setState({
-      modality: this.props.data.field_bike_type != null ? this.props.data.field_bike_type : ""
-    })
+    // console.log("update",this.props.data)
+    // this.setState({
+    //   modality: this.props.data.field_bike_type != null ? this.props.data.field_bike_type : ""
+    // })
   }
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +39,6 @@ class UpdateUserForm extends React.Component {
   render() {
     const data = this.props.data
     const { processing } = this.state;
-    console.log(this.state.modality != null)
     return (
       <>
         <div className="lateral-left">
@@ -61,7 +62,15 @@ class UpdateUserForm extends React.Component {
                     } />
                   </Form.Group>
                   <Form.Group controlId="formBasicDate-one">
-                    <Form.Control type="date" value={data.field_born_date != 'null' ? '': data.field_born_date} placeholder="fecha de nacimiento" format="YYYY-MM-DD" name="birthdate" onChange={event =>
+                    < Form.Control type = "date"
+                    value = {
+                      this.state.birthdate == '' && data.field_born_date  != null ? data.field_born_date : ''
+                    }
+                    placeholder = "fecha de nacimiento"
+                    format = "YYYY-MM-DD"
+                    name = "birthdate"
+                    onChange = {
+                        event =>
                       this.setState({ [event.target.name]: event.target.value })
                     } readOnly />
                   </Form.Group>
@@ -77,7 +86,8 @@ class UpdateUserForm extends React.Component {
                     }
                     as = "select"
                     name = "modality"
-                    value = {this.state.modality}
+                    value = {
+                      this.state.modality == '' ? data.field_bike_type :''}
                     onChange = {
                         event =>
                       this.setState({ [event.target.name]: event.target.value })

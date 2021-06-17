@@ -10,6 +10,7 @@
  *   |- Form login
  *     |- Title
  *     |- Form field
+ *     |- Error field
  *     |- Flag password
  *     |- Button
  *     |- Link
@@ -114,6 +115,8 @@
         }
         &:nth-child(3) {
           margin: 0 auto 6px;
+        }
+        &.error {
           input {
             border: 2px solid $red;
           }
@@ -122,6 +125,7 @@
           }
         }
       }
+      //Error field
       //Flag password
       small {
         color: $red;

@@ -42,13 +42,13 @@ class LoginForm extends React.Component {
               <div className="title-form">
                 <h2>login</h2>
               </div>
-              <Form.Group controlId="formBasicText">
-                <Form.Control type="text" placeholder="usuario 1 staff" name="username" onChange={event =>
+              <Form.Group className={ error ? 'error' : ''}  controlId="formBasicText">
+                <Form.Control type="text" placeholder="usuario 1 staff" name="username" required onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control type="password" minLength="8" name="password" placeholder="A2371KNS" onChange={event =>
+              <Form.Group className={ error ? 'error' : ''} controlId="formBasicPassword">
+                <Form.Control type="password" minLength="8" name="password" placeholder="A2371KNS" required onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
                 { error && <Form.Text>{error} </Form.Text>}

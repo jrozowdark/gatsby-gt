@@ -23,19 +23,28 @@
       flex-direction: row;
       flex: 0 0 90%;
       justify-content: flex-start;
+      height: auto;
+      padding: 6rem 1rem 1rem 1rem;
     }
-    @media(min-width: 1024px) {
-      height: 9rem;
-    }
-    @media(min-width: 1450px) {
-      height: 9rem;
+    // @media(min-width: 1024px) {
+    //   height: auto;
+    // }
+    // @media(min-width: 1450px) {
+    //   height: 9rem;
+    // }
+    h2 {
+      @media(min-width: 1024px) {
+        font-size: 5rem;
+      }
     }
     h3 {
       align-self: start;
       text-transform: uppercase;
       color: gray;
       @media(min-width: 1024px) {
-        align-self: center;
+        font-size: 3rem;
+        padding: .1rem 0 0 0.5rem;
+        align-self: flex-start;
       }
     }
   }
