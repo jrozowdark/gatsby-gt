@@ -94,10 +94,10 @@
           width: 255px;
           font-family: $g-black;
           font-size: 1rem;
-          color: $black;
+          color: $gray;
           text-align: center;
           &::placeholder {
-            color: $black;
+            color: $gray;
             text-transform: uppercase;
           }
           @media(min-width: 768px) {
@@ -138,7 +138,7 @@
         line-height: 1;
         text-align: center;
         @media(min-width: 768px) {
-          padding: 0 5px;
+          padding: 0;
           font-size: 1.3rem;
           letter-spacing: -0.5px;
           width: 390px;

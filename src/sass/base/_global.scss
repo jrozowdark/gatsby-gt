@@ -33,12 +33,14 @@ body, html {
     font-weight: 100;
 }
 html {
-
   .row {
     width: 100%;
     height: 100%;
     margin-right: 0;
     margin-left: 0;
+  }
+  input {
+    text-transform: uppercase;
   }
   h2 {
     font-family: $px-black;

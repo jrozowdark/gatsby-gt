@@ -37,9 +37,9 @@ header {
       height: 285px;
     }
     .navbar {
-      padding: .5rem 15px;
+      padding: .5rem 0.93rem;
       @media (min-width: 1300px) {
-        padding: .5rem 60px;
+        padding: .5rem 3.75rem;
       }
       .logo-navbar {
         width: 64px;
@@ -88,6 +88,54 @@ header {
             left: 0;
           }
         }
+        //Modal
+        .modal-menu {
+          background: white;
+          position: relative;
+          border-radius: 5px;
+          flex-direction: column;
+          display: flex;
+          padding: 10px 0 0 20px;
+          width: 172px;
+          height: 103px;
+          position: absolute;
+          top: 130px;
+          z-index: 20;
+          display: none;
+          @media (min-width: 1500px) {
+            top: 165px;
+            right: 7rem;
+          }
+          @media (min-width: 2000px) {
+            top: 210px;
+            right: 9.8rem;
+          }
+          &.ocultar {
+            display: flex !important;
+          }
+          p {
+            margin: 0;
+            font-family: $g-black;
+            font-size: 0.9rem;
+            color: $orange_primary;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+          }
+          a {
+            position: relative;
+            color: $black;
+            font-size: 0.78rem;
+            text-decoration: none;
+            font-family: $h-neue;
+            margin-bottom: 8px;
+            height: 20px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            &:nth-child(3){
+              text-transform: uppercase;
+            }
+          }
+        }
         //Link regist
         .link-regist {
           width: 117px;
@@ -121,7 +169,7 @@ header {
         //Icon login
         .link-login {
           width: 24px;
-          height: 40px;
+          height: 35px;
           &::before {
             background: url('../../images/logo-user.png') center/contain no-repeat;
           }
