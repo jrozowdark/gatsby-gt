@@ -6,6 +6,7 @@ class Profile extends React.Component {
     uid: false,
     products: {},
     packs: {},
+    user: {},
     total: 0
   }
   componentDidMount() {
@@ -20,11 +21,14 @@ class Profile extends React.Component {
       .then(json => {
         console.log(json)
         if(!json.message){
+          console.log("json", json)
           const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
 
           const packs = json.data.packs != undefined ? json.data.packs : {};
+          const user = json.user != undefined ? json.user : {};
           const total = json.data.total != undefined ? json.data.total : 0;
           this.setState({
+            user: user,
             products: products,
             packs: packs,
             total: total
@@ -45,7 +49,7 @@ class Profile extends React.Component {
     return (
         <>
         <SEO title="Profile" />
-        <UserInfo data={parseInt(this.state.uid)} products={this.state.products} packs={this.state.packs} total={this.state.total} />
+        <UserInfo data={parseInt(this.state.uid)} products={this.state.products} packs={this.state.packs} user={this.state.user} total={this.state.total} />
         </>
     )
   }
