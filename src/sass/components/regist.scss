@@ -91,9 +91,9 @@
             font-family: $g-medium;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            color: $black;
+            color: $gray;
             &::placeholder {
-              color: $black;
+              color: $gray;
               text-transform: uppercase;
             }
             @media(min-width: 768px) {

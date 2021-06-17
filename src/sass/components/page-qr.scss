@@ -16,6 +16,9 @@
     align-content: space-evenly;
     min-height: 840px;
   }
+  @media screen and (min-width: 1024px) and (max-width: 1300px) {
+    min-height: 1060px;
+  }
   .text-lateral {
     position: absolute;
     left: .5rem;
@@ -106,6 +109,12 @@
         span {
           font-size: 3.8rem;
           position: absolute;
+        }
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1880px) {
+        display: flex;
+        span {
+          top: 100%;
         }
       }
       span {
