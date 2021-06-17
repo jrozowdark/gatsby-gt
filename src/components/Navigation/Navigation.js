@@ -21,7 +21,6 @@ function Navigation(props) {
             <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
           </div>
           <div className="links-section">
-
             {props.userAuthenticated ?<>
               <div className="link-my-account">
               <Link to="/user/profile"></Link>
@@ -30,11 +29,16 @@ function Navigation(props) {
               </> :<>
               <div className="link-regist">
                 <Link to="/user/register">Registrate</Link>
-              </div>
+              </div>              
               <div className="link-login">
-                <Link to="/user/login"></Link>
+                <Link to="#"></Link>
               </div></>
             }
+            <div className="modal-menu">
+               <p>Ingresar como:</p>
+               <Link to="/user/login">Deportista</Link>
+               <Link to="/user/login">staf</Link>
+            </div>
           </div>
         </div>
       </div>
