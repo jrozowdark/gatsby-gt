@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Link } from 'gatsby';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-
+import styled, { createGlobalstyle } from "styled-components";
 import LogoutLink from '../LogoutLink/LogoutLink';
 import LogoGatorade from "../../images/logo-menu.png";
 
 function Navigation(props) {
+  const [nav, showNav] = useState(false)
   return (
     <div className="menu-horizontal container-fluid" >
       <div className="row">
@@ -30,15 +31,17 @@ function Navigation(props) {
               <div className="link-regist">
                 <Link to="/user/register">Registrate</Link>
               </div>              
-              <div className="link-login" onClick>
+              <div className="link-login" onClick={() => showNav(!nav)}>
                 <Link to="#"></Link>
-              </div></>
-            }
-            <div className="modal-menu">
+              </div>
+              <Modal className="modal-menu" nav={nav}>
                <p>Ingresar como:</p>
                <Link to="/user/login">Deportista</Link>
-               <Link to="/user/login">staf</Link>
-            </div>
+               <Link to="/staff/login">staff</Link>
+            </Modal>              
+              </>
+            }
+            
           </div>
         </div>
       </div>
@@ -47,3 +50,7 @@ function Navigation(props) {
 }
 
 export default withDrupalOauthConsumer(Navigation);
+
+const Modal= styled.div `
+  display: ${({nav}) => nav ? "flex": "none"};
+`
