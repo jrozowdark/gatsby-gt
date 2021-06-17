@@ -325,7 +325,7 @@ class drupalOauth {
        'field_name': field_name,
        'field_lastname': field_lastname,
        'field_bike_type': modality,
-       'phone': phone,
+       'field_phone': phone,
        'password': password,
        'new_password': new_password
      };
@@ -413,8 +413,8 @@ class drupalOauth {
         if (service.ok) {
           const json = await service.json();
 
-          if (json.error) {
-            return null;
+          if (json.message) {
+            return json;
           }
 
           return '/thanks';
