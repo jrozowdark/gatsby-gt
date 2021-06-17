@@ -86,7 +86,7 @@ class RegisterForm extends React.Component {
               <Form.Group controlId="formBasicPassword">
                 <Form.Control type="password" name="repeat_password" placeholder="repetir contraseña" />
               </Form.Group>
-              <Link to="user/login"> Ya tienes cuenta?</Link>
+              <Link to="/user/login"> Ya tienes cuenta?</Link>
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>
