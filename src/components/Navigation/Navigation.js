@@ -21,18 +21,19 @@ function Navigation(props) {
             <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
           </div>
           <div className="links-section">
-            <div className="link-regist">
-              <Link to="/user/register">Registrate</Link>
-            </div>
+
             {props.userAuthenticated ?<>
               <div className="link-my-account">
               <Link to="/user/profile"></Link>
               </div>
               <LogoutLink/>
-              </> :
+              </> :<>
+              <div className="link-regist">
+                <Link to="/user/register">Registrate</Link>
+              </div>
               <div className="link-login">
                 <Link to="/user/login"></Link>
-              </div>
+              </div></>
             }
           </div>
         </div>
