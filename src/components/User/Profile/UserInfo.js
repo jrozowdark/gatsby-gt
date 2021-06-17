@@ -12,7 +12,7 @@ const UserInfo = (props) => {
   let packs = props.packs;
   const usr = props.user;
   return (
-    <>
+    <div className="container-profile">
       <div className="principal-banner-qr">
         <div className="text-lateral">
           <h2 className="text-packs">mis packs</h2>
@@ -122,7 +122,7 @@ const UserInfo = (props) => {
           </div>
         ))}
       </div>
-  </>
+    </div>
   )
 }
 

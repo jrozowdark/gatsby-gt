@@ -70,7 +70,13 @@ class RedemptionForm extends React.Component {
     console.log(dataSend);
     try {
       const response = await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
-        navigate(data)
+        if(data.message){
+          this.setState({
+            processing: false,
+            error: data.message,
+          });
+        }
+          navigate(data)
       });
       this.setState({
         processing: true
@@ -89,7 +95,6 @@ class RedemptionForm extends React.Component {
     // if (this.state.radios != null){
       let {PackGroup} = this.state
       let quantity = 0;
-      console.log(input)
       if(input){
         return (
           <>

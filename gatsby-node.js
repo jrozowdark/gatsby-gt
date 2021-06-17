@@ -80,6 +80,11 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+  if (page.path.match(/^\/staff/)) {
+    page.matchPath = `/staff/*`
+    // Update the page.
+    createPage(page)
+  }
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

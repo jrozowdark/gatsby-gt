@@ -14,7 +14,8 @@ import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 // }
 const PrivateRoute = ({ component: Component, location, userAuthenticated, ...rest }) => {
   useEffect(() => {
-    checkLoginStatus()
+    setTimeout(checkLoginStatus(),1000)
+
   }, [])
 
   const checkLoginStatus = () => {

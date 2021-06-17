@@ -113,7 +113,6 @@ class PurchaseForm extends React.Component {
       let {PackGroup} = this.state
       let quantity = 0;
         return (
-          <>
            <form onSubmit={ event => this.handleSubmit(event)}>
            <div className="title-pack">
               <p>elige tu pack</p>
@@ -170,7 +169,6 @@ class PurchaseForm extends React.Component {
                  <input type="submit" value="Recargar" onClick={ event => this.handleSubmit(event)} />
                </div>
           </form>
-            </>
         )
     }else{
       return ('')

@@ -19,6 +19,12 @@
   min-height: 568px;
   overflow: hidden;
   user-select: unset !important;
+  @media(min-width: 1024px) {
+    min-height: 700px;
+  }
+  @media(min-width: 1450px){
+    min-height: 900px;
+  }
   .slick-next {
     position: absolute;
     width: 3rem;
@@ -72,11 +78,20 @@
   .slick-list {
     height: 100vh;
     min-height: 568px;
+    @media(min-width: 1024px) {
+      min-height: 700px;
+    }
+    @media(min-width: 1450px) {
+      min-height: 900px;
+    }
     .slick-track {
       height: 100vh;
       min-height: 568px;
       @media(min-width: 1024px) {
-        min-height: 568px;
+        min-height: 700px;
+      }
+      @media(min-width: 1450px) {
+        min-height: 900px;
       }
       .slick-slide.slick-active.slick-current {
         z-index: 10;
@@ -132,6 +147,11 @@
               left: 25%;
               padding-left: 2rem;
             }
+            @media(min-width: 1450px) {
+              left: 24%;
+              top: 60%;
+              width: 35rem;
+            }
             h2 {
               top: 10%;
               text-transform: uppercase;
@@ -143,6 +163,10 @@
               cursor: text ;
               @media(min-width: 1024px) {
                 max-width: 30rem;
+                font-size: 3.8rem;
+              }
+              @media(min-width: 1450px) {
+                max-width: 35rem;
                 font-size: 4.6rem;
               }
             }
@@ -178,13 +202,26 @@
             }
             .paraf {
               padding-top: 2rem;
+              @media(min-width: 1024px) {
+                max-width: 21rem;
+                padding-top: 1rem;
+              }
+              @media(min-width: 1450px) {
+                font-size: 1.4rem;
+                line-height: 1.2;
+                max-width: 29rem;
+              }
             }
             .box-button {
               top: 82%;
               left: 50%;
               @media(min-width: 1024px) {
-                top: 90%;
-                left: 8%;
+                top: 82%;
+                left: 5%;
+              }
+              @media(min-width: 1450px) {
+                top: 105%;
+                left: 4%;
               }
             }
           }
