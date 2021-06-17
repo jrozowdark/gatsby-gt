@@ -9,26 +9,6 @@ import Logocarlos from "../../../images/bg-ultimate-qr.png";
 import bgQr from "../../../images/bg-ultimate-qr.png";
 
 const UserInfo = (props) => {
-  const data = useStaticQuery(graphql`
-    query{
-      allUserUser {
-        edges {
-          node {
-            drupal_internal__uid
-            id
-            display_name
-            field_name
-            field_lastname
-            field_born_date(formatString: "DD/MM/Y")
-            field_bike_type
-            field_phone
-            field_qr_code
-          }
-        }
-      }
-    }
-  `);
-  const edges = data.allUserUser.edges;
   let packs = props.packs;
   const usr = props.user;
   return (
