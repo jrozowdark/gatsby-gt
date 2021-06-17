@@ -2,7 +2,7 @@ import React from 'react';
 import withDrupalOauthConsumer from './withDrupalOauthConsumer';
 import { Link, navigate } from 'gatsby';
 import {Form} from "react-bootstrap"
-class LoginForm extends React.Component {
+class LoginFormStaff extends React.Component {
   state = {
     processing: false,
     username: '',
@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
                 <h2>login</h2>
               </div>
               <Form.Group controlId="formBasicText">
-                <Form.Control type="text" placeholder="Ingresa tú correo" name="username" onChange={event =>
+                <Form.Control type="text" placeholder="Ingresa tú usuario staff" name="username" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
               </Form.Group>
@@ -65,4 +65,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default withDrupalOauthConsumer(LoginForm);
+export default withDrupalOauthConsumer(LoginFormStaff);

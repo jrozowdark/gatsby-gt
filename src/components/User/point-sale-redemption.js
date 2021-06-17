@@ -5,20 +5,27 @@ import RedemptionForm from "../drupal-oauth/RedemptionForm";
 import Redemption from "./Redemption";
 class PointSaleRedemption extends React.Component {
   state = {
-    redem : ''
+    redem : '',
+    access: false
   }
   componentDidMount(){
     const token = this.props.drupalOauthClient.isLoggedIn();
    if (token != undefined) {
-    const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
-        method: 'GET',
-        headers: new Headers({
-          'Authorization': `${token.token_type} ${token.access_token}`
-        })
-      }).then(response => response.json())
-      .then(json => {
-        this.setState({'redem':localStorage.getItem('redem')})
-      }).catch(error => navigate('/user/profile'));
+      const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
+          method: 'GET',
+          headers: new Headers({
+            'Authorization': `${token.token_type} ${token.access_token}`
+          })
+        }).then(response => response.json())
+        .then(json => {
+          console.log(json)
+          if(json.error == false){
+            this.setState({access: false})
+            // navigate('/user/profile')
+          }else{
+            this.setState({access: true})
+          }
+        }).catch(error => console.log(error));
       const service_b = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/getdatauser?_format=json`, {
         method: 'GET',
         headers: new Headers({
@@ -43,16 +50,19 @@ class PointSaleRedemption extends React.Component {
    }
   }
   render(){
-    console.log(this.state.redem)
-  return(
-    <>
-    <SEO title="buy" />
-    <div className="zone container-fluid">
-      <div className="row">
-        <Redemption redem={this.state.redem}/>
-      </div>
-    </div>
-    </>);
+    if(this.state.access){
+      return(
+        <>
+        <SEO title="buy" />
+        <div className="zone container-fluid">
+          <div className="row">
+            <Redemption redem={this.state.redem}/>
+          </div>
+        </div>
+        </>);
+    }else{
+      return ('')
+    }
   }
 
 }

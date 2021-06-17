@@ -8,9 +8,8 @@ class Buy extends React.Component {
   }
   render(){
   return(
-    <>
-    <SEO title="buy" />
     <div className="container-fluid buy">
+      <SEO title="Compras" />
       <div className="row">
         <div className="col-12 col-lg-6 left-side">
           <h2><span>tu </span>orden</h2>
@@ -23,7 +22,7 @@ class Buy extends React.Component {
         </div>
       </div>
     </div>
-    </>);
+    );
   }
 }
 

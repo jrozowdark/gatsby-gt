@@ -29,19 +29,23 @@ class Scanner extends Component {
     console.error(err)
   }
   render(){
-    return(
-      <div className="zone-scanner">
-        <div className="box-scanner">
-          <QrReader 
-            delay={this.state.delay}
-            facingMode='environment'
-            onError={this.handleError}
-            onScan={this.handleScan}
-            />
-          <p>{this.state.result}</p>
+    if(this.props.access){
+      return(
+        <div className="zone-scanner">
+          <div className="box-scanner">
+            <QrReader
+              delay={this.state.delay}
+              facingMode='environment'
+              onError={this.handleError}
+              onScan={this.handleScan}
+              />
+            <p>{this.state.result}</p>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }else{
+      return ('')
+    }
   }
 }
 export default Scanner
