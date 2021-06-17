@@ -30,7 +30,7 @@ function Navigation(props) {
               <div className="link-regist">
                 <Link to="/user/register">Registrate</Link>
               </div>              
-              <div className="link-login">
+              <div className="link-login" onClick>
                 <Link to="#"></Link>
               </div></>
             }
