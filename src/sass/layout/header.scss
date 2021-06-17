@@ -94,14 +94,12 @@ header {
           position: relative;
           border-radius: 5px;
           flex-direction: column;
-          display: flex;
           padding: 10px 0 0 20px;
           width: 172px;
           height: 103px;
           position: absolute;
           top: 130px;
           z-index: 20;
-          display: none;
           @media (min-width: 1500px) {
             top: 165px;
             right: 7rem;
@@ -109,9 +107,6 @@ header {
           @media (min-width: 2000px) {
             top: 210px;
             right: 9.8rem;
-          }
-          &.ocultar {
-            display: flex !important;
           }
           p {
             margin: 0;
