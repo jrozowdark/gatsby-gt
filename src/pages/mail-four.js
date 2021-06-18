@@ -6,22 +6,26 @@ import SEO from "../components/seo"
 import GatoradeOne from "../images/image-header-mail.png";
 import imageFooter from "../images/image-footer.png";
 import imageFooterLine from "../images/line-footer-mail.png";
+import imageMailFour from "../images/bg-mail-four.png";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="mail-one" />
+    <SEO title="mail-four" />
     <header className="header-mail">
       <div className="image-header">
         <img src={GatoradeOne} alt="gatorade" title="gatorade" />
       </div>
     </header>
-    <main className="mail-one">
-      <div className="text-mail-one">
-        <h5 className="title">gracias por hidratarte antes, durante y despues con</h5>
-        <h2 className="subtitle">gatorade</h2>
+    <main className="mail-four" >
+      <img src={imageMailFour} alt="gatorade" title="gatorade" />
+      <div className="text-mail-four">
+        <h1>gatorade</h1>
+        <h2 className="formula">la formula optima de hidratacion para deportistas te acompaña en tu carrera a la meta</h2>
+        <h2 className="thanks-buy">¡gracias <span>por tu compra!</span></h2>
+        <h2 className="phone">3464512021</h2>
       </div>
-      <div className="button-regist">
-        <a>confirmar mi registro</a>
+      <div className="button-order">
+        <a>detalles de tu orden</a>
       </div>
     </main>
     <footer className="footer-mail">

@@ -87,11 +87,11 @@
   }
   .details {
     position: absolute;
-    width: 8rem;
+    width: 100%;
     height: 8rem;
     transform: translate(0, -50%);
     top: 66%;
-    left: 15%;
+    left: 0%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -110,6 +110,7 @@
       width: 17rem;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
       .text-one {
         flex: 0 0 100%;
         text-align: left;
@@ -118,6 +119,7 @@
         h2.details-order {
           color: #fb5030;
           -webkit-text-stroke: unset;
+          font-size: 1rem;
         }
         h2.number-text {
           font-size: 2rem;
@@ -142,6 +144,7 @@
             display: flex;
             flex-direction: column;
             text-align: center;
+            font-size: 1rem;
             span {
               color: #fb5030;
             }
@@ -155,9 +158,34 @@
             display: flex;
             flex-direction: column;
             text-align: center;
+            font-size: 1rem;
             span {
               color: #fb5030;
             }
+          }
+        }
+      }
+      .button {
+        background: #27262E;
+        border-radius: 1rem;
+        flex: 0 0 80%;
+        height: 2rem;
+        margin-top: 3rem;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        a {
+          color: white;
+          font-family: 'Montserrat medium';
+          font-weight: bold;
+          text-transform: uppercase;
+          span {
+            color: #fb5030;
+            padding-left: 0.4rem;
           }
         }
       }
