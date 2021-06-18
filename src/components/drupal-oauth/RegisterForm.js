@@ -83,7 +83,7 @@ class RegisterForm extends React.Component {
   pad(n){return n<10 ? '0'+n : n}
 
   render() {
-    const { error, processing } = this.state;
+    const {processing } = this.state;
     const today = new Date()
     if (this.props.userAuthenticated){
       navigate("/user/profile");
@@ -93,8 +93,11 @@ class RegisterForm extends React.Component {
         <>
           { processing ?
             <div>Loading ...</div>
-            :
+            :<>
+            { this.state.error && <Form.Text >{this.state.error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
+
+
               <Form.Group controlId="formBasicText">
                 <Form.Control
                 type="text"
@@ -187,8 +190,7 @@ class RegisterForm extends React.Component {
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>
-              { error && <Form.Text >{error} </Form.Text>}
-            </form>
+            </form></>
           }
         </>
       );
