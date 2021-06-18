@@ -47,7 +47,8 @@ class RegisterForm extends React.Component {
     if (!this.state.modality || this.state.modality == 0) {
       modalityError = "Campo obligatorio";
     }
-    if (!this.state.field_phone || this.state.field_phone.length < 7) {
+    console.log(this.state.phone.length)
+    if (!this.state.phone || (this.state.phone.length < 7 || this.state.phone.length > 10)) {
       phoneError = "Campo obligatorio";
     }
     if (!this.state.password || this.state.password.length < 8) {
@@ -74,14 +75,16 @@ class RegisterForm extends React.Component {
       } catch(err) {
         this.setState({
           processing: false,
-          error: err.message,
+          error: 'Tu usuario ya existe o no tenemos códigos QR para asignarte',
         });
       }
     }
   };
+  pad(n){return n<10 ? '0'+n : n}
 
   render() {
-    const { processing } = this.state;
+    const { error, processing } = this.state;
+    const today = new Date()
     if (this.props.userAuthenticated){
       navigate("/user/profile");
       return('');
@@ -117,6 +120,10 @@ class RegisterForm extends React.Component {
                 type="text"
                 placeholder="fecha de nacimiento"
                 format="DD-MM-YYYY"
+                min = '1900-01-01'
+                max = {
+                  `${today.getFullYear()-18}-${(this.pad(today.getMonth()+1))}-${(this.pad(today.getDate()))}`
+                }
                 name="birthdate"
                 onFocus={(e) => (e.currentTarget.type = "date")} onBlur={(e) => (e.currentTarget.type = "text")} onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
@@ -180,6 +187,7 @@ class RegisterForm extends React.Component {
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>
+              { error && <Form.Text >{error} </Form.Text>}
             </form>
           }
         </>
