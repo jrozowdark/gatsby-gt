@@ -417,7 +417,7 @@ class drupalOauth {
             return json;
           }
 
-          return '/thanks';
+          return '/thanks-redemption';
         }
 
         return null;
