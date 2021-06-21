@@ -8,6 +8,7 @@ import imageFooter from "../images/image-footer.png";
 import imageFooterLine from "../images/line-footer-mail.png";
 import imageQr from "../images/image-qr-mail.png";
 import imageMailTwo from "../images/image-mail-two.png";
+import iconFb from "../images/icon-fb-email.png";
 
 
 const IndexPage = () => (
@@ -40,11 +41,11 @@ const IndexPage = () => (
       </div>
       <div className="icons">
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li><a href="https://es-la.facebook.com/"><img src={iconFb} alt="gatorade" title="gatorade" /></a></li>
+          <li><a href="https://es-la.facebook.com/"><img src={iconFb} alt="gatorade" title="gatorade" /></a></li>
+          <li><a href="https://es-la.facebook.com/"><img src={iconFb} alt="gatorade" title="gatorade" /></a></li>
+          <li><a href="https://es-la.facebook.com/"><img src={iconFb} alt="gatorade" title="gatorade" /></a></li>
+          <li><a href="https://es-la.facebook.com/"><img src={iconFb} alt="gatorade" title="gatorade" /></a></li>
         </ul>
       </div>
       <div className="text-footer">
