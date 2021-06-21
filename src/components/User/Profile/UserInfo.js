@@ -34,8 +34,7 @@ const UserInfo = (props) => {
             <h2 className="number" > {props.total} </h2>
             <h2 className="bottle">botellas</h2>
           </div>
-          {
-            Object.keys(props.products != undefined ? props.products : {}).map((step, k) => (
+          {Object.keys(props.products != undefined ? props.products : {}).map((step, k) => (
               <div className="decription-units" key={`u-${k}`}>
                 <div className="unit">
                   <h2 className="text-rotate"></h2>

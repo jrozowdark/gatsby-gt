@@ -326,9 +326,9 @@ class drupalOauth {
        'field_lastname': field_lastname,
        'field_bike_type': modality,
        'field_phone': phone,
-       'password': password,
-       'new_password': new_password
+       "pass": {"existing":password,"value": new_password}
      };
+     console.log(data.pass);
      Object.keys(data).forEach(key => (data[key] === undefined || data[key] === '') && delete data[key])
      Object.keys(data).forEach(key => {
       data[key] = {"value":data[key]}
