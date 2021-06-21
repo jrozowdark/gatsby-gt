@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,22 +6,25 @@ import SEO from "../components/seo"
 import GatoradeOne from "../images/image-header-mail.png";
 import imageFooter from "../images/image-footer.png";
 import imageFooterLine from "../images/line-footer-mail.png";
+import imageMailThree from "../images/bg-mail-three.png";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="mail-one" />
+    <SEO title="mail-three" />
     <header className="header-mail">
       <div className="image-header">
         <img src={GatoradeOne} alt="gatorade" title="gatorade" />
       </div>
     </header>
-    <main className="mail-one">
-      <div className="text-mail-one">
-        <h5 className="title">gracias por hidratarte antes, durante y despues con</h5>
-        <h2 className="subtitle">gatorade</h2>
+    <main className="mail-three" >
+      <img src={imageMailThree} alt="gatorade" title="gatorade" />
+      <div className="text-mail-three">
+        <h1>recarga energia con <span>gatorade</span></h1>
+        <h2 className="formula">la formula optima de hidratacion para deportistas</h2>
+        <h2 className="verification">codigo de verificacion <span>24012021</span></h2>
       </div>
-      <div className="button-regist">
-        <a>confirmar mi registro</a>
+      <div className="button-redeem">
+        <a>redime ahora</a>
       </div>
     </main>
     <footer className="footer-mail">

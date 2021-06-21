@@ -19,10 +19,10 @@
 .single-component {
   position: relative;
   height: 1020px;
-  min-height: 60rem;
+  min-height: 72rem;
   //Background image
   @media(min-width: 1450px) {
-    height: 1300px;
+    height: 1500px;
   }
   &::before {
     content: "";
@@ -92,6 +92,7 @@
             font-size: 0.9rem;
             letter-spacing: 1px;
             color: $gray;
+            text-align-last: center;
             &::placeholder {
               color: $gray;
               text-transform: uppercase;

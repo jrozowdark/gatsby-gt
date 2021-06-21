@@ -22,7 +22,7 @@ class UpdateUserForm extends React.Component {
     event.preventDefault();
     this.setState({ processing: true });
     const { field_name, field_lastname, birthdate, username, modality, phone, password, new_password } = this.state;
-
+    console.log(new_password)
     try {
       await this.props.drupalOauthClient.handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
       this.setState({ processing: true });
@@ -113,7 +113,9 @@ class UpdateUserForm extends React.Component {
                       } autoComplete="off"/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword-two">
-                      <Form.Control type="password" name="repeat_password" placeholder="Nueva contraseña" autoComplete="off"/>
+                      <Form.Control type="password" name="new_password" placeholder="Nueva contraseña" onChange={event =>
+                        this.setState({ [event.target.name]: event.target.value })
+                      } autoComplete="off"/>
                     </Form.Group>
                   </div>
                 </div>

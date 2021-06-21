@@ -595,3 +595,100 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.mail-two {
+  height: 42rem;
+  position: relative;
+}
+.mail-two img {
+  position: absolute;
+  z-index: -10;
+  height: 50rem;
+  object-fit: cover;
+}
+.mail-two .text-mail-two {
+  max-width: 35rem;
+  height: 100%;
+  -webkit-transform: unset;
+  position: relative;
+}
+.mail-two .text-mail-two h1 {
+  color: white;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding-top: 3rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 17%;
+  left: 50%;
+  width: 26rem;
+}
+.mail-two .text-mail-two h1 span {
+  font-size: 2.8rem;
+  color: #ab3912;
+  font-weight: 700;
+}
+
+.mail-two .text-mail-two .thanks {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 60%;
+  width: 26rem;
+  text-align: center;
+  -webkit-text-stroke: unset;
+  color: #fb5030;
+}
+.mail-two .text-mail-two .gatorade {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 77%;
+  width: 26rem;
+  text-align: center;
+  -webkit-text-stroke: unset;
+  color: white;
+}
+.mail-two .text-mail-two .successful {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 88%;
+  font-size: 1.2rem;
+  width: 26rem;
+  text-align: center;
+  -webkit-text-stroke: unset;
+  color: white;
+}
+.mail-two .text-mail-two p {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 94%;
+  width: 23rem;
+  text-align: center;
+  -webkit-text-stroke: unset;
+  color: white;
+}
+.mail-two .image-qr {
+  z-index: 999999;
+  text-align: center;
+  background: black;
+} */

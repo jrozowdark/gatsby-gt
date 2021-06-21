@@ -1,8 +1,17 @@
 
 .footer-mail {
-  position: absolute;
-  background: black;
-  width: 100vw;
+  // position: absolute;
+  // background: url('../../images/background-footer-mail.png');
+  width: 33.4rem;
+  // bottom: 0;
+  position: relative;
+  margin-top: -13.1rem;
+  .line-footer {
+    text-align: center;
+    img {
+      margin: auto;
+    }
+  }
   .text-footer {
     text-align: center;
     h2 {
@@ -16,8 +25,14 @@
     }
   }
   .icons {
+    height: 3.6rem;
     ul {
       display: flex;
+      justify-content: center;
+      margin: auto;
+      li {
+        padding: 1rem;
+      }
     }
   }
   .image-inferior {

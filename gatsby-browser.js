@@ -35,6 +35,10 @@ import "./src/sass/layout/footer.scss"
 import "./src/sass/mail/footer-mail.scss"
 import "./src/sass/mail/header-mail.scss"
 import "./src/sass/mail/mail-one.scss"
+import "./src/sass/mail/mail-two.scss"
+import "./src/sass/mail/mail-three.scss"
+import "./src/sass/mail/mail-four.scss"
+import "./src/sass/mail/mail-five.scss"
 
 //CAll dependencies bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
