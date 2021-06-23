@@ -310,7 +310,7 @@ class drupalOauth {
       }).then(response => response.json())
         .then(json => {
           //throw new Error(text.message);
-          if (json.error) {
+          if (json.message) {
             throw new Error(json.message);
           } else {
             return this.handleLogin(username, password, scope);
