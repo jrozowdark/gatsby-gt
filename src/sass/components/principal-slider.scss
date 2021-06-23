@@ -133,23 +133,21 @@
           .text-prinicpal-slider {
             padding-top: 14rem;
             padding-left: 6%;
-            // transform: translate(-50%, -50%);
-            // top: 65%;
-            // left: 50%;
             width: 80%;
             @media(min-width: 556px) {
               width: 27rem;
               top: 60%;
             }
             @media(min-width: 1024px) {
-              width: 32rem;
+              width: 36rem;
               left: 25%;
-              padding-left: 2rem;
+              padding-left: 9rem;
             }
             @media(min-width: 1450px) {
               left: 24%;
               top: 60%;
-              width: 35rem;
+              width: 42rem;
+              padding-left: 11rem;
             }
             h2 {
               top: 10%;

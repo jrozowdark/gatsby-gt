@@ -341,6 +341,66 @@
           }
         }
       }
+
+
+      @media(max-width: 1023px) {
+        .true {
+          display: flex;
+          flex-direction: column;
+          .title-buy {
+            .bottle {
+              display: none;
+            }
+          }
+          .paragraph-buy {
+            order: 4;
+          }
+          h2.bottle-shirt {
+            order: 3;
+            font-family: 'PlexesPro black';
+            -webkit-text-stroke: unset;
+            text-align: center;
+          }
+        }
+        .false {
+          display: flex;
+          flex-direction: column;
+          .title-buy {
+            .shirt {
+              display: none;
+            }
+          }
+          .bottle-shirt {
+            display: none;
+          }
+        }
+      }
+
+
+
+      .false {
+        .title-buy {
+          .shirt {
+            display: none;
+          }
+        }
+        .bottle-shirt {
+          display: none;
+        }
+      }
+      @media(min-width: 1024px) {
+        .true {
+          .title-buy {
+            .shirt {
+              display: none;
+            }
+          }
+        }
+        .bottle-shirt {
+          display: none;
+        }
+      }
+
     }
     .button-six {
       transform: skewX(-31deg) translateX(-55%);
