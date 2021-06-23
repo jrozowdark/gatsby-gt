@@ -10,6 +10,7 @@ class RegisterForm extends React.Component {
     usernameError: '',
     password: '',
     passwordError: '',
+    passwordConfirmError: '',
     field_name: '',
     field_nameError: '',
     field_lastname: '',
@@ -28,6 +29,7 @@ class RegisterForm extends React.Component {
     let field_nameError = "";
     let field_lastnameError = "";
     let passwordError = "";
+    let passwordConfirmError= "";
     let birthdateError = "";
     let phoneError = "";
     let modalityError = "";
@@ -44,18 +46,41 @@ class RegisterForm extends React.Component {
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
     }
-    if (!this.state.modality || this.state.modality == 0) {
+    if (!this.state.modality || this.state.modality == '') {
       modalityError = "Campo obligatorio";
     }
-    console.log(this.state.phone.length)
     if (!this.state.phone || (this.state.phone.length < 7 || this.state.phone.length > 10)) {
-      phoneError = "Campo obligatorio";
+      phoneError = "Debes ingresar un número de telefono fijo o celular";
     }
-    if (!this.state.password || this.state.password.length < 8) {
-      passwordError = "Campo obligatorio";
+    if (!this.state.password) {
+      passwordError = "El campo no puede ser vacio";
     }
-    if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || modalityError) {
-      this.setState({usernameError, field_nameError, field_lastnameError, birthdateError, phoneError, modalityError, passwordError});
+    if (!this.state.repeat_password) {
+      passwordConfirmError = "El campo no puede ser vacio";
+    }
+    if (this.state.password != this.state.repeat_password && passwordConfirmError == '') {
+      passwordConfirmError = "Las contraseñas son diferentes";
+    }
+    if (passwordError == '' && this.state.password.length < 8) {
+        passwordError = "El campo debe tener minímo 8 caracteres";
+    }
+    if (passwordConfirmError == '' && this.state.repeat_password.length < 8) {
+      passwordConfirmError = "El campo debe tener minímo 8 caracteres";
+    }
+    var match = /^[A-Z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos una mayúscula";
+    }
+    var match = /[a-z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos una minuscula";
+    }
+    var match = /[^a-zA-Z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos un caracter Especial";
+    }
+    if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || passwordConfirmError || modalityError) {
+      this.setState({usernameError, field_nameError, field_lastnameError, birthdateError, phoneError, modalityError, passwordError, passwordConfirmError});
       return false;
     };
     return true;
@@ -70,8 +95,9 @@ class RegisterForm extends React.Component {
       try {
         await this.props.drupalOauthClient.handleRegister(field_name, field_lastname, birthdate, username, modality, phone, password, 'cliente');
         this.setState({ processing: false });
-        this.props.updateAuthenticatedUserState(true);
-        navigate("/regist-full");
+        // this.props.updateAuthenticatedUserState(true);
+        //navigate("/regist-full");
+        this.setState({error: 'Te hemos enviado un correo eléctronico por favor confirmalo'});
       } catch(err) {
         this.setState({
           processing: false,
@@ -154,8 +180,8 @@ class RegisterForm extends React.Component {
                   <option value="ruta">Ruta</option>
                   <option value ="montaña">Montaña</option>
                   <option value="bmx">Bmx</option>
-                  <div style={{color:"red"}}>{this.state.modalityError}</div>
                 </Form.Control>
+                <div style={{color:"red"}}>{this.state.modalityError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
                 <Form.Control
@@ -183,10 +209,13 @@ class RegisterForm extends React.Component {
                 <Form.Control
                 type="password"
                 name="repeat_password"
-                 placeholder="repetir contraseña" />
-                 <div style={{color:"red"}}>{this.state.passwordError}</div>
+                 placeholder="repetir contraseña"
+                 onChange={event =>
+                  this.setState({ [event.target.name]: event.target.value })}
+                  />
+                 <div style={{color:"red"}}>{this.state.passwordConfirmError}</div>
               </Form.Group>
-              <Link to="user/login"> Ya tienes cuenta?</Link>
+              <Link to="/user/login"> Ya tienes cuenta?</Link>
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>

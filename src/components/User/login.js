@@ -10,7 +10,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <SEO title="login" />
+        <SEO title="Recovery Password" />
         <div className="login">
             <div className="box-form">
               <LoginForm r="/user/profile" />

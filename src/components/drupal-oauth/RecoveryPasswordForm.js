@@ -2,7 +2,7 @@ import React from 'react';
 import withDrupalOauthConsumer from './withDrupalOauthConsumer';
 import { Link, navigate } from 'gatsby';
 import {Form} from "react-bootstrap"
-class LoginForm extends React.Component {
+class RecoveryPasswordForm extends React.Component {
   state = {
     processing: false,
     username: '',
@@ -19,11 +19,8 @@ class LoginForm extends React.Component {
     if (!this.state.username.includes("@", ".")) {
       usernameError = "Correo electronico invalido";
     }
-    if (!this.state.password) {
-      passwordError = "El campo no puede ser vacio";
-    }
-    if (usernameError || passwordError) {
-      this.setState({usernameError, passwordError});
+    if (usernameError) {
+      this.setState({usernameError});
       return false;
     };
     return true;
@@ -34,16 +31,20 @@ class LoginForm extends React.Component {
     const isValid = this.validate();
     if (isValid) {
       this.setState({ processing: true });
-      const { username, password } = this.state;
+      const { username } = this.state;
 
       try {
-        await this.props.drupalOauthClient.handleLogin(username, password, '').then(receive => receive)
+        await this.props.drupalOauthClient.handleRecoveryPassword(username).then(receive => receive)
           .then(json => {
             console.log("json",json)
             if (json.message === undefined) {
               this.setState({ processing: false });
-              this.props.updateAuthenticatedUserState(true);
-                navigate(`${this.props.r}`)
+              this.setState({
+                processing: false,
+                error: "Revisa tú correo electrónico para recuperar tú contraseña",
+              });
+              // this.props.updateAuthenticatedUserState(true);
+                // navigate(`${this.props.r}`)
             }else{
               this.setState({
                 processing: false,
@@ -69,10 +70,11 @@ class LoginForm extends React.Component {
        <>
           { processing ?
             <div>Loading ...</div>
-            :
+            :<>
+            { error && <Form.Text >{error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <div className="title-form">
-                <h2>login</h2>
+                <h2>Recuperar contraseña</h2>
               </div>
               <Form.Group className={ error ? 'error' : ''} controlId="formBasicText">
                 <Form.Control type="text" placeholder="Ingresa tú correo" name="username" onChange={event =>
@@ -80,23 +82,16 @@ class LoginForm extends React.Component {
                 }/>
                 <div className="text-error error-authentication">{this.state.usernameError}</div>
               </Form.Group>
-              <Form.Group className={ error ? 'error' : ''}  controlId="formBasicPassword">
-                <Form.Control type="password" minLength="8" name="password" placeholder="Ingresa tú contraseña" onChange={event =>
-                  this.setState({ [event.target.name]: event.target.value })
-                }/>
-                <div className="text-error error-authentication">{this.state.passwordError}</div>
-                { error && <div className="text-error">{error} </div>}
-              </Form.Group>
-              <Link className="link-text" to="/user/recovery">Solicitar nueva contraseña</Link>
+              <Link className="link-text" to="/user/login">¿Tienes Cuenta?</Link>
               <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>
               <Link className="link-text" to="/user/register">No tienes cuenta</Link>
-            </form>
+            </form></>
           }
         </>
     );
   }
 }
 
-export default withDrupalOauthConsumer(LoginForm);
+export default withDrupalOauthConsumer(RecoveryPasswordForm);

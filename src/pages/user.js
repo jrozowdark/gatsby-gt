@@ -11,6 +11,9 @@ import PrivateRoute from "../components/Utils/PrivateRoute"
 import PointSaleRedemption from "../components/User/point-sale-redemption";
 import LoginPoint from "../components/User/login-point";
 import Thanks from "../components/User/thanks";
+import AccountEnable from "../components/User/account-enable";
+import RecoveryPassword from "../components/User/recovery-password";
+import ChangePassword from "../components/User/change-password";
 const App = (props) => {
   return(
     <Layout>
@@ -20,7 +23,10 @@ const App = (props) => {
         <PrivateRoute exact path="/user/buy/:id" component={Buy}/>
         <PrivateRoute exact path="/user/thanks/:id" component={Thanks}/>
         <Login exact path="/user/login" />
+        <RecoveryPassword exact path = "/user/recovery" />
+        <ChangePassword exact path = "/user/recovery/:id/:time/:hash" component={ChangePassword}/>
         <Register exact path="/user/register" component={Register} />
+        <AccountEnable exact path="/user/enable/:id" component={AccountEnable} />
         {/* <PrivateRoute path="/user/*" component={Profile} /> */}
       </Router>
     </Layout>
