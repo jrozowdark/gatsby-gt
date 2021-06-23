@@ -6,25 +6,47 @@ class LoginFormStaff extends React.Component {
   state = {
     processing: false,
     username: '',
+    usernameError: '',
     password: '',
+    passwordError: '',
     error: null,
   };
 
+  validate = () => {
+    let usernameError = "";
+    let passwordError = "";
+
+    if (!this.state.username.includes("@", ".")) {
+      usernameError = "Correo electronico invalido";
+    }
+    if (!this.state.password) {
+      passwordError = "El campo no puede ser vacio";
+    }
+    if (usernameError || passwordError) {
+      this.setState({usernameError, passwordError});
+      return false;
+    };
+    return true;
+  }
+
   handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ processing: true });
-    const { username, password } = this.state;
-
-    try {
-      await this.props.drupalOauthClient.handleLogin(username, password, '');
-      this.setState({ processing: false });
-      this.props.updateAuthenticatedUserState(true);
-        navigate(`${this.props.r}`)
-    } catch(err) {
-      this.setState({
-        processing: false,
-        error: 'No se pudo completar su solicitud de inicio de sesión.',
-      });
+    const isValide = this.validate();
+    if (isValide) {
+      this.setState({ processing: true });
+      const { username, password } = this.state;
+  
+      try {
+        await this.props.drupalOauthClient.handleLogin(username, password, '');
+        this.setState({ processing: false });
+        this.props.updateAuthenticatedUserState(true);
+          navigate(`${this.props.r}`)
+      } catch(err) {
+        this.setState({
+          processing: false,
+          error: 'No se pudo completar su solicitud de inicio de sesión.',
+        });
+      }
     }
   };
 
@@ -46,11 +68,13 @@ class LoginFormStaff extends React.Component {
                 <Form.Control type="text" placeholder="Ingresa tú usuario staff" name="username" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
+                <div className="text-error error-authentication">{this.state.usernameError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
                 <Form.Control type="password" minLength="8" name="password" placeholder="Ingresa tú contraseña" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
+                <div className="text-error error-authentication">{this.state.passwordError}</div>
                 { error && <Form.Text>{error} </Form.Text>}
               </Form.Group>
               <Link className="link-text" to="/recover-password">Solicitar nueva contraseña</Link>
