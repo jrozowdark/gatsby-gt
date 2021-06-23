@@ -11,6 +11,7 @@ import PrivateRoute from "../components/Utils/PrivateRoute"
 import PointSaleRedemption from "../components/User/point-sale-redemption";
 import LoginPoint from "../components/User/login-point";
 import Thanks from "../components/User/thanks";
+import AccountEnable from "../components/User/account-enable";
 const App = (props) => {
   return(
     <Layout>
@@ -21,6 +22,7 @@ const App = (props) => {
         <PrivateRoute exact path="/user/thanks/:id" component={Thanks}/>
         <Login exact path="/user/login" />
         <Register exact path="/user/register" component={Register} />
+        <AccountEnable exact path="/user/enable/:id" component={AccountEnable} />
         {/* <PrivateRoute path="/user/*" component={Profile} /> */}
       </Router>
     </Layout>

@@ -70,8 +70,9 @@ class RegisterForm extends React.Component {
       try {
         await this.props.drupalOauthClient.handleRegister(field_name, field_lastname, birthdate, username, modality, phone, password, 'cliente');
         this.setState({ processing: false });
-        this.props.updateAuthenticatedUserState(true);
-        navigate("/regist-full");
+        // this.props.updateAuthenticatedUserState(true);
+        //navigate("/regist-full");
+        this.setState({error: 'Te hemos enviado un correo eléctronico por favor confirmalo'});
       } catch(err) {
         this.setState({
           processing: false,

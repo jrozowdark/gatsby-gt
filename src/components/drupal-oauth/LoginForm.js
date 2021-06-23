@@ -35,11 +35,22 @@ class LoginForm extends React.Component {
     if (isValid) {
       this.setState({ processing: true });
       const { username, password } = this.state;
+
       try {
-        await this.props.drupalOauthClient.handleLogin(username, password, '');
-        this.setState({ processing: false });
-        this.props.updateAuthenticatedUserState(true);
-          navigate(`${this.props.r}`)
+        await this.props.drupalOauthClient.handleLogin(username, password, '').then(receive => receive)
+          .then(json => {
+            console.log("json",json)
+            if (json.message === undefined) {
+              this.setState({ processing: false });
+              this.props.updateAuthenticatedUserState(true);
+                navigate(`${this.props.r}`)
+            }else{
+              this.setState({
+                processing: false,
+                error: json.message,
+              });
+            }
+          });
       } catch(err) {
         this.setState({
           processing: false,
