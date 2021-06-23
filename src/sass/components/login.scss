@@ -23,9 +23,6 @@
   position: relative;
   height: auto;
   min-height: 100vh;
-  @media(min-width: 1024px) {
-    // min-height: 42rem;
-  }
   //Background image
   &::before {
     content: '';
@@ -45,12 +42,12 @@
     color: $black;
     width: 100%;
     margin: 0 auto;
-    padding: 6rem 0 0 0;
+    padding: 6rem 0 25px 0;
     @media(min-width: 576px) {
       padding: 10rem 0 0 0;
     }
     @media(min-width: 1024px) {
-      width: 560px;
+      width: 675px;
       padding: 15rem 0 0 0;
     }
     @media(min-width: 1450px) {
@@ -62,7 +59,7 @@
     form {
       display: flex;
       flex-direction: column;
-      
+      margin: 0;
       //Title
       .title-form {
         margin-bottom: 80px;

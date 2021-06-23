@@ -13,7 +13,7 @@ class RecoveryPassword extends React.Component {
       <div>
         <SEO title="recover-password" />
         <div className="login recover-password">
-            <div className="box-form">
+            <div className="box-form box-form-rocovery">
               <RecoveryPasswordForm r="/user/login" />
             </div>
         </div>

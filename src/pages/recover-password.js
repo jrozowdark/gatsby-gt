@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 const Login = () => (
   <Layout>
     <SEO title="recover-password" />
-    <div className="login recover-password">
+    <div className="login recover-password ">
       <div className="box-form">
         <form>
           <div className="title-form">

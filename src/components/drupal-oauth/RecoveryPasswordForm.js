@@ -74,7 +74,7 @@ class RecoveryPasswordForm extends React.Component {
             { error && <Form.Text >{error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <div className="title-form">
-                <h2>Recuperar contraseña</h2>
+                <h2>Recuperar<br/>contraseña</h2>
               </div>
               <Form.Group className={ error ? 'error' : ''} controlId="formBasicText">
                 <Form.Control type="text" placeholder="Ingresa tú correo" name="username" onChange={event =>
@@ -84,7 +84,7 @@ class RecoveryPasswordForm extends React.Component {
               </Form.Group>
               <Link className="link-text" to="/user/login">¿Tienes Cuenta?</Link>
               <div className="link button-fifth">
-               <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
+               <input type="submit" value="Enviar" onClick={ event => this.handleSubmit(event)} />
               </div>
               <Link className="link-text" to="/user/register">No tienes cuenta</Link>
             </form></>
