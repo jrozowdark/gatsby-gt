@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
                 <div className="text-error error-authentication">{this.state.passwordError}</div>
                 { error && <div className="text-error">{error} </div>}
               </Form.Group>
-              <Link className="link-text" to="/recover-password">Solicitar nueva contraseña</Link>
+              <Link className="link-text" to="/user/recovery">Solicitar nueva contraseña</Link>
               <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>

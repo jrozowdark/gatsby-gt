@@ -213,7 +213,7 @@ class RegisterForm extends React.Component {
                  placeholder="repetir contraseña" />
                  <div style={{color:"red"}}>{this.state.passwordConfirmError}</div>
               </Form.Group>
-              <Link to="user/login"> Ya tienes cuenta?</Link>
+              <Link to="/user/login"> Ya tienes cuenta?</Link>
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>
