@@ -46,7 +46,6 @@ class RegisterForm extends React.Component {
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
     }
-    console.log("modality",this.state.modality)
     if (!this.state.modality || this.state.modality == '') {
       modalityError = "Campo obligatorio";
     }
@@ -56,16 +55,16 @@ class RegisterForm extends React.Component {
     if (!this.state.password) {
       passwordError = "El campo no puede ser vacio";
     }
-    if (!this.state.new_password) {
+    if (!this.state.repeat_password) {
       passwordConfirmError = "El campo no puede ser vacio";
     }
-    if (this.state.password != this.state.new_password && passwordConfirmError == '') {
+    if (this.state.password != this.state.repeat_password && passwordConfirmError == '') {
       passwordConfirmError = "Las contraseñas son diferentes";
     }
     if (passwordError == '' && this.state.password.length < 8) {
         passwordError = "El campo debe tener minímo 8 caracteres";
     }
-    if (passwordConfirmError == '' && this.state.new_password.length < 8) {
+    if (passwordConfirmError == '' && this.state.repeat_password.length < 8) {
       passwordConfirmError = "El campo debe tener minímo 8 caracteres";
     }
     var match = /^[A-Z]/;
@@ -210,7 +209,10 @@ class RegisterForm extends React.Component {
                 <Form.Control
                 type="password"
                 name="repeat_password"
-                 placeholder="repetir contraseña" />
+                 placeholder="repetir contraseña"
+                 onChange={event =>
+                  this.setState({ [event.target.name]: event.target.value })}
+                  />
                  <div style={{color:"red"}}>{this.state.passwordConfirmError}</div>
               </Form.Group>
               <Link to="/user/login"> Ya tienes cuenta?</Link>
