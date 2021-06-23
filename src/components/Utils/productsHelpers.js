@@ -31,65 +31,9 @@ export const getPack = node => {
         <div className="image-buy-two">
           <div className="image-bg-benefits"><Img fluid={node.background.field_image.localFile.childImageSharp.fluid} /></div>
         </div>
+        <div className={[node.field_unique]}></div>
       </div>
       <RedirectLoggedPacks title={node.field_link.title} pid={node.drupal_internal__nid}/>
     </div>
   </div>);
-
-  {/* <div className="fourth-component">
-<div className="text-buy">
-  <h2 className="font-line-black">compra</h2>
-  <h3>tu pack</h3>
-</div>
-<div className="container-buy">
-  <div className="body-buy">
-    <div className="image-buy">
-      <StaticImage className="image-bg-buy"
-        src="../images/image-regist.png"
-        // width={300}
-        // height={500}
-        objectFit="cover"
-        quality={99}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Logo gatorade"
-      />
-    </div>
-    <div className="title-image-buy">
-      <div className="title-buy">
-        <h2 className="title-one font-gatorade-light">pack</h2>
-        <h2 className="font-line-orange">camise</h2>
-      </div>
-      <div className="paragraph-buy">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      <div className="image-buy-two">
-        <StaticImage className="image-bg-buy"
-          src="../images/camisa-buy.png"
-          // width={300}
-          // height={500}
-          objectFit="contain"
-          quality={99}
-          formats={["AUTO", "WEBP", "AVIF"]}
-          alt="Logo gatorade"
-        />
-      </div>
-    </div>
-    <div className="button-dowload-buy">
-      <Link
-        to="/"
-        style={{
-          color: `white`,
-          textDecoration: `none`,
-        }}
-      >
-        Recargar
-    </Link>
-    </div>
-  </div>
-  <div className="text-buy-lateral">
-    <h2>mi camiseta</h2>
-  </div>
-</div>
-</div>) */}
-  // return <ul>{node_data}</ul>;
-};
+  };

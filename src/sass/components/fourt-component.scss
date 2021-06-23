@@ -17,7 +17,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    width: 9.5rem;
+    width: 11rem;
     margin: auto;
     @media(min-width: 1024px) {
       flex-direction: row;
@@ -33,6 +33,7 @@
     //   height: 9rem;
     // }
     h2 {
+      line-height: .8;
       @media(min-width: 1024px) {
         font-size: 5rem;
       }
@@ -41,6 +42,7 @@
       align-self: start;
       text-transform: uppercase;
       color: gray;
+      line-height: .8;
       @media(min-width: 1024px) {
         font-size: 3rem;
         padding: .1rem 0 0 0.5rem;
@@ -219,7 +221,7 @@
             @media(max-width: 1023px) {
               font-size: 3.9rem;
               font-family: 'PlexesPro black';
-              -webkit-text-stroke: 0.01rem #FB5030;
+              -webkit-text-stroke: 1px #FB5030;
               color: transparent;
               line-height: 0.9;
             }
@@ -340,7 +342,7 @@
         }
       }
     }
-    .button-seven {
+    .button-six {
       transform: skewX(-31deg) translateX(-55%);
       left: 50%;
       position: relative;
@@ -384,7 +386,7 @@
 @media(min-width: 1024px) {
   .container-buy {
     &:hover {
-      .button-seven {
+      .button-six {
         opacity: 1;
       }
       // .image-buy-two {
