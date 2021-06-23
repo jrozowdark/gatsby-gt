@@ -8,11 +8,11 @@ function RedirectLoggedPacks(props) {
   return (
     <>
       {props.userAuthenticated ?<>
-        <div className="button-seven">
+        <div className="button-six">
           <Link to={`/user/buy/${props.pid}`}>{props.title}</Link>
         </div>
         </> :
-        <div className="button-seven">
+        <div className="button-six">
           <Link to="/user/login">{props.title}</Link>
         </div>}
       </>
