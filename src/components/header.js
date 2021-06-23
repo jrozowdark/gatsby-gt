@@ -38,17 +38,17 @@ const Header = ({ siteTitle }) => {
               <a href="/">Inicio</a>
             </li>
             <li>
-              <a href="/#secundary-slider"  onClick={() => showNav(!nav)}>Como funciona?</a>
+              <a href="/#secundary-slider"  onClick={() => showNav(!nav)}>Cómo funciona?</a>
             </li>
             <li>
               <a href="/#buy-packs"  onClick={() => showNav(!nav)}>Comprar packs</a>
             </li>
             <li>
-              <a href="/user/profile"  onClick={() => showNav(!nav)}>Mi cuenta</a>
+              <a href="/user/register"  onClick={() => showNav(!nav)}>Mi cuenta</a>
             </li>
-            {/* <li>
-              <a href="/home">Cuenta de staff</a>
-            </li> */}
+            <li>
+              <a href="/staff/login" onClick={() => showNav(!nav)}>Cuenta de staff</a>
+            </li>
           </ul>
           <Footer/>
         </MenuLinks>
