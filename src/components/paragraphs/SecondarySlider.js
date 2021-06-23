@@ -52,7 +52,7 @@ export const SecondarySlider = ({ node }) => {
               <h2 className="title-slider regist" dangerouslySetInnerHTML={{ __html: slide.field_title_second_line}} />
             </div>
             <div className="pagraph-slider" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
-            <div className="link button-six"><Link to={slide.field_link.uri}>{slide.field_link.title}</Link></div>
+            <div className="link button-six"><Link to={slide.field_link.uri.replace(':internal/','')}>{slide.field_link.title}</Link></div>
           </div>
           <div className="image d-none d-lg-block"><Img fluid={slide.image.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
           <div className="image d-lg-none"><Img fluid={slide.image.field_image_mobile.data.field_media_image_1.localFile.childImageSharp.fluid} /></div>
