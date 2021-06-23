@@ -109,7 +109,7 @@
       // Text section
       .text-section {
         h2:nth-child(1) {
-          -webkit-text-stroke: 0.1rem #FB5030;
+          -webkit-text-stroke: 1px #FB5030;
           @media(min-width: 1024px) {
             line-height: .5 !important;
             padding-top: 3rem !important;

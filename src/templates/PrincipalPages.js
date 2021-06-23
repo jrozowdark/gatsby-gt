@@ -68,6 +68,7 @@ export const pageQuery = graphql`
                 }
                 field_quantity_bottles
                 field_price
+                field_unique
             }
         }
     }

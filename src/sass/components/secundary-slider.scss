@@ -23,7 +23,8 @@
     .font-line-black {
       padding-left: 3rem;
       @media(max-width: 1023px) {
-        line-height: 0.7;
+        line-height: 0.5;
+        padding-left: 1rem;
       }
       @media(min-width: 1024px) {
         font-size: 5rem;
@@ -232,7 +233,7 @@
                 font-size: 6rem;
                 height: 6rem;
                 font-family: 'PlexesPro black';
-                -webkit-text-stroke: 0.07rem #FB5030;
+                -webkit-text-stroke: 1px #FB5030;
                 @media(max-width: 1023px) {
                   padding-left: 2rem;
                 }
@@ -387,6 +388,8 @@
             position: absolute;
             left: -1.4rem;
             width: 3.5rem;
+            text-decoration: none;
+            font-family: 'PlexesPro black';
           }
         }
       }

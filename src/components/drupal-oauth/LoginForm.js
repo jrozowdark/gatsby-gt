@@ -6,25 +6,57 @@ class LoginForm extends React.Component {
   state = {
     processing: false,
     username: '',
+    usernameError: '',
     password: '',
+    passwordError: '',
     error: null,
   };
 
+  validate = () => {
+    let usernameError = "";
+    let passwordError = "";
+
+    if (!this.state.username.includes("@", ".")) {
+      usernameError = "Correo electronico invalido";
+    }
+    if (!this.state.password) {
+      passwordError = "El campo no puede ser vacio";
+    }
+    if (usernameError || passwordError) {
+      this.setState({usernameError, passwordError});
+      return false;
+    };
+    return true;
+  }
+
   handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ processing: true });
-    const { username, password } = this.state;
+    const isValid = this.validate();
+    if (isValid) {
+      this.setState({ processing: true });
+      const { username, password } = this.state;
 
-    try {
-      await this.props.drupalOauthClient.handleLogin(username, password, '');
-      this.setState({ processing: false });
-      this.props.updateAuthenticatedUserState(true);
-        navigate(`${this.props.r}`)
-    } catch(err) {
-      this.setState({
-        processing: false,
-        error: 'Unable to complete your login request.',
-      });
+      try {
+        await this.props.drupalOauthClient.handleLogin(username, password, '').then(receive => receive)
+          .then(json => {
+            console.log("json",json)
+            if (json.message === undefined) {
+              this.setState({ processing: false });
+              this.props.updateAuthenticatedUserState(true);
+                navigate(`${this.props.r}`)
+            }else{
+              this.setState({
+                processing: false,
+                error: json.message,
+              });
+            }
+          });
+      } catch(err) {
+        this.setState({
+          processing: false,
+          error: 'No se pudo completar su solicitud de inicio de sesión.',
+        });
+      }
     }
   };
 
@@ -46,14 +78,16 @@ class LoginForm extends React.Component {
                 <Form.Control type="text" placeholder="Ingresa tú correo" name="username" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
+                <div className="text-error error-authentication">{this.state.usernameError}</div>
               </Form.Group>
               <Form.Group className={ error ? 'error' : ''}  controlId="formBasicPassword">
                 <Form.Control type="password" minLength="8" name="password" placeholder="Ingresa tú contraseña" onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
-                { error && <Form.Text>{error} </Form.Text>}
+                <div className="text-error error-authentication">{this.state.passwordError}</div>
+                { error && <div className="text-error">{error} </div>}
               </Form.Group>
-              <Link className="link-text" to="/recover-password">Solicitar nueva contraseña</Link>
+              <Link className="link-text" to="/user/recovery">Solicitar nueva contraseña</Link>
               <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>
