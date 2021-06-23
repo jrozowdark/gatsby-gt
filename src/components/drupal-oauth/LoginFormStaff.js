@@ -23,7 +23,7 @@ class LoginFormStaff extends React.Component {
     } catch(err) {
       this.setState({
         processing: false,
-        error: 'Unable to complete your login request.',
+        error: 'No se pudo completar su solicitud de inicio de sesión.',
       });
     }
   };

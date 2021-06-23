@@ -21,10 +21,10 @@
 // /*---| Login |---*/
 .login {
   position: relative;
-  height: 100vh;
-  min-height: 35rem;
+  height: auto;
+  min-height: 100vh;
   @media(min-width: 1024px) {
-    min-height: 42rem;
+    // min-height: 42rem;
   }
   //Background image
   &::before {
@@ -40,32 +40,39 @@
   }
   //Form login
   .box-form {
-    position: absolute;
-    top: 19.9rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
     color: $black;
-    height: 446px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 6rem 0 0 0;
+    @media(min-width: 576px) {
+      padding: 10rem 0 0 0;
+    }
     @media(min-width: 1024px) {
-      top: 22rem;
+      width: 560px;
+      padding: 15rem 0 0 0;
     }
     @media(min-width: 1450px) {
-      top: 50%;
+      padding: 13.8rem 0 0 0;
     }
-    @media(min-width: 2400px) {
-      top: 23.5rem;
+    @media(min-width: 2000px) {
+      padding: 20rem 0 0 0;
     }
     form {
       display: flex;
       flex-direction: column;
+      
       //Title
       .title-form {
-        margin-bottom: 77px;
+        margin-bottom: 80px;
         @media(min-width: 1024px) {
           margin-bottom: 48px;
         }
         @media(min-width: 1450px) {
+          margin-bottom: 40px;
+        }
+        @media(min-width: 2000px) {
           margin-bottom: 14%;
         }
         h2  {
@@ -96,6 +103,7 @@
           font-size: 1rem;
           color: $gray;
           text-align: center;
+          margin: 0 auto;
           &::placeholder {
             color: $gray;
             text-transform: uppercase;
@@ -113,8 +121,9 @@
             width: 420px;
           }
         }
-        &:nth-child(3) {
+        &:nth-child(4) {
           margin: 0 auto 6px;
+          height: 95px;
         }
         &.error {
           input {
@@ -124,21 +133,23 @@
             color:$red;
           }
         }
+        .error-authentication {
+          font-size: 1rem;
+        }
       }
       //Error field
       //Flag password
-      small {
+      .text-error {
         color: $red;
-        text-align: left;
         padding: 0 12px;
         font-family: $g-black;
         font-size: 1.1rem;
-        margin-bottom: 20px;
         width: 255px;
         line-height: 1;
         text-align: center;
+        margin: 0 auto;
         @media(min-width: 768px) {
-          padding: 0;
+          padding: 5px 0 0;
           font-size: 1.3rem;
           letter-spacing: -0.5px;
           width: 390px;
