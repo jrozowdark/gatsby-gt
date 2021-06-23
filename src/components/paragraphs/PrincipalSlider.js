@@ -30,6 +30,7 @@ export const PrincipalSlider = ({ node }) => {
               <div className="box-button" data-aos="fade-right" data-aos-duration="3000" data-aos-offset="0" data-aos-once="true" ><div className="link button-second"><Link to={slide.field_link.uri}>{slide.field_link.title}</Link></div></div>
             </div>
             <div className="image"><Img className="bg-prinicpal-slider" data-aos="fade-up" data-aos-delay="800" data-aos-offset="1" fluid={slide.image.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
+            <div className=" carlosm paso"><Link to="/#secundary-slider"></Link></div>
           </div>
         ))}
       </Slider>
