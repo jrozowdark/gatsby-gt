@@ -40,7 +40,7 @@ class ChangePasswordForm extends React.Component {
     if (passwordError == "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe al menos una minuscula";
     }
-    var matchc = /[^a-zA-Z]/;
+    var match = /[^a-zA-Z]/;
     if (passwordError == "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe al menos un caracter Especial";
     }

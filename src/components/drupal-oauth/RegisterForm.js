@@ -10,6 +10,7 @@ class RegisterForm extends React.Component {
     usernameError: '',
     password: '',
     passwordError: '',
+    passwordConfirmError: '',
     field_name: '',
     field_nameError: '',
     field_lastname: '',
@@ -28,6 +29,7 @@ class RegisterForm extends React.Component {
     let field_nameError = "";
     let field_lastnameError = "";
     let passwordError = "";
+    let passwordConfirmError= "";
     let birthdateError = "";
     let phoneError = "";
     let modalityError = "";
@@ -44,18 +46,42 @@ class RegisterForm extends React.Component {
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
     }
-    if (!this.state.modality || this.state.modality == 0) {
+    console.log("modality",this.state.modality)
+    if (!this.state.modality || this.state.modality == '') {
       modalityError = "Campo obligatorio";
     }
-    console.log(this.state.phone.length)
     if (!this.state.phone || (this.state.phone.length < 7 || this.state.phone.length > 10)) {
-      phoneError = "Campo obligatorio";
+      phoneError = "Debes ingresar un número de telefono fijo o celular";
     }
-    if (!this.state.password || this.state.password.length < 8) {
-      passwordError = "Campo obligatorio";
+    if (!this.state.password) {
+      passwordError = "El campo no puede ser vacio";
     }
-    if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || modalityError) {
-      this.setState({usernameError, field_nameError, field_lastnameError, birthdateError, phoneError, modalityError, passwordError});
+    if (!this.state.new_password) {
+      passwordConfirmError = "El campo no puede ser vacio";
+    }
+    if (this.state.password != this.state.new_password && passwordConfirmError == '') {
+      passwordConfirmError = "Las contraseñas son diferentes";
+    }
+    if (passwordError == '' && this.state.password.length < 8) {
+        passwordError = "El campo debe tener minímo 8 caracteres";
+    }
+    if (passwordConfirmError == '' && this.state.new_password.length < 8) {
+      passwordConfirmError = "El campo debe tener minímo 8 caracteres";
+    }
+    var match = /^[A-Z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos una mayúscula";
+    }
+    var match = /[a-z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos una minuscula";
+    }
+    var match = /[^a-zA-Z]/;
+    if (passwordError == "" && !match.exec(this.state.password)) {
+      passwordError = "El campo debe al menos un caracter Especial";
+    }
+    if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || passwordConfirmError || modalityError) {
+      this.setState({usernameError, field_nameError, field_lastnameError, birthdateError, phoneError, modalityError, passwordError, passwordConfirmError});
       return false;
     };
     return true;
@@ -155,8 +181,8 @@ class RegisterForm extends React.Component {
                   <option value="ruta">Ruta</option>
                   <option value ="montaña">Montaña</option>
                   <option value="bmx">Bmx</option>
-                  <div style={{color:"red"}}>{this.state.modalityError}</div>
                 </Form.Control>
+                <div style={{color:"red"}}>{this.state.modalityError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
                 <Form.Control
@@ -185,7 +211,7 @@ class RegisterForm extends React.Component {
                 type="password"
                 name="repeat_password"
                  placeholder="repetir contraseña" />
-                 <div style={{color:"red"}}>{this.state.passwordError}</div>
+                 <div style={{color:"red"}}>{this.state.passwordConfirmError}</div>
               </Form.Group>
               <Link to="user/login"> Ya tienes cuenta?</Link>
               <div className="link button-first">
