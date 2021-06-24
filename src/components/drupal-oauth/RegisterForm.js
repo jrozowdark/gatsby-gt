@@ -104,7 +104,7 @@ class RegisterForm extends React.Component {
       this.setState({ processing: true });
       const { field_name, field_lastname, birthdate, username, modality, phone, password } = this.state;
       try {
-        await this.props.drupalOauthClient.handleRegister(field_name, field_lastname, birthdate, username, modality, phone, password, 'cliente');
+        await this.props.drupalOauthClient.handleRegister(field_name.toUpperCase(), field_lastname.toUpperCase(), birthdate, username.toUpperCase(), modality, phone, password, 'cliente');
         this.setState({ processing: false });
         // this.props.updateAuthenticatedUserState(true);
         //navigate("/regist-full");
@@ -119,12 +119,16 @@ class RegisterForm extends React.Component {
   };
   pad(n){return n<10 ? '0'+n : n}
   onKeyPressed(e) {
-    if (e.keyCode === 69) { //13 is the key code for Enter
+    if (!(e.keyCode >= 48 && e.keyCode <= 57) && e.keyCode !== 91 && e.keyCode !== 92 && e.keyCode !== 8 && e.keyCode !== 32 && e.keyCode !== 9) { //13 is the key code for Enter
       e.preventDefault()
       //Here you can even write the logic to select the value from the drop down or something.
     }
   }
-  // onKeyPressedLetters(e) {
+  onKeyPressedLetters(e) {
+     if (!(e.keyCode >= 65 && e.keyCode <= 120) && e.keyCode !== 91 && e.keyCode !== 92 && e.keyCode !== 8 && e.keyCode !== 32 && e.keyCode !== 9 && e.keyCode != 0) {
+       e.preventDefault();
+     }
+  }
   //   if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode === 91 || e.keyCode === 92 || e.keyCode === 8 || e.keyCode === 32) { //13 is the key code for Enter
   //     return true;
   //   }
@@ -154,7 +158,7 @@ class RegisterForm extends React.Component {
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }
-                // onKeyDown = {this.onKeyPressedLetters}
+                onKeyDown = {this.onKeyPressedLetters}
 
                 />
                 <div style={{color:"red"}}>{this.state.field_nameError}</div>
@@ -213,6 +217,7 @@ class RegisterForm extends React.Component {
                 type="number"
                 placeholder="teléfono"
                 name="phone"
+                pattern = "[0-9]*"
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }
