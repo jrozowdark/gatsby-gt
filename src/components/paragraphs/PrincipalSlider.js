@@ -23,14 +23,18 @@ export const PrincipalSlider = ({ node }) => {
     return (
       <Slider {...settings}>
         {node.data_slide.field_slide.map((slide, i ) => (
-          <div className="container-principalSlider" key={i}>
-            <div className="text-prinicpal-slider">
-              <h2 data-aos="fade-up" data-aos-delay="800" data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
-              <div className="paraf"  data-aos="zoom-in" data-aos-offset="5"  dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
-              <div className="box-button" data-aos="fade-right" data-aos-duration="3000" data-aos-offset="0" data-aos-once="true" ><div className="link button-second"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div></div>
+          <div className="container-principalSlider container-fluid" key={i}>
+            <div className="row">
+              <div className="box-text col-12 col-xl-6"> 
+                <div className="text-prinicpal-slider">
+                  <h2 data-aos="fade-up" data-aos-delay="800" data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
+                  <div className="description"  data-aos="zoom-in" data-aos-offset="5"  dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
+                  <div className="box-button" data-aos="fade-right" data-aos-duration="3000" data-aos-offset="0" data-aos-once="true" ><div className="button-second"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div></div>
+                </div>
+                <div className="button-pass"><Link to="/#secundary-slider"></Link></div>
+              </div>
+              <div className="image"><Img className="bg-prinicpal-slider" data-aos="fade-up" data-aos-delay="800" data-aos-offset="1" fluid={slide.image.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
             </div>
-            <div className="image"><Img className="bg-prinicpal-slider" data-aos="fade-up" data-aos-delay="800" data-aos-offset="1" fluid={slide.image.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
-            <div className=" carlosm paso"><Link to="/#secundary-slider"></Link></div>
           </div>
         ))}
       </Slider>
