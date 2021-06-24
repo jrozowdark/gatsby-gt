@@ -7,7 +7,9 @@ import LogoGatorade from "../../images/logo-menu.png";
 
 function Navigation(props) {
   const [nav, showNav] = useState(false)
-  let bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
+  if (typeof window !== 'undefined') {
+    let bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
+  }
   return (
     <div className="menu-horizontal container-fluid" >
       <div className="row">
