@@ -7,6 +7,7 @@ import LogoGatorade from "../../images/logo-menu.png";
 
 function Navigation(props) {
   const [nav, showNav] = useState(false)
+  let bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
   return (
     <div className="menu-horizontal container-fluid" >
       <div className="row">
@@ -23,14 +24,14 @@ function Navigation(props) {
           </div>
           <div className="links-section">
             {props.userAuthenticated ?<>
-              <div className="link-my-account">
+              <div className={`link-my-account ${bottles}`}>
               <Link to="/user/profile"></Link>
               </div>
               <LogoutLink/>
               </> :<>
               <div className="link-regist">
                 <Link to="/user/register">Registrate</Link>
-              </div>              
+              </div>
               <div className="link-login" onClick={() => showNav(!nav)}>
                 <Link to="#"></Link>
               </div>
@@ -38,10 +39,10 @@ function Navigation(props) {
                <p>Ingresar como:</p>
                <Link to="/user/login">Deportista</Link>
                <Link to="/staff/login">staff</Link>
-            </Modal>              
+            </Modal>
               </>
             }
-            
+
           </div>
         </div>
       </div>
