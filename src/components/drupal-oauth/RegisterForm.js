@@ -40,8 +40,15 @@ class RegisterForm extends React.Component {
     if (!this.state.field_name) {
       field_nameError = "Campo obligatorio";
     }
+    var match = /[^a-zA-Z\s-]/i;
+    if (field_nameError == "" && !match.exec(this.state.field_name)) {
+      field_nameError = "El campo debe contener solo Letras";
+    }
     if (!this.state.field_lastname) {
       field_lastnameError = "Campo obligatorio";
+    }
+    if (field_lastnameError == "" && !match.exec(this.state.field_lastname)) {
+      field_lastnameError = "El campo debe al menos una mayúscula";
     }
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
@@ -69,15 +76,15 @@ class RegisterForm extends React.Component {
     }
     var match = /^[A-Z]/;
     if (passwordError == "" && !match.exec(this.state.password)) {
-      passwordError = "El campo debe al menos una mayúscula";
+      passwordError = "El campo debe tener al menos una mayúscula";
     }
     var match = /[a-z]/;
     if (passwordError == "" && !match.exec(this.state.password)) {
-      passwordError = "El campo debe al menos una minuscula";
+      passwordError = "El campo debe tener al menos una minuscula";
     }
     var match = /[^a-zA-Z]/;
     if (passwordError == "" && !match.exec(this.state.password)) {
-      passwordError = "El campo debe al menos un caracter Especial";
+      passwordError = "El campo debe tener al menos un caracter Especial";
     }
     if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || passwordConfirmError || modalityError) {
       this.setState({usernameError, field_nameError, field_lastnameError, birthdateError, phoneError, modalityError, passwordError, passwordConfirmError});

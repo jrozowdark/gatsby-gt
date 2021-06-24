@@ -14,7 +14,11 @@ import LogoGatorade from "../images/logo-menu.png";
 
 const Header = ({ siteTitle }) => {
   const [nav, showNav] = useState(false)
-
+  let bottles = "";
+  if (typeof window !== 'undefined') {
+    console.log("window")
+    bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
+  }
   return (
     <header id="header">
       <Helmet>
@@ -53,7 +57,7 @@ const Header = ({ siteTitle }) => {
           <Footer/>
         </MenuLinks>
       </div>
-      <Navigation/>
+      < Navigation bottles={bottles}/>
     </header>
   )
 }
