@@ -16,7 +16,7 @@ const LogoutLink = (props) => {
           navigate('/')
         }}
       >
-      </Button>
+       cerrar <br/> sección</Button>
       </div>
     );
   }
