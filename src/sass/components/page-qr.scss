@@ -298,6 +298,10 @@
     top: 93%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(90deg);
+    display: none;
+    @media(min-width: 1024px) {
+      display: block;
+    }
     a {
       width: 100%;
       height: 100%;
@@ -383,7 +387,7 @@
         transform: rotate( -90deg) translate(0%, -70%);
         white-space: nowrap;
         text-transform: uppercase;
-        font-family: 'Montserrat medium';
+        font-family: 'Gatorade black';
       }
     }
     .container-right {
