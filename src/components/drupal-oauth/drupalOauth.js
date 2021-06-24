@@ -44,8 +44,9 @@ class drupalOauth {
     }
     // If we've got an active token, assume the user is logged in.
     if (token !== null && token.expirationDate > Math.floor(Date.now() / 1000)) {
-      token.dump = localStorage.getItem('drupal-oauth-uid') !== null ? JSON.parse(localStorage.getItem('drupal-oauth-uid')) : null
-      token.dump = decodeURIComponent(escape(atob(token.dump.id)));
+      if (token.dump !== null){
+        token.dump = decodeURIComponent(escape(atob(token.dump)));
+      }
       return token;
     } else {
       // If not, see if we can get a refresh token.
@@ -72,12 +73,11 @@ class drupalOauth {
    * Deletes the token from local storage.
    */
   async handleLogout() {
-    localStorage.removeItem('drupal-oauth-uid');
+    localStorage.removeItem('bottles-enable');
     return localStorage.removeItem('drupal-oauth-token');
   };
 
   async getOauthToken(username, password, scope) {
-    console.log(this.config)
     return this.fetchOauthToken(username, password, scope);
   };
 
@@ -178,11 +178,10 @@ class drupalOauth {
       body: JSON.stringify({"name" : username, "pass": password }),
     }).then(response => response.json())
     .then(json => {
-      //throw new Error(text.message);
       if (json.message) {
         if (json.message.includes('IP')){
           json.message = "Se ha bloquedo tú cuenta por cantidad de intentos";
-        }if(json.message.includes('activated')){
+        }else if(json.message.includes('activated')){
           json.message = "Tú usuario no ha sido activado por favor revisa tú correo";
         }else{
           json.message = "Usuario o contraseña incorrectos";
@@ -242,20 +241,21 @@ class drupalOauth {
   };
 
   storeToken(json) {
-
+    let store = localStorage.getItem('drupal-oauth-token') !== null ? JSON.parse(localStorage.getItem('drupal-oauth-token')) : null;
     let token = Object.assign({}, json);
     token.date = Math.floor(Date.now() / 1000);
     token.expirationDate = token.date + token.expires_in;
+    token.dump = store !== null ? store.dump : "";
     localStorage.setItem('drupal-oauth-token', JSON.stringify(token));
     return token;
   }
 
   storeUid(json) {
-    let user = Object.assign({}, {id : this.Estring(json.uid)});
-    user.date = Math.floor(Date.now() / 1000);
-    user.expirationDate = user.date + 3600;
-    localStorage.setItem('drupal-oauth-uid', JSON.stringify(user));
-    return user;
+    let token = localStorage.getItem('drupal-oauth-token') !== null ? JSON.parse(localStorage.getItem('drupal-oauth-token')) : null;
+    let data = Object.assign({}, token);
+    data.dump = this.Estring(json.uid);
+    localStorage.setItem('drupal-oauth-token', JSON.stringify(data));
+    return token;
   }
 
   Estring(str) {
@@ -337,7 +337,6 @@ class drupalOauth {
        'field_phone': phone,
        "pass": {"existing":password,"value": new_password}
      };
-     console.log(data.pass);
      Object.keys(data).forEach(key => (data[key] === undefined || data[key] === '') && delete data[key])
      Object.keys(data).forEach(key => {
       data[key] = {"value":data[key]}
