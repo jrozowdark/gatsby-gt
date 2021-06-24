@@ -27,6 +27,17 @@ class Profile extends React.Component {
           const packs = json.data.packs != undefined ? json.data.packs : {};
           const user = json.user != undefined ? json.user : {};
           const total = json.data.total != undefined ? json.data.total : 0;
+          let nc = "";
+          if(total > 0 ){
+            nc = "open";
+            localStorage.setItem('bottles-enable','open');
+          }else{
+            nc = "close";
+            localStorage.setItem('bottles-enable', 'close');
+          }
+          if (!document.querySelector(".link-my-account").classList.contains("open") && !document.querySelector(".link-my-account").classList.contains("close")) {
+           document.querySelector(".link-my-account").classList.add(nc);
+          }
           this.setState({
             user: user,
             products: products,

@@ -101,7 +101,7 @@
             position: absolute;
             transform: rotate(-90deg) translate(10%, -50%);
             top: 35%;
-            left: -5.5rem;
+            left: -3.5rem;
             z-index: 20;
             display: none;
 
@@ -112,8 +112,8 @@
             .h2-lateral {
               text-transform: uppercase;
               font-weight: 300;
-              color: #FB5030;
-              font-size: 1.3rem;
+              color: #222222;
+              font-size: 1.1rem;
               font-family: 'Gatorade black';
               -webkit-text-stroke: unset;
             }
@@ -141,7 +141,7 @@
             }
             &::before {
               content: "";
-              width: 120%;
+              width: 107%;
               height: 130%;
               position: absolute;
               background: white;
@@ -177,7 +177,7 @@
               }
               @media(min-width: 1450px) {
                 font-size: 7rem;
-                
+
               }
             }
 
@@ -256,6 +256,7 @@
               }
               @media(min-width: 1024px) {
                 padding-top: 0rem;
+                width: 90%;
               }
               p {
                 font-family: 'HelveticaNeue';
@@ -299,7 +300,6 @@
             .bodySlider {
               top: 46%;
               right: 10%;
-              width: 25rem;
               margin-top: 0;
               @media(max-width: 1023px) {
                 width: 80vw;
@@ -325,6 +325,18 @@
                 left: 50%;
                 top: 40%;
                 right: unset;
+              }
+            }
+            .image {
+              picture {
+                img {
+                  @media(min-width: 1024px) {
+                    left: 10px !important;
+                  }
+                  @media(min-width: 1640px) {
+                    left: 0px;
+                  }
+                }
               }
             }
           }

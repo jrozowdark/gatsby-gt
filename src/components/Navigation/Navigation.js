@@ -23,14 +23,14 @@ function Navigation(props) {
           </div>
           <div className="links-section">
             {props.userAuthenticated ?<>
-              <div className="link-my-account">
+              <div className={`link-my-account ${props.bottles}`}>
               <Link to="/user/profile"></Link>
               </div>
               <LogoutLink/>
               </> :<>
               <div className="link-regist">
                 <Link to="/user/register">Registrate</Link>
-              </div>              
+              </div>
               <div className="link-login" onClick={() => showNav(!nav)}>
                 <Link to="#"></Link>
               </div>
@@ -38,10 +38,10 @@ function Navigation(props) {
                <p>Ingresar como:</p>
                <Link to="/user/login">Deportista</Link>
                <Link to="/staff/login">staff</Link>
-            </Modal>              
+            </Modal>
               </>
             }
-            
+
           </div>
         </div>
       </div>
