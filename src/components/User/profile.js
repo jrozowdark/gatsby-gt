@@ -19,9 +19,7 @@ class Profile extends React.Component {
         })
       }).then(response => response.json())
       .then(json => {
-        console.log(json)
         if(!json.message){
-          console.log("json", json)
           const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
 
           const packs = json.data.packs != undefined ? json.data.packs : {};
@@ -35,7 +33,7 @@ class Profile extends React.Component {
             nc = "close";
             localStorage.setItem('bottles-enable', 'close');
           }
-          if (!document.querySelector(".link-my-account").classList.contains("open") && !document.querySelector(".link-my-account").classList.contains("close")) {
+          if (document.querySelector(".link-my-account")  !==null && !document.querySelector(".link-my-account").classList.contains("open") && !document.querySelector(".link-my-account").classList.contains("close")) {
            document.querySelector(".link-my-account").classList.add(nc);
           }
           this.setState({
