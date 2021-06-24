@@ -48,8 +48,11 @@ const UserInfo = (props) => {
         <div className="button-second">
           <a href="/user/buy">recargar</a>
         </div>
+        <div className="button-qr">
+          <a href="#account-update-id"></a>
+        </div>
       </div>
-      <div className="account-update">
+      <div className="account-update" id="account-update-id">
         <div className="text-buy">
           <h2 className="font-line-black">mi</h2>
           <h3>cuenta</h3>
