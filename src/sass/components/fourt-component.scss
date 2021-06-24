@@ -190,6 +190,12 @@
           left: 14%;
           opacity: 0;
           padding-top: 0;
+          .title-one {
+            font-family: 'PlexesPro black';
+            @media(min-width: 1024px) {
+              letter-spacing: 8px;
+            }
+          }
           .font-gatorade-light {
             font-size: 4rem;
           }
