@@ -7,6 +7,7 @@ import Helmet from "react-helmet";
 import { withPrefix, Link } from "gatsby";
 
 import Navigation from './Navigation/Navigation';
+import NavigationMobile from './Navigation/NavigationMobile';
 import Footer from './footer';
 
 //Importacion imagenes
@@ -26,7 +27,9 @@ const Header = ({ siteTitle }) => {
       </Helmet>
       <div className="menu-gatorade">
         <div className="logo-gatorade">
+        <a href="/">
          <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
+         </a>
         </div>
         <MenuIcon className="menu-icon" id="menu"  nav={nav} onClick={() => showNav(!nav)}>
         <div />
@@ -35,25 +38,11 @@ const Header = ({ siteTitle }) => {
         </MenuIcon>
         <MenuLinks className="menu-links" id="menu-links-1" nav={nav}>
           <div className="logo-gatorade">
-            <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
+            <a href="/">
+              <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
+            </a>
           </div>
-          <ul>
-            <li>
-              <a href="/">Inicio</a>
-            </li>
-            <li>
-              <a href="/#secundary-slider"  onClick={() => showNav(!nav)}>Cómo funciona?</a>
-            </li>
-            <li>
-              <a href="/#buy-packs"  onClick={() => showNav(!nav)}>Comprar packs</a>
-            </li>
-            <li>
-              <a href="/user/register"  onClick={() => showNav(!nav)}>Mi cuenta</a>
-            </li>
-            <li>
-              <a href="/staff/login" onClick={() => showNav(!nav)}>Cuenta de staff</a>
-            </li>
-          </ul>
+          <NavigationMobile />
           <Footer/>
         </MenuLinks>
       </div>

@@ -40,7 +40,7 @@ class RegisterForm extends React.Component {
     if (!this.state.field_name) {
       field_nameError = "Campo obligatorio";
     }
-    var match = /[^a-zA-Z\s-]/i;
+    var match = /^[a-zA-Z]+$/;
     if (field_nameError == "" && !match.exec(this.state.field_name)) {
       field_nameError = "El campo debe contener solo Letras";
     }
@@ -48,7 +48,7 @@ class RegisterForm extends React.Component {
       field_lastnameError = "Campo obligatorio";
     }
     if (field_lastnameError == "" && !match.exec(this.state.field_lastname)) {
-      field_lastnameError = "El campo debe al menos una mayúscula";
+      field_lastnameError = "El campo debe contener solo Letras";
     }
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
@@ -58,6 +58,10 @@ class RegisterForm extends React.Component {
     }
     if (!this.state.phone || (this.state.phone.length < 7 || this.state.phone.length > 10)) {
       phoneError = "Debes ingresar un número de telefono fijo o celular";
+    }
+    var match = /^[0-9]*$/;
+    if (phoneError == "" && !match.exec(this.state.field_name)) {
+      phoneError = "El campo debe contener solo Números";
     }
     if (!this.state.password) {
       passwordError = "El campo no puede ser vacio";
@@ -114,7 +118,18 @@ class RegisterForm extends React.Component {
     }
   };
   pad(n){return n<10 ? '0'+n : n}
-
+  onKeyPressed(e) {
+    if (e.keyCode === 69) { //13 is the key code for Enter
+      e.preventDefault()
+      //Here you can even write the logic to select the value from the drop down or something.
+    }
+  }
+  // onKeyPressedLetters(e) {
+  //   if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode === 91 || e.keyCode === 92 || e.keyCode === 8 || e.keyCode === 32) { //13 is the key code for Enter
+  //     return true;
+  //   }
+  //   e.preventDefault()
+  // }
   render() {
     const {processing } = this.state;
     const today = new Date()
@@ -138,7 +153,10 @@ class RegisterForm extends React.Component {
                 name="field_name"
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
-                }/>
+                }
+                // onKeyDown = {this.onKeyPressedLetters}
+
+                />
                 <div style={{color:"red"}}>{this.state.field_nameError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicText">
@@ -197,7 +215,9 @@ class RegisterForm extends React.Component {
                 name="phone"
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
-                }/>
+                }
+                onKeyDown = {this.onKeyPressed}
+                />
                 <div style={{color:"red"}}>{this.state.phoneError}</div>
               </Form.Group>
               <h3>elige<br/><span>una contraseña</span></h3>
