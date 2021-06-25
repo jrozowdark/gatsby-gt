@@ -46,7 +46,7 @@ const UserInfo = (props) => {
             ))}
         </div>
         <div className="button-second">
-          <a href="/user/buy">recargar</a>
+          <a href="/user/buy" onClick={()=>{localStorage.removeItem('data-products');}}>recargar</a>
         </div>
         <div className="button-qr">
           <a href="#account-update-id"></a>
@@ -113,6 +113,7 @@ const UserInfo = (props) => {
               <div className="button-fifth">
                 <Link
                   to={`/user/buy/${props.packs[step].pack_buy}`}
+                  onClick={()=>{localStorage.setItem('data-products', JSON.stringify(props.packs[step].products));}}
                   style={{
                     textDecoration: `none`,
                   }}

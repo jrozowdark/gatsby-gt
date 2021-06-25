@@ -36,8 +36,16 @@ class PurchaseForm extends React.Component {
       return el !== undefined;
     });
     this.setState({"input" : filtered});
+    let data_products = localStorage.getItem('data-products') !== null ? JSON.parse(localStorage.getItem('data-products')) : null;
+    console.log("data",data_products)
     for (var i = 0; i < filtered.length; i++) {
-      this.setState({[`field_quantity_${i}`] : 0})
+
+      if (data_products !== null && data_products[filtered[i].pid] !== null && data_products[filtered[i].pid] !== undefined) {
+      let data_read = data_products.[filtered[i].pid];
+        this.setState({[`field_quantity_${i}`] : data_read.quantity})
+      }else{
+        this.setState({[`field_quantity_${i}`] : 0})
+      }
       this.setState({[`field_quantity_${i}_pid`] : filtered[i].pid})
     }
   }
@@ -160,7 +168,7 @@ class PurchaseForm extends React.Component {
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label key={`pid_${i}`} >{d.title}
-                <Form.Control type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
+                <Form.Control value={this.state.[`field_quantity_${i}`] !== 0 ? this.state.[`field_quantity_${i}`] :''} type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
                 </Form.Label>
             ))}
             { error && <Form.Text>{error} </Form.Text>}
