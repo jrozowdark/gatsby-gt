@@ -148,8 +148,6 @@ class RegisterForm extends React.Component {
             :<>
             { this.state.error && <Form.Text >{this.state.error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
-
-
               <Form.Group controlId="formBasicText">
                 <Form.Control
                 type="text"
@@ -159,9 +157,8 @@ class RegisterForm extends React.Component {
                   this.setState({ [event.target.name]: event.target.value })
                 }
                 onKeyDown = {this.onKeyPressedLetters}
-
                 />
-                <div style={{color:"red"}}>{this.state.field_nameError}</div>
+                <div className="text-error" >{this.state.field_nameError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicText">
                 <Form.Control
@@ -171,7 +168,7 @@ class RegisterForm extends React.Component {
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
-                <div style={{color:"red"}}>{this.state.field_lastnameError}</div>
+                <div className="text-error" >{this.state.field_lastnameError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
                 <Form.Control
@@ -186,7 +183,7 @@ class RegisterForm extends React.Component {
                 onFocus={(e) => (e.currentTarget.type = "date")} onBlur={(e) => (e.currentTarget.type = "text")} onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
-                <div style={{color:"red"}}>{this.state.birthdateError}</div>
+                <div className="text-error" >{this.state.birthdateError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Control
@@ -196,7 +193,7 @@ class RegisterForm extends React.Component {
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
-                <div style={{color: "red"}}>{this.state.usernameError}</div>
+                <div className="text-error" >{this.state.usernameError}</div>
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Control
@@ -210,7 +207,7 @@ class RegisterForm extends React.Component {
                   <option value ="montaña">Montaña</option>
                   <option value="bmx">Bmx</option>
                 </Form.Control>
-                <div style={{color:"red"}}>{this.state.modalityError}</div>
+                <div className="text-error" >{this.state.modalityError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
                 <Form.Control
@@ -223,7 +220,7 @@ class RegisterForm extends React.Component {
                 }
                 onKeyDown = {this.onKeyPressed}
                 />
-                <div style={{color:"red"}}>{this.state.phoneError}</div>
+                <div className="text-error" >{this.state.phoneError}</div>
               </Form.Group>
               <h3>elige<br/><span>una contraseña</span></h3>
               <Form.Group controlId="formBasicPassword">
@@ -235,7 +232,7 @@ class RegisterForm extends React.Component {
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
-                <div style={{color:"red"}}>{this.state.passwordError}</div>
+                <div className="text-error" >{this.state.passwordError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
                 <Form.Control
@@ -245,9 +242,9 @@ class RegisterForm extends React.Component {
                  onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })}
                   />
-                 <div style={{color:"red"}}>{this.state.passwordConfirmError}</div>
+                 <div className="text-error" >{this.state.passwordConfirmError}</div>
               </Form.Group>
-              <Link to="/user/login"> Ya tienes cuenta?</Link>
+              <Link to="/user/login"> ¿ya tienes cuenta?</Link>
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />
               </div>
