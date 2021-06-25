@@ -90,7 +90,152 @@
         max-width: 32rem;
       }
     }
+    @media(max-width: 1023px) {
+      &:nth-child(2) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(3) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(4) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(5) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(6) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(7) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(8) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(9) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(10) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+    }
     @media(min-width: 1024px) {
+      &:nth-child(3) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(5) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(7) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(9) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(4) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(6) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(8) {
+        .image-buy {
+          .image-buy-one {
+            display: none;
+          }
+        }
+      }
+      &:nth-child(10) {
+        .image-buy {
+          .image-buy-two {
+            display: none;
+          }
+        }
+      }
+
+
+
+
       &:nth-child(1n + 1) {
         .image-buy {
           width: 90vw;
