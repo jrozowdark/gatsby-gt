@@ -235,7 +235,7 @@ header {
             line-height: 1;
             font-family: $px-black;
             text-transform: uppercase;
-            text-align: left;
+            text-align: center;
             font-size: 1.175rem;
             padding: 3px 0 0 0;
             width: 100%;
@@ -244,20 +244,6 @@ header {
               color: $orange_primary;
             }
           }
-          // width: 30px;
-          // height: 40px;
-          // @media (min-width: 1500px) {
-          //   width: 37px;
-          //   height: 43px;
-          // }
-          // @media (min-width: 2000px) {
-          //   width: 45px;
-          //   height: 50px;
-          //   ;
-          // }
-          // &::before {
-          //   background: url('../../images/logo-user-close.png') center/contain no-repeat;
-          // }
         }
       }
     }

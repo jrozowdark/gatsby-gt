@@ -17,21 +17,23 @@ const Header = ({ siteTitle }) => {
   const [nav, showNav] = useState(false)
   let bottles = "";
   if (typeof window !== 'undefined') {
-    console.log("window")
     bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
+  }
+  function disNone() {
+    document.getElementById('___gatsby').classList.toggle('heightvh')
   }
   return (
     <header id="header">
-      <Helmet>
+      {/* <Helmet>
         <script src={withPrefix('script.js')} type="text/javascript" />
-      </Helmet>
+      </Helmet> */}
       <div className="menu-gatorade">
         <div className="logo-gatorade">
         <a href="/">
          <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
          </a>
         </div>
-        <MenuIcon className="menu-icon" id="menu"  nav={nav} onClick={() => showNav(!nav)}>
+        <MenuIcon className="menu-icon" id="menu"  nav={nav} onClick={() => {showNav(!nav); disNone()}}>
         <div />
         <div />
         <div />
