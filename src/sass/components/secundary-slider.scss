@@ -95,6 +95,37 @@
                 }
               }
             }
+            &.position-rigth {
+              .bodySlider {
+                top: 40%;
+                right: 10%;
+                @media(max-width: 1023px) {
+                  transform: translate(-50%, -50%);
+                  left: 50%;
+                  top: 40%;
+                  right: unset;
+                }
+                @media(min-width: 1450px) {
+                  right: 15%;
+                }
+              }
+
+            }
+            &.position-left {
+              .bodySlider {
+                top: 50%;
+                right: unset;
+                left: 10%;
+                @media(max-width: 1023px) {
+                  width: 80vw;
+                  height: 27rem;
+                  transform: translate(-50%, -50%);
+                  top: 40%;
+                  left: 50%;
+                  right: unset;
+                }
+              }
+            }
           }
 
           .text-lateral {
@@ -279,67 +310,67 @@
             }
           }
 
-          &:nth-child(2) {
-            .bodySlider {
-              top: 50%;
-              right: unset;
-              left: 10%;
+          // &:nth-child(2) {
+          //   .bodySlider {
+          //     top: 50%;
+          //     right: unset;
+          //     left: 10%;
 
-              @media(max-width: 1023px) {
-                width: 80vw;
-                height: 27rem;
-                transform: translate(-50%, -50%);
-                top: 40%;
-                left: 50%;
-                right: unset;
-              }
-            }
-          }
+          //     @media(max-width: 1023px) {
+          //       width: 80vw;
+          //       height: 27rem;
+          //       transform: translate(-50%, -50%);
+          //       top: 40%;
+          //       left: 50%;
+          //       right: unset;
+          //     }
+          //   }
+          // }
 
-          &:nth-child(3) {
-            .bodySlider {
-              top: 46%;
-              right: 10%;
-              margin-top: 0;
-              @media(max-width: 1023px) {
-                width: 80vw;
-                height: 27rem;
-                transform: translate(-50%, -50%);
-                left: 50%;
-                top: 40%;
-                right: unset;
-              }
-            }
-          }
+          // &:nth-child(3) {
+          //   .bodySlider {
+          //     top: 46%;
+          //     right: 10%;
+          //     margin-top: 0;
+          //     @media(max-width: 1023px) {
+          //       width: 80vw;
+          //       height: 27rem;
+          //       transform: translate(-50%, -50%);
+          //       left: 50%;
+          //       top: 40%;
+          //       right: unset;
+          //     }
+          //   }
+          // }
 
-          &:nth-child(4) {
-            .bodySlider {
-              top: 50%;
-              right: unset;
-              left: 10%;
+          // &:nth-child(4) {
+          //   .bodySlider {
+          //     top: 50%;
+          //     right: unset;
+          //     left: 10%;
 
-              @media(max-width: 1023px) {
-                width: 80vw;
-                height: 27rem;
-                transform: translate(-50%, -50%);
-                left: 50%;
-                top: 40%;
-                right: unset;
-              }
-            }
-            .image {
-              picture {
-                img {
-                  @media(min-width: 1024px) {
-                    left: 10px !important;
-                  }
-                  @media(min-width: 1640px) {
-                    left: 0px;
-                  }
-                }
-              }
-            }
-          }
+          //     @media(max-width: 1023px) {
+          //       width: 80vw;
+          //       height: 27rem;
+          //       transform: translate(-50%, -50%);
+          //       left: 50%;
+          //       top: 40%;
+          //       right: unset;
+          //     }
+          //   }
+          //   .image {
+          //     picture {
+          //       img {
+          //         @media(min-width: 1024px) {
+          //           left: 10px !important;
+          //         }
+          //         @media(min-width: 1640px) {
+          //           left: 0px;
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
 
           // &:nth-child(2) {
           //   .bodySlider {

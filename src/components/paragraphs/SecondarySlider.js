@@ -17,13 +17,14 @@ export const SecondarySlider = ({ node }) => {
       dots: true,
       dotsClass: "slick-list",
       fade: false,
-      infinite: false,
+      infinite: true,
       // vertical: true,
       speed: 500,
       slidesToShow: 1,
       arrows: true,
       slidesToScroll: 1,
-      className: "secundarySlider"
+      className: "secundarySlider",
+      lazyLoad: 'ondemand',
     }
 
     const animate =  e => {
@@ -40,7 +41,12 @@ export const SecondarySlider = ({ node }) => {
 
     <Slider {...settings} >
       {node.data_slide.field_slide.map((slide, i) => (
-        <div className="container-slick" key={i}>
+        < div className = {
+          `container-slick position-${(i+1)%2 ? 'rigth': 'left'}`
+        }
+        key = {
+          i
+        } >
           <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
           <div className="bodySlider">
             <div className="text-lateral-body">
