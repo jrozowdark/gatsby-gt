@@ -90,6 +90,32 @@
         max-width: 32rem;
       }
     }
+    @media(min-width: 1024px) {
+      &:nth-child(1n + 1) {
+        .image-buy {
+          width: 90vw;
+          left: 0%;
+          transform: translate(0%, -50%);
+        }
+      }
+      &:nth-child(2n + 1) {
+        .body-buy {
+          &::before {
+            opacity: 0;
+          }
+        }
+        .image-buy {
+          img {
+            display: none;
+          }
+          .image-bg-buy {
+            &::before {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
   }
   .body-buy {
     position: relative;
