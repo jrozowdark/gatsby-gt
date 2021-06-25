@@ -24,9 +24,9 @@ const Header = ({ siteTitle }) => {
   }
   return (
     <header id="header">
-      <Helmet>
+      {/* <Helmet>
         <script src={withPrefix('script.js')} type="text/javascript" />
-      </Helmet>
+      </Helmet> */}
       <div className="menu-gatorade">
         <div className="logo-gatorade">
         <a href="/">
