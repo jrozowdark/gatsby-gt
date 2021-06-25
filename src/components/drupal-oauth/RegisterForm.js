@@ -167,7 +167,8 @@ class RegisterForm extends React.Component {
                 name="field_lastname"
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
-                }/>
+                }
+                onKeyDown = {this.onKeyPressedLetters}/>
                 <div className="text-error" >{this.state.field_lastnameError}</div>
               </Form.Group>
               <Form.Group controlId="formBasicDate">
