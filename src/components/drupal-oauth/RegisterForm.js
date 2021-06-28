@@ -40,7 +40,7 @@ class RegisterForm extends React.Component {
     if (!this.state.field_name) {
       field_nameError = "Campo obligatorio";
     }
-    var match = /^[a-zA-Z]+$/;
+    var match = /^[a-zA-Z ]+$/;
     if (field_nameError == "" && !match.exec(this.state.field_name)) {
       field_nameError = "El campo debe contener solo Letras";
     }
@@ -60,7 +60,7 @@ class RegisterForm extends React.Component {
       phoneError = "Debes ingresar un número de telefono fijo o celular";
     }
     var match = /^[0-9]*$/;
-    if (phoneError == "" && !match.exec(this.state.field_name)) {
+    if (phoneError == "" && !match.exec(this.state.phone)) {
       phoneError = "El campo debe contener solo Números";
     }
     if (!this.state.password) {
@@ -78,7 +78,7 @@ class RegisterForm extends React.Component {
     if (passwordConfirmError == '' && this.state.repeat_password.length < 8) {
       passwordConfirmError = "El campo debe tener minímo 8 caracteres";
     }
-    var match = /^[A-Z]/;
+    var match = /^[a-zA-Z]/;
     if (passwordError == "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe tener al menos una mayúscula";
     }
