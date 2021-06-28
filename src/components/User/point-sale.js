@@ -25,6 +25,9 @@ class PointSale extends React.Component {
           }
 
         }).catch(error => console.log(error));
+      if (localStorage.getItem("product-redemption") !== null){
+        localStorage.removeItem("product-redemption");
+      }
     }
   }
   render(){

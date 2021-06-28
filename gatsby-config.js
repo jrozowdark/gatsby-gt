@@ -35,10 +35,10 @@ module.exports = {
       options: {
         baseUrl: `https://dev-gatorade-app.pantheonsite.io/`,
         // apiBase: `api`,
-        basicAuth: {
-          username: process.env.BASIC_AUTH_USERNAME,
-          password: process.env.BASIC_AUTH_PASSWORD,
-        },
+        // basicAuth: {
+        //   username: process.env.BASIC_AUTH_USERNAME,
+        //   password: process.env.BASIC_AUTH_PASSWORD,
+        // },
       }
     },
     'gatsby-plugin-gatsby-cloud'

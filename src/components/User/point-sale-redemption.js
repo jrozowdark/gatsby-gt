@@ -11,6 +11,9 @@ class PointSaleRedemption extends React.Component {
   componentDidMount(){
     const token = this.props.drupalOauthClient.isLoggedIn();
    if (token != undefined) {
+     if(localStorage.getItem("redem")=== null){
+        navigate("/staff/zone");
+     }
       const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
           method: 'GET',
           headers: new Headers({

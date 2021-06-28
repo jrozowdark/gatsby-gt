@@ -4,16 +4,31 @@ import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image"
 import RedirectLoggedPacks from "../RedirectLoggedPacks"
 export const getPack = node => {
+
+  // var containerBuy = document.getElementById('container-buy-id');
+  // for(var i = 0; i < containerBuy; i += 2) {
+  //   parentBuy.slice(i, i+2).wrapAll("<div class="parent"></div>");
+  // }
   return (
-    <div className="container-buy" key={node.drupal_internal__nid}>
+    <div className="container-buy" id="container-buy-id" key={node.drupal_internal__nid}>
       <div className="text-buy-lateral">
         <h2>{node.title}</h2>
       </div>
       <div className="body-buy">
         <div className="image-buy">
           <StaticImage
-            className="image-bg-buy"
+            className="image-bg-buy image-buy-one"
             src="../../images/bg-container-buy.png"
+            // width={300}
+            // height={500}
+            objectFit="cover"
+            quality={99}
+            formats={["AUTO", "WEBP", "AVIF"]}
+            alt="Logo gatorade"
+          />
+          <StaticImage
+            className="image-bg-buy image-buy-two"
+            src="../../images/bg-buy-two.png"
             // width={300}
             // height={500}
             objectFit="cover"
