@@ -40,7 +40,7 @@ const IndexPage = () => (
           </div>
         </div>
         <div class="button-second">
-           <Link to="/user/zone">Finalizar</Link>
+           <Link to="/staff/zone">Finalizar</Link>
           </div>
       </div>
     </div>

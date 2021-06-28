@@ -426,7 +426,7 @@ class drupalOauth {
             return json;
           }
 
-          return '/thanks-redemption';
+          return '/staff/zone/complete';
         }
 
         return null;

@@ -7,7 +7,6 @@ import "../sass/base/_fonts.scss"
 import { Form } from "react-bootstrap"
 
 const IndexPage = ({code}) => {
-  console.log(code)
   return(
   <Layout>
     <SEO title="zone" />
