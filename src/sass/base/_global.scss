@@ -22,6 +22,9 @@ body, html {
   }
 }
 
+input[type=password] {
+  text-transform: none;
+}
 
 .font-line-orange {
     color: transparent;
