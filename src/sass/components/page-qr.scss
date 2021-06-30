@@ -340,7 +340,19 @@
     }
     @media(min-width: 1024px) {
       .font-line-black {
-        height: 3rem;
+        height: auto;
+        display: flex;
+        line-height: .8;
+        span {
+          text-rendering: optimizeLegibility;
+          color: black;
+          font-family: 'PlexesPro black';
+          font-size: 3rem;
+          font-weight: 100;
+          margin: 0;
+          text-transform: uppercase;
+          -webkit-text-stroke: 0;
+        }
       }
     }
   }
@@ -555,9 +567,22 @@
     }
     .font-line-black {
       font-size: 5rem;
+      display: flex;
+      height: auto;
+      line-height: .8;
       @media(max-width: 1024px) {
         font-size: 3.5rem;
         height: 3rem;
+      }
+      span {
+        text-rendering: optimizeLegibility;
+        color: black;
+        font-family: PlexesPro black;
+        font-size: 3rem;
+        font-weight: 100;
+        margin: 0;
+        text-transform: uppercase;
+        -webkit-text-stroke: 0;
       }
     }
     h3 {
