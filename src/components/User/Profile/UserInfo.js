@@ -55,8 +55,8 @@ const UserInfo = (props) => {
       </div>
       <div className="account-update" id="account-update-id">
         <div className="text-buy">
-          <h2 className="font-line-black">mi</h2>
-          <h3>cuenta</h3>
+          <h2 className="font-line-black">mi <span>cuenta</span></h2>
+          {/* <h3>cuenta</h3> */}
         </div>
         <div className="container-update">
           <div className=""></div>
@@ -70,8 +70,8 @@ const UserInfo = (props) => {
       <div className="ultimate-component">
       {props.packs != undefined ?
         <div className="text-buy">
-          <h2 className="font-line-black">mis</h2>
-          <h3>compras</h3>
+          <h2 className="font-line-black">mis<span>compras</span></h2>
+          {/* <h3>compras</h3> */}
         </div>
       : ''}
 
