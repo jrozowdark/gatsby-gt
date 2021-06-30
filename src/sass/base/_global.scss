@@ -25,6 +25,30 @@ body, html {
 input[type=password] {
   text-transform: none;
 }
+// input[type=number]::-webkit-inner-spin-button,
+// input[type=number]::-webkit-outer-spin-button {
+//   opacity: 1;
+//   background: black;
+//   color: black;
+//   -webkit-appearance: inner-spin-button !important;
+//   display: block;
+//   position: relative;
+//   cursor: default;
+//   // height: 3em;
+//   flex-grow: 0;
+//   flex-shrink: 0;
+//   flex-basis: auto;
+//   -webkit-user-select: block;
+//   z-index: 99999;
+// }
+
+/* Spin Buttons modified */
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+}
 
 .font-line-orange {
     color: transparent;
