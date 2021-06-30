@@ -17,9 +17,11 @@ const Header = ({ siteTitle }) => {
   const [nav, showNav] = useState(false)
   let bottles = "";
   let staff = "";
+  let base = "";
   if (typeof window !== 'undefined') {
     bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
     staff = localStorage.getItem('set-staff') !== null ? localStorage.getItem('set-staff') : "";
+    base = window.location.origin;
   }
   function disNone() {
     document.getElementById('___gatsby').classList.toggle('heightvh')
@@ -35,20 +37,16 @@ const Header = ({ siteTitle }) => {
          <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
          </a>
         </div>
-        <MenuIcon className="menu-icon" id="menu"  nav={nav} onClick={() => {showNav(!nav); disNone()}}>
-        <div />
-        <div />
-        <div />
-        </MenuIcon>
-        <MenuLinks className="menu-links" id="menu-links-1" nav={nav}>
+
+
           <div className="logo-gatorade">
             <a href="/">
               <img src={LogoGatorade} alt="logo-gatorade" title="gatorade" />
             </a>
           </div>
-          <NavigationMobile />
-          <Footer/>
-        </MenuLinks>
+          <NavigationMobile staff={staff} base={base}/>
+
+
       </div>
       < Navigation bottles={bottles} staff={staff}/>
     </header>
