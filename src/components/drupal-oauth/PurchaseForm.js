@@ -171,7 +171,7 @@ class PurchaseForm extends React.Component {
                 <Form.Control value={this.state.[`field_quantity_${i}`] !== 0 ? this.state.[`field_quantity_${i}`] :''} type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
                 </Form.Label>
             ))}
-            { error && <Form.Text>{error} </Form.Text>}
+            { error && <p className="text-error">{error} </p>}
             </Form.Group>
                <div className="link button-first">
                  <input type="submit" value="Recargar" onClick={ event => this.handleSubmit(event)} />
