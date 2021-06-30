@@ -24,7 +24,7 @@ function Navigation(props) {
           <div className="links-section">
             {props.userAuthenticated ?<>
               <div className={`link-my-account ${props.bottles}`}>
-              <Link to="/user/profile"></Link>
+              <Link to={props.staff != "" ? "/staff/zone":"/user/profile"}></Link>
               </div>
               <LogoutLink/>
               </> :<>
