@@ -10,7 +10,6 @@ import bgQr from "../../../images/bg-ultimate-qr.png";
 
 const UserInfo = (props) => {
   let packs = props.packs;
-  console.log(packs)
   const usr = props.user;
   let quantity = 0;
   return (
