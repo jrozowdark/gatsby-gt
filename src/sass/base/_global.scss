@@ -99,3 +99,31 @@ html {
     }
   }
 }
+
+
+input[type='date']{
+  color:transparent;
+  position: relative;
+  &.not-empty{
+    &:after{
+    z-index: -1;
+    color: transparent;
+    }
+  }
+}
+input[type='date']:after {
+    color: #000000;
+    content: attr(placeholder);
+    width: 100%;
+    position: absolute;
+    background: white;
+    left: 0;
+}
+
+input[type='date']:focus{
+  color: black;
+  &:after{
+    z-index: -1;
+    color: transparent;
+  }
+}
