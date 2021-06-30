@@ -135,13 +135,13 @@
       margin: auto;
       height: 10vw !important;
       width: 10vw !important;
-      max-width: 530px;
-      max-height: 530px;
+      max-width: 510px;
+      max-height: 510px;
       min-width: 180px;
       min-height: 180px;
       @media(min-width: 1024px) {
-        height: 34vw !important;
-        width: 34vw !important;
+        height: 25vw !important;
+        width: 25vw !important;
         transform: translateY(-14%);
       }
     }
