@@ -10,6 +10,7 @@ import bgQr from "../../../images/bg-ultimate-qr.png";
 
 const UserInfo = (props) => {
   let packs = props.packs;
+  console.log(packs)
   const usr = props.user;
   let quantity = 0;
   return (
@@ -89,17 +90,12 @@ const UserInfo = (props) => {
               />
             </div>
             <div className="description-ultimate">
-              {
-                Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
-                  return (
-                    <div className="title" key={`u-${k}`}>
-                      <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
-                      <h2 className="font-line-orange title-mobile">{props.packs[step].products[p].quantity} botellas</h2>
-                      <h2 className="font-line-orange title-desktop">{props.packs[step].pack_title}</h2>
-                      <h2 className="third-text">pack</h2>
-                    </div>
-                  )
-                })}
+              <div className="title" key={`u-${k}`}>
+                <h5 className="text-rotate">{props.packs[step].pack_title_lateral}</h5>
+                <h2 className="font-line-orange title-mobile">{props.packs[step].pack_total} botellas</h2>
+                <h2 className="font-line-orange title-desktop">{props.packs[step].pack_title}</h2>
+                <h2 className="third-text">pack</h2>
+              </div>
               <div className="units">
                 {
                   Object.keys(props.packs[step].products ? props.packs[step].products : {}).map((p, k) => {
