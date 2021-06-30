@@ -11,6 +11,7 @@ import bgQr from "../../../images/bg-ultimate-qr.png";
 const UserInfo = (props) => {
   let packs = props.packs;
   const usr = props.user;
+  let quantity = 0;
   return (
     <div className="container-profile">
       <div className="principal-banner-qr">
@@ -27,7 +28,7 @@ const UserInfo = (props) => {
             <span className="welcome-name">{usr.field_name} <span>{usr.field_lastname}</span></span></h2>
         </div>
         <div className="welcome-qr">
-          <QRCode value={usr.field_qr_code != null ? usr.field_qr_code : ''} className="d-flex" size={900} includeMargin fgColor="#FB5030" bgColor="transparent" level='H' />
+          <QRCode value={usr.field_qr_code != null ? usr.field_qr_code : ''} className="d-flex" size={900} includeMargin bgColor="#FFFFFF" fgColor="#FB5030" level='H' />
         </div>
         <div className="description-qr">
           <div className="decription-title">
