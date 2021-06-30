@@ -233,6 +233,11 @@
             font-size: 3rem;
             font-family: $px-black;
           }
+          // input[type=number]::-webkit-inner-spin-button,
+          // input[type=number]::-webkit-outer-spin-button {
+          //   -webkit-appearance: unset;
+          //   margin: 5px;
+          // }
         } 
       }
     }

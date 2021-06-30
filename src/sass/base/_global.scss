@@ -112,12 +112,15 @@ input[type='date']{
   }
 }
 input[type='date']:after {
-    color: #000000;
+    color: #656161;
     content: attr(placeholder);
     width: 100%;
     position: absolute;
     background: white;
     left: 0;
+    padding: 4% 1%;
+    top: 0;
+    height: 100%;
 }
 
 input[type='date']:focus{
