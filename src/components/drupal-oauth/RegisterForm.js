@@ -146,7 +146,7 @@ class RegisterForm extends React.Component {
           { processing ?
             <div>Loading ...</div>
             :<>
-            { this.state.error && <Form.Text >{this.state.error} </Form.Text>}
+            { this.state.error && <p className="text-error" >{this.state.error} </p>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <Form.Group controlId="formBasicText">
                 <Form.Control

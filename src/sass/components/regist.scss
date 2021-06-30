@@ -72,6 +72,21 @@
     .form-register {
       padding: 36px 19px;
       text-align: center;
+      .text-error {
+        color: $red;
+        padding: 0 12px;
+        font-family: $g-black;
+        font-size: 1.1rem;
+        width: 255px;
+        line-height: 1;
+        text-align: center;
+        margin: 0 auto;
+        @media(min-width: 768px) {
+          font-size: 1.3rem;
+          letter-spacing: -0.5px;
+          width: 390px;
+        }
+      }
       form {
         display: flex;
         flex-direction: column;
