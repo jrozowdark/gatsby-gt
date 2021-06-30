@@ -173,7 +173,7 @@ class RegisterForm extends React.Component {
               </Form.Group>
               <Form.Group controlId="formBasicDate">
                 <Form.Control
-                type="text"
+                type="date"
                 placeholder="fecha de nacimiento"
                 format="DD-MM-YYYY"
                 min = '1900-01-01'
@@ -181,8 +181,17 @@ class RegisterForm extends React.Component {
                   `${today.getFullYear()-18}-${(this.pad(today.getMonth()+1))}-${(this.pad(today.getDate()))}`
                 }
                 name="birthdate"
-                onFocus={(e) => (e.currentTarget.type = "date")} onBlur={(e) => (e.currentTarget.type = "text")} onChange={event =>
-                  this.setState({ [event.target.name]: event.target.value })
+                onKeyDown={event =>{
+                  console.log("key")
+                  event.target.classList.add("not-empty");
+                }}
+                onChange={event =>{
+                  event.target.classList.add("not-empty");
+                  this.setState({
+                    [event.target.name]: event.target.value
+                  })
+                }
+
                 }/>
                 <div className="text-error" >{this.state.birthdateError}</div>
               </Form.Group>
