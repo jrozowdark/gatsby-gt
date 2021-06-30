@@ -16,8 +16,10 @@ import LogoGatorade from "../images/logo-menu.png";
 const Header = ({ siteTitle }) => {
   const [nav, showNav] = useState(false)
   let bottles = "";
+  let staff = "";
   if (typeof window !== 'undefined') {
     bottles = localStorage.getItem('bottles-enable') !== null ? localStorage.getItem('bottles-enable') : "";
+    staff = localStorage.getItem('set-staff') !== null ? localStorage.getItem('set-staff') : "";
   }
   function disNone() {
     document.getElementById('___gatsby').classList.toggle('heightvh')
@@ -48,7 +50,7 @@ const Header = ({ siteTitle }) => {
           <Footer/>
         </MenuLinks>
       </div>
-      < Navigation bottles={bottles}/>
+      < Navigation bottles={bottles} staff={staff}/>
     </header>
   )
 }

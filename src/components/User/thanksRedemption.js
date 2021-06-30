@@ -48,10 +48,10 @@ class ThanksRedemption extends React.Component {
       let products = this.state.products;
 
     return (
-    <div class="thanks">
+    <div class="redemption">
       <SEO title="Thanks for you redemption" />
-      <div class="tanks-component-fisrt">
-        <div class="text-tanks">
+      <div class="redemption-component-fisrt">
+        <div class="text-redemption">
           <div class="text-one">
             <h2>¡Es hora de hidratarte con la bebida Nº 1 de deportistas!</h2>
           </div>

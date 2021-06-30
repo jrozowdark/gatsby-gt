@@ -10,10 +10,10 @@ import "../sass/base/_fonts.scss"
 const IndexPage = () => (
   <Layout>
   <SEO title="tnaks" />
-  <main class="thanks">
-    <div class="tanks-component-fisrt">
-      {/* <div class="img-bg-thanks">
-      <StaticImage class="bg-thanks"
+  <main class="redemption">
+    <div class="redemption-component-fisrt">
+      {/* <div class="img-bg-redemption">
+      <StaticImage class="bg-redemption"
           src="../images/bg-tahnks.png"
           // width={300}
           // height={500}
@@ -23,7 +23,7 @@ const IndexPage = () => (
           alt="Logo gatorade"
         />
       </div> */}
-      <div class="text-tanks">
+      <div class="text-redemption">
         <div class="text-one">
           <h2>¡Es hora de hidratarte con la bebida Nº 1 de deportistas!</h2>
         </div>
