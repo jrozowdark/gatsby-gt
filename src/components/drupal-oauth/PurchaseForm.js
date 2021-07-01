@@ -1,8 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 import withDrupalOauthConsumer from './withDrupalOauthConsumer';
 import { navigate } from 'gatsby';
-import { Form,Modal, Button } from "react-bootstrap"
-const FORM_ID = 'payment-form';
+import { Form} from "react-bootstrap"
 class PurchaseForm extends React.Component {
   state = {
     processing: false,
@@ -19,7 +18,7 @@ class PurchaseForm extends React.Component {
 
   componentDidMount() {
     const data = this.props.data;
-    if (this.props.pid != 0){
+    if (this.props.pid !== 0){
       this.setState({PackGroup :this.props.pid});
     }
     const radios = data.packs.nodes.map(node => {
@@ -29,8 +28,8 @@ class PurchaseForm extends React.Component {
     const input = data.products.nodes.map(node => {
       if (!node.field_unique) {
         return {'title' : node.title, 'pid': node.drupal_internal__nid}
-
       }
+      return undefined;
     });
     const filtered = input.filter(function (el) {
       return el !== undefined;
@@ -73,23 +72,23 @@ class PurchaseForm extends React.Component {
       let sum = 0;
       var items = [];
       for (var i = 0; i < this.state.input.length; i++) {
-        sum = sum + parseInt(this.state[`field_quantity_${i}`] != 0 ? this.state[`field_quantity_${i}`] : 0);
+        sum = sum + parseInt(this.state[`field_quantity_${i}`] !== 0 ? this.state[`field_quantity_${i}`] : 0);
         items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
       }
       console.log(sum)
-      if (sum != parseInt(this.state.quantity)) {
+      if (sum !== parseInt(this.state.quantity)) {
         this.setState({
           processing: false,
           error: `Debes escoger la cantidad indicada ${this.state.quantity} botellas`,
         });
-      } else if (this.state.error == '') {
+      } else if (this.state.error === '') {
         this.setState({
           processing: false,
           error: '',
         });
         let dataSend = JSON.stringify({'idp':this.state.PackGroup,'products':items,total:sum});
         try {
-          const response = await this.props.drupalOauthClient.handleSendOrder(dataSend).then(data => {
+          await this.props.drupalOauthClient.handleSendOrder(dataSend).then(data => {
             navigate(data)
           });
           this.setState({
@@ -119,7 +118,6 @@ class PurchaseForm extends React.Component {
     const { error } = this.state;
     if (this.state.radios != null){
       let {PackGroup} = this.state
-      let quantity = 0;
         return (
            <form onSubmit={ event => this.handleSubmit(event)}>
            <div className="title-pack">
@@ -127,17 +125,17 @@ class PurchaseForm extends React.Component {
            </div>
            <Form.Group className="select-button">
             {this.state.radios.map((d, i) => {
-              if (parseInt(this.state.PackGroup) != 0 && d.id == parseInt(this.state.PackGroup)) {
+              if (parseInt(this.state.PackGroup) !== 0 && d.id === parseInt(this.state.PackGroup)) {
                   this.state.quantity = d.field_quantity_bottles;
               }
-              if (PackGroup == 0) {
+              if (PackGroup === 0) {
                 this.setState({
                   PackGroup: parseInt(d.id)
                 });
                 PackGroup = d.id;
               }
               return (
-              <Form.Label key={i} className={PackGroup == d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
+              <Form.Label key={i} className={PackGroup === d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
                   this.setState({ 'PackGroup': d.id })
                   this.setState({'quantity': d.field_quantity_bottles })
                   }} >
@@ -148,14 +146,14 @@ class PurchaseForm extends React.Component {
                 value = {d.id}
                 type={`radio`}
                 name="PackGroup"
-                className={PackGroup == d.id ? 'checked': ''}
+                className={PackGroup === d.id ? 'checked': ''}
                 quantity={d.field_quantity_bottles}
                 onChange={event =>{
                   this.setState({ [event.target.name]: event.target.value })
                   this.setState({'quantity': d.field_quantity_bottles })
                   }
                 }
-                checked={PackGroup == d.id}
+                checked={PackGroup === d.id}
               />
               </Form.Label>
               )
@@ -181,7 +179,7 @@ class PurchaseForm extends React.Component {
     }else{
       return ('')
     }
-    const { processing } = this.state;
+
 
   }
 }

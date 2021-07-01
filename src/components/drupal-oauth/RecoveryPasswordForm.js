@@ -14,7 +14,6 @@ class RecoveryPasswordForm extends React.Component {
 
   validate = () => {
     let usernameError = "";
-    let passwordError = "";
 
     if (!this.state.username.includes("@", ".")) {
       usernameError = "Correo electronico invalido";
