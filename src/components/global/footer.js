@@ -13,20 +13,24 @@ const Footer = ({ siteTitle }) => (
     <div className="share-social ">
       <div className="logos">
         <div className="logo logo-face">
-          <a href="https://www.facebook.com/gatoradecolombia" target="_blank"></a>
+          <a href="https://www.facebook.com/gatoradecolombia" target="_blank" rel="noreferrer">
           <img src={LogoFace} alt="logo-gatorade" title="gatorade" />
+          </a>
         </div>
         <div className="logo logo-twiter">
-          <a href="https://twitter.com/gatoradecol/" target="_blank"></a>
+          <a href="https://twitter.com/gatoradecol/" target="_blank" rel="noreferrer">
           <img src={LogoTwiter} alt="logo-gatorade" title="gatorade" />
+          </a>
         </div>
         <div className="logo logo-youtube">
-          <a href="http://www.youtube.com/user/gatoradecol" target="_blank"></a>
+          <a href="http://www.youtube.com/user/gatoradecol" target="_blank" rel="noreferrer">
           <img src={LogoYoutube} alt="logo-gatorade" title="gatorade" />
+          </a>
         </div>
         <div className="logo logo-inta">
-          <a href="https://www.instagram.com/gatoradecolombia/" target="_blank"></a>
+          <a href="https://www.instagram.com/gatoradecolombia/" target="_blank" rel="noreferrer">
           <img src={LogoInta} alt="logo-gatorade" title="gatorade" />
+          </a>
         </div>
       </div>
     </div>
