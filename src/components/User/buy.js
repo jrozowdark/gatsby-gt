@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import SEO from "../seo"
 import GatoradeOne from "../../images/gatorade-red.png";
 import BuyFunctions from './buyFunction';
@@ -18,7 +18,7 @@ class Buy extends React.Component {
           </div>
         </div>
         <div className="col-12 col-lg-6 container-texts">
-          <BuyFunctions pid={this.props.id != undefined ? this.props.id : 0 }/>
+          <BuyFunctions pid={this.props.id !== undefined ? this.props.id : 0 }/>
         </div>
       </div>
     </div>

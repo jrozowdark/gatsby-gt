@@ -1,7 +1,6 @@
 import React from "react"
 import SEO from "../seo"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 class Thanks extends React.Component {
   state = {
     uid: false,
@@ -12,7 +11,7 @@ class Thanks extends React.Component {
   }
   componentDidMount() {
     const token = this.props.drupalOauthClient.isLoggedIn();
-   if( token != undefined && token.dump != undefined) {
+   if( token !== undefined && token.dump !== undefined) {
       const data = {'id' : this.props.id, 'uid' : token.dump};
       const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/thanks?_format=json`, {
         method: 'POST',
@@ -27,8 +26,8 @@ class Thanks extends React.Component {
         console.log(json)
         if(!json.message){
           console.log("json", json)
-          const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
-          const packs = json.data.packs != undefined ? json.data.packs : {};
+          const products = json.data.purchased_products !== undefined ? json.data.purchased_products : {};
+          const packs = json.data.packs !== undefined ? json.data.packs : {};
           this.setState({
             products: products,
             packs: packs,
@@ -63,7 +62,7 @@ class Thanks extends React.Component {
             <h2 class="text-ultimate">pack</h2>
           </div>
           <div class="text-four">
-            {Object.keys(this.state.products != undefined ? this.state.products : {}).map((step, k) => (
+            {Object.keys(this.state.products !== undefined ? this.state.products : {}).map((step, k) => (
                 <div className="unit">
                   <h2 className="text-rotate"></h2>
                   <h2 className="fruit">{this.state.products[step].product} </h2>

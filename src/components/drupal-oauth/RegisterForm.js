@@ -146,7 +146,6 @@ class RegisterForm extends React.Component {
           { processing ?
             <div>Loading ...</div>
             :<>
-            { this.state.error && <p className="text-error" >{this.state.error} </p>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <Form.Group controlId="formBasicTextName">
                 <Form.Control
@@ -256,6 +255,7 @@ class RegisterForm extends React.Component {
                   />
                  <div className="text-error" >{this.state.passwordConfirmError}</div>
               </Form.Group>
+              { this.state.error && <p className="text-success" >{this.state.error} </p>}
               <Link to="/user/login"> ¿ya tienes cuenta?</Link>
               <div className="link button-first">
                 <input type="submit" value="Registrate" onClick={ event => this.handleSubmit(event)} />

@@ -1,14 +1,13 @@
-import React, {useEffect} from "react"
+import React from "react";
 import SEO from "../seo"
 import Scanner from "../Scanner";
-import { navigate } from 'gatsby';
 class PointSale extends React.Component {
   state = {
     access: false
   }
   componentDidMount(){
     const token = this.props.drupalOauthClient.isLoggedIn();
-    if (token != undefined) {
+    if (token !== undefined) {
       const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
           method: 'GET',
           headers: new Headers({
@@ -17,7 +16,7 @@ class PointSale extends React.Component {
         }).then(response => response.json())
         .then(json => {
           console.log(json)
-          if(json.error == false){
+          if(json.error === false){
             this.setState({access: false})
             // navigate('/user/profile')
           }else{

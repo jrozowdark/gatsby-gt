@@ -1,7 +1,6 @@
 import React from "react"
 import SEO from "../seo"
 import { navigate } from 'gatsby';
-import RedemptionForm from "../drupal-oauth/RedemptionForm";
 import Redemption from "./Redemption";
 class PointSaleRedemption extends React.Component {
   state = {
@@ -10,7 +9,7 @@ class PointSaleRedemption extends React.Component {
   }
   componentDidMount(){
     const token = this.props.drupalOauthClient.isLoggedIn();
-   if (token != undefined) {
+   if (token !== undefined) {
      if(localStorage.getItem("redem")=== null){
         navigate("/staff/zone");
      }
@@ -22,7 +21,7 @@ class PointSaleRedemption extends React.Component {
         }).then(response => response.json())
         .then(json => {
           console.log(json)
-          if(json.error == false){
+          if(json.error === false){
             this.setState({access: false})
             // navigate('/user/profile')
           }else{
@@ -38,7 +37,7 @@ class PointSaleRedemption extends React.Component {
       .then(json => {
         console.log(json)
         if(!json.message){
-          const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
+          const products = json.data.purchased_products !== undefined ? json.data.purchased_products : {};
           this.setState({
             products: products,
             'redem': localStorage.getItem('redem')

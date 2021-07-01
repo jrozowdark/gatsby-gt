@@ -3,6 +3,7 @@ import { navigate } from 'gatsby';
 import withDrupalOauthConsumer from '../../drupal-oauth/withDrupalOauthConsumer';
 import styled from "styled-components";
 import Footer from '../footer';
+import LogoutLink from "../LogoutLink/LogoutLink"
 function NavigationMobile(props) {
   const [nav, showNav] = useState(false)
   console.log(props.base)
@@ -19,26 +20,17 @@ function NavigationMobile(props) {
       <a href="/">Inicio</a>
     </li>
     <li>
-      <a href={`${props.base}/#secundary-slider`}  onClick={() => showNav(!nav)}>Cómo funciona?</a>
+      <a href={`${props.base}/#secundary-slider`}  onClick={() => {showNav(!nav); document.getElementById('___gatsby').classList.toggle('heightvh')}}>Cómo funciona?</a>
     </li>
     <li>
-      <a href="/#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
+      <a href="/#buy-packs" onClick={(e) => {showNav(!nav); document.getElementById('___gatsby').classList.toggle('heightvh')}}>Comprar packs</a>
     </li>
     {props.userAuthenticated ?<>
       <li>
         <a href={props.staff !== "" ? "/staff/zone":"/user/profile"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
-      <li>
-        <a
-        href="/#"
-        onClick={async () => {
-          await props.drupalOauthClient.handleLogout();
-          props.updateAuthenticatedUserState(false);
-          navigate('/')
-        }}
-      >
-      Cerrar Sesión
-      </a>
+      <li className="logout-mobile">
+        <LogoutLink/>
       </li>
     </>:<>
       <li>

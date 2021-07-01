@@ -106,7 +106,7 @@ const UserInfo = (props) => {
                     )
                   })}
               </div>
-              <div className="button-fifth">
+              <div className="button-nine">
                 <Link
                   to={`/user/buy/${props.packs[step].pack_buy}`}
                   onClick={()=>{localStorage.setItem('data-products', JSON.stringify(props.packs[step].products));}}
