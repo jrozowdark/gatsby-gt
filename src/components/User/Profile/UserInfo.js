@@ -24,8 +24,11 @@ const UserInfo = (props) => {
           </div>
         </div>
         <div className="welcome">
-          <h2><span className="text-welcome">Bienvenido</span>
-            <span className="welcome-name">{usr.field_name} <span>{usr.field_lastname}</span></span></h2>
+          <h2><span className="text-welcome">Bienvenido</span></h2>
+          <div className="container-name">
+          <h3 className="welcome-name">{usr.field_name}</h3>
+          <h3 className="welcome-lastname">{usr.field_lastname}</h3>
+          </div>
         </div>
         <div className="welcome-qr">
           <QRCode value={usr.field_qr_code != null ? usr.field_qr_code : ''} className="d-flex" size={900} includeMargin bgColor="#FFFFFF" fgColor="#FB5030" level='H' />
