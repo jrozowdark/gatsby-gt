@@ -2,6 +2,7 @@ import React from "react"
 import withDrupalOauthConsumer from './withDrupalOauthConsumer';
 import { navigate } from 'gatsby';
 import { Form} from "react-bootstrap"
+
 class PurchaseForm extends React.Component {
   state = {
     processing: false,
@@ -14,14 +15,39 @@ class PurchaseForm extends React.Component {
     radios: null,
     input: null,
     show: null,
+    sum: 0,
   };
+  decrease = (e,field) => {
+    if (this.state. [field] > 0 && this.state.sum > 0 && this.state.sum <= this.state.quantity) {
+      this.setState({ [field]: this.state.[field] - 12 });
+      this.setState({ sum: this.state.sum - 12 });
+    }
+  }
 
+  increase = (e,field) => {
+    if(this.state.[field] < this.state.quantity && this.state.sum < this.state.quantity){
+      this.setState({ [field]: this.state.[field] + 12 });
+      this.setState({ sum: this.state.sum + 12 });
+    }
+  }
+  setPackage = (id) =>{
+    this.setState({
+      PackGroup: parseInt(id)
+    });
+  }
   componentDidMount() {
     const data = this.props.data;
     if (this.props.pid !== 0){
       this.setState({PackGroup :this.props.pid});
     }
+    let first = true;
     const radios = data.packs.nodes.map(node => {
+      if (this.state.PackGroup === 0 && first == true) {
+        first = false;
+        this.setState({
+          PackGroup: parseInt(node.drupal_internal__nid)
+        });
+      }
       return {'id' : node.drupal_internal__nid, 'field_lateral_title' : node.field_lateral_title,'field_title' : node.field_title, 'field_quantity_bottles': node.field_quantity_bottles}
     });
     this.setState({"radios" : radios});
@@ -75,7 +101,6 @@ class PurchaseForm extends React.Component {
         sum = sum + parseInt(this.state[`field_quantity_${i}`] !== 0 ? this.state[`field_quantity_${i}`] : 0);
         items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
       }
-      console.log(sum)
       if (sum !== parseInt(this.state.quantity)) {
         this.setState({
           processing: false,
@@ -110,7 +135,6 @@ class PurchaseForm extends React.Component {
     //  script.setAttribute('data-preference-id', preferenceId);
     //  const form = document.getElementById(FORM_ID);
     //  form.appendChild(script);
-
   };
      handleClose = () => this.setState({show :false});
      handleShow = () => this.setState({show :true});
@@ -129,10 +153,7 @@ class PurchaseForm extends React.Component {
                   this.state.quantity = d.field_quantity_bottles;
               }
               if (PackGroup === 0) {
-                this.setState({
-                  PackGroup: parseInt(d.id)
-                });
-                PackGroup = d.id;
+                this.setPackage(d.id);
               }
               return (
               <Form.Label key={i} className={PackGroup === d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
@@ -166,7 +187,9 @@ class PurchaseForm extends React.Component {
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label key={`pid_${i}`} >{d.title}
-                <Form.Control value={this.state.[`field_quantity_${i}`] !== 0 ? this.state.[`field_quantity_${i}`] :''} type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
+                  <a onClick={e => this.decrease(e,`field_quantity_${i}`)} className="minus" target={`field_quantity_${i}`}>-</a>
+                  <a onClick={e => this.increase(e,`field_quantity_${i}`)} className="minus" target={`field_quantity_${i}`}>+</a>
+                <Form.Control readOnly value={this.state.[`field_quantity_${i}`] !== 0 ? this.state.[`field_quantity_${i}`] :''} type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
                 </Form.Label>
             ))}
             { error && <p className="text-error">{error} </p>}
