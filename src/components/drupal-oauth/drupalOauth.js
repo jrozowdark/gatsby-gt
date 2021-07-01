@@ -140,16 +140,20 @@ class drupalOauth {
       body: formData,
     }).then(response => response.json())
     .then(json => {
-      //throw new Error(text.message);
+      console.log(json)
       if (json.error) {
-        throw new Error(json.message);
+        return json;
       }else{
         return this.storeToken(json);
       }
     }).catch(err => {
       throw new Error(err);
     });
+    if (response.message === undefined) {
+      await this.getUserRole();
+    }
     return response;
+
     // if (response.ok) {
     //   const json = await response.json();
 
@@ -506,6 +510,37 @@ class drupalOauth {
       });
     return service;
 
+  }
+
+  async getUserRole(){
+    const token = this.isLoggedIn();
+    console.log("Role")
+    const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
+        method: 'GET',
+        headers: new Headers({
+          'Authorization': `${token.token_type} ${token.access_token}`
+        })
+      }).then(response => response.json())
+      .then(json => {
+        console.log(json)
+        if (json.error == false) {
+          this.setState({
+            access: false
+          })
+          // navigate('/user/profile')
+        } else {
+          // link-my-account
+          if (document.querySelector(".link-my-account a") !== null) {
+            document.querySelector(".link-my-account a").href = "/staff/zone";
+          }
+          localStorage.setItem("set-staff", true);
+          this.setState({
+            access: true
+          })
+        }
+
+      }).catch(error => console.log(error));
+      return service;
   }
 }
 
