@@ -78,7 +78,7 @@ class UpdateUserForm extends React.Component {
                     <Form.Control type="email" defaultValue={data.display_name} placeholder="correo" name="username"
                       onChange={event =>
                         this.setState({ [event.target.name]: event.target.value })
-                      } />
+                      } readOnly />
                   </Form.Group>
                   <Form.Group controlId="exampleForm.ControlSelect1">
                     < Form.Control defaultValue = {
