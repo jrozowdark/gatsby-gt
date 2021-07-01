@@ -138,6 +138,12 @@
         max-width: 52vw;
         position: absolute;
       }
+      @media(min-width: 2000px) {
+        transform: translate(0%, 100%);
+      }
+      @media(min-width: 2400px) {
+        transform: translate(0%, 140%);
+      }
       h3.welcome-name {
         word-break: initial;
         font-size: 4.3rem;
