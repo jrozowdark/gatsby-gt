@@ -28,17 +28,8 @@ function NavigationMobile(props) {
       <li>
         <a href={props.staff !== "" ? "/staff/zone":"/user/profile"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
-      <li>
-        <a
-        href="/#"
-        onClick={async () => {
-          await props.drupalOauthClient.handleLogout();
-          props.updateAuthenticatedUserState(false);
-          navigate('/')
-        }}
-      >
-      Cerrar Sesión
-      </a>
+      <li className="logout-mobile" id="logout-mobile">
+        <LogoutLink/>
       </li>
     </>:<>
       <li>
