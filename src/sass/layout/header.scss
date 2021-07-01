@@ -314,25 +314,8 @@ header {
       width: 85vw;
       position: absolute;
       transform: translateY(-50%);
-      top: 46%;
+      top: 40%;
       @media (min-width: 360px) {
-      }
-      li {
-        &.logout-mobile, &#logout-mobile {
-          text-align: center;
-          margin-top: 5rem;
-          button {
-            font-size: 1rem;
-            text-decoration: underline;
-            letter-spacing: 0px;
-            color: white;
-            text-transform: uppercase;
-            font-family: $px-black;
-            br {
-              display: none;
-            }
-          }
-        }
       }
     }
     li {
