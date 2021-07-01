@@ -103,13 +103,13 @@ class ChangePasswordForm extends React.Component {
               </div>
               <Form.Group className={ error ? 'error' : ''} controlId="formBasicText">
                 <Form.Group controlId="formBasicPassword-one">
-                  <Form.Control type="password" minLength="8" name="password" placeholder="contraseña" onChange={event =>
+                  <Form.Control type="password" minLength="8" name="password" placeholder="Nueva contraseña" onChange={event =>
                     this.setState({ [event.target.name]: event.target.value })
                   } autoComplete="off"/>
                   <div className="text-error error-authentication">{this.state.passwordError}</div>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword-two">
-                  <Form.Control type="password" name="new_password" placeholder="Nueva contraseña" onChange={event =>
+                  <Form.Control type="password" name="new_password" placeholder="Confirmar contraseña" onChange={event =>
                     this.setState({ [event.target.name]: event.target.value })
                   } autoComplete="off"/>
                 </Form.Group>
