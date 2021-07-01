@@ -318,7 +318,7 @@ header {
       @media (min-width: 360px) {
       }
       li {
-        &.logout-mobile {
+        &.logout-mobile, &#logout-mobile {
           text-align: center;
           margin-top: 5rem;
           button {
