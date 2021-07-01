@@ -187,8 +187,10 @@ class PurchaseForm extends React.Component {
             <Form.Group className="select-flavor" controlId="formBasicText">
             {this.state.input.map((d, i) => (
                 <Form.Label key={`pid_${i}`} >{d.title}
-                  <a onClick={e => this.decrease(e,`field_quantity_${i}`)} className="minus" target={`field_quantity_${i}`}>-</a>
-                  <a onClick={e => this.increase(e,`field_quantity_${i}`)} className="minus" target={`field_quantity_${i}`}>+</a>
+                <div className="container-arrows">
+                  <a onClick={e => this.increase(e,`field_quantity_${i}`)} className="minus1" target={`field_quantity_${i}`}></a>
+                  <a onClick={e => this.decrease(e,`field_quantity_${i}`)} className="minus2" target={`field_quantity_${i}`}></a>
+                </div>
                 <Form.Control readOnly value={this.state.[`field_quantity_${i}`] !== 0 ? this.state.[`field_quantity_${i}`] :''} type="number" min="0"  step="12" placeholder="00" pid={d.pid} name={`field_quantity_${i}`} onChange={event => this.handleChange(event,d.pid)}/>
                 </Form.Label>
             ))}

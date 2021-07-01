@@ -45,9 +45,7 @@ input[type=password] {
 /* Spin Buttons modified */
 input[type="number"]::-webkit-outer-spin-button, 
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: visible !important;
-  opacity: 1 !important;
-  margin: 0 !important;
+  -webkit-appearance: none !important;
 }
 
 .font-line-orange {
