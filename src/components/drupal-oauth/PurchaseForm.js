@@ -62,7 +62,6 @@ class PurchaseForm extends React.Component {
     });
     this.setState({"input" : filtered});
     let data_products = localStorage.getItem('data-products') !== null ? JSON.parse(localStorage.getItem('data-products')) : null;
-    console.log("data",data_products)
     for (var i = 0; i < filtered.length; i++) {
 
       if (data_products !== null && data_products[filtered[i].pid] !== null && data_products[filtered[i].pid] !== undefined) {
@@ -94,12 +93,16 @@ class PurchaseForm extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("change")
     this.setState({ processing: true });
       let sum = 0;
       var items = [];
       for (var i = 0; i < this.state.input.length; i++) {
         sum = sum + parseInt(this.state[`field_quantity_${i}`] !== 0 ? this.state[`field_quantity_${i}`] : 0);
         items.push({[this.state[`field_quantity_${i}_pid`]] : parseInt(this.state[`field_quantity_${i}`])});
+      }
+      if (sum === parseInt(this.state.quantity) && this.state.error !== ''){
+        this.state.error = '';
       }
       if (sum !== parseInt(this.state.quantity)) {
         this.setState({
