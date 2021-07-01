@@ -11,7 +11,7 @@ class Profile extends React.Component {
   }
   componentDidMount() {
    const token = this.props.drupalOauthClient.isLoggedIn();
-   if( token != undefined) {
+   if( token !== undefined) {
     const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/getdatauser?_format=json`, {
         method: 'GET',
         headers: new Headers({
@@ -20,11 +20,11 @@ class Profile extends React.Component {
       }).then(response => response.json())
       .then(json => {
         if(!json.message){
-          const products = json.data.purchased_products != undefined ? json.data.purchased_products : {};
+          const products = json.data.purchased_products !== undefined ? json.data.purchased_products : {};
 
-          const packs = json.data.packs != undefined ? json.data.packs : {};
-          const user = json.user != undefined ? json.user : {};
-          const total = json.data.total != undefined ? json.data.total : 0;
+          const packs = json.data.packs !== undefined ? json.data.packs : {};
+          const user = json.user !== undefined ? json.user : {};
+          const total = json.data.total !== undefined ? json.data.total : 0;
           let nc = "";
           if(total > 0 ){
             nc = "open";
