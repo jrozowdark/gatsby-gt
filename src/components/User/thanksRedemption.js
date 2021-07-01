@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../seo"
+import Seo from "../seo"
 import { Link, navigate } from "gatsby"
 
 class ThanksRedemption extends React.Component {
@@ -12,25 +12,24 @@ class ThanksRedemption extends React.Component {
   }
   componentDidMount() {
     const token = this.props.drupalOauthClient.isLoggedIn();
-    if (token != undefined) {
+    if (token !== undefined) {
       if (localStorage.getItem('redem') !== null) {
         localStorage.removeItem('redem');
       }
       if (localStorage.getItem("product-redemption") === null){
         navigate("/staff/zone")
       }
-      const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
+      fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
           method: 'GET',
           headers: new Headers({
             'Authorization': `${token.token_type} ${token.access_token}`
           })
         }).then(response => response.json())
         .then(json => {
-          if (json.error == false) {
+          if (json.error === false) {
             this.setState({
               access: false
             })
-            // navigate('/user/profile')
           } else {
             let products = localStorage.getItem("product-redemption");
             this.setState({
@@ -49,7 +48,7 @@ class ThanksRedemption extends React.Component {
 
     return (
     <div class="redemption">
-      <SEO title="Thanks for you redemption" />
+      <Seo title="Thanks for you redemption" />
       <div class="redemption-component-fisrt">
         <div class="text-redemption">
           <div class="text-one">

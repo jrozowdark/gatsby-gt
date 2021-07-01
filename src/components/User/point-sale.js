@@ -21,12 +21,7 @@ class PointSale extends React.Component {
             this.setState({access: false})
             // navigate('/user/profile')
           }else{
-            // link-my-account
-          if (document.querySelector(".link-my-account a") !== null) {
-            document.querySelector(".link-my-account a").href = "/staff/zone";
-          }
-          localStorage.setItem("set-staff",true);
-            this.setState({access: true})
+          this.setState({access: true})
           }
 
         }).catch(error => console.log(error));

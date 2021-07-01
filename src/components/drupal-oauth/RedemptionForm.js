@@ -1,8 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 import withDrupalOauthConsumer from './withDrupalOauthConsumer';
 import { navigate } from 'gatsby';
-import { Form,Modal, Button } from "react-bootstrap"
-const FORM_ID = 'payment-form';
+import { Form } from "react-bootstrap"
 class RedemptionForm extends React.Component {
   state = {
     processing: false,
@@ -21,14 +20,13 @@ class RedemptionForm extends React.Component {
   componentDidMount() {
     const data = this.props.data;
     const input = data.products.nodes.map(node => {
-
       if (!node.field_unique || node.field_unique === null) {
         return {
           'title': node.title,
           'id': node.drupal_internal__nid
         }
-
       }
+      return undefined;
     });
     const filtered = input.filter(function (el) {
       return el !== undefined;
@@ -47,19 +45,19 @@ class RedemptionForm extends React.Component {
     console.log(this.state.input)
     let sendLocal = {}
     this.state.input.map(product =>{
-        if (product.id == PackGroup) {
+        if (product.id === PackGroup) {
           sendLocal = product;
         }
+        return true;
     })
     try {
-      const response = await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
+      await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
         if(data.message){
           this.setState({
             processing: false,
             error: data.message,
           });
         }
-        console.log(data)
         localStorage.setItem("product-redemption",JSON.stringify(sendLocal))
         navigate(data);
       });
@@ -90,12 +88,12 @@ class RedemptionForm extends React.Component {
               </Form.Group>
               <Form.Group className="select-button">
               {input.map((d, i) => {
-                if (PackGroup == 0) {
+                if (PackGroup === 0) {
                   this.state.PackGroup = d.id;
                   PackGroup = d.id;
                 }
                 return (
-                <Form.Label key={i} className={PackGroup == d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
+                <Form.Label key={i} className={PackGroup === d.id ? 'checked': ''} htmlFor="PackGroupC" onClick={event =>{
                     this.setState({ 'PackGroup': d.id })
                     }} >
                 <div className="text-first">{d.title}</div>
@@ -104,11 +102,11 @@ class RedemptionForm extends React.Component {
                   value = {d.id}
                   type={`radio`}
                   name="PackGroup"
-                  className={PackGroup == d.id ? 'checked': ''}
+                  className={PackGroup === d.id ? 'checked': ''}
                   onChange={event =>{
                       this.setState({ [event.target.name]: event.target.value })
                   }}
-                  checked={PackGroup == d.id}
+                  checked={PackGroup === d.id}
                 />
                 </Form.Label>
                 )
@@ -125,8 +123,6 @@ class RedemptionForm extends React.Component {
     }else{
       return ('')
     }
-    const { processing } = this.state;
-
   }
 }
 export default withDrupalOauthConsumer (RedemptionForm);

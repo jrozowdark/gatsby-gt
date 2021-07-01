@@ -72,6 +72,21 @@
     .form-register {
       padding: 36px 19px;
       text-align: center;
+      .text-error {
+        color: $red;
+        padding: 0 12px;
+        font-family: $g-black;
+        font-size: 1.1rem;
+        width: 255px;
+        line-height: 1;
+        text-align: center;
+        margin: 0 auto;
+        @media(min-width: 768px) {
+          font-size: 1.3rem;
+          letter-spacing: -0.5px;
+          width: 390px;
+        }
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -115,11 +130,11 @@
               width: 430px;
             }
           }
-          // input[type=number]::-webkit-inner-spin-button,
-          // input[type=number]::-webkit-outer-spin-button {
-          //   -webkit-appearance: none;
-          //   margin: 0;
-          // }
+          input[type=number]::-webkit-inner-spin-button,
+          input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
           input[type=password] {
             text-transform: none;
           }
@@ -174,6 +189,35 @@
         .button-first {
           margin: 30px auto 0px;
         }
+      }
+    }
+    input[type='date']{
+      color:transparent;
+      position: relative;
+      &.not-empty{
+        &:after{
+        z-index: -1;
+        color: transparent;
+        }
+      }
+    }
+    input[type='date']:after {
+        color: #656161;
+        content: attr(placeholder);
+        width: 100%;
+        position: absolute;
+        background: white;
+        left: 0;
+        padding: 4% 1%;
+        top: 0;
+        height: 100%;
+    }
+    
+    input[type='date']:focus{
+      color: black;
+      &:after{
+        z-index: -1;
+        color: transparent;
       }
     }
   }

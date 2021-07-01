@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from "react-bootstrap"
 
-import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
+import withDrupalOauthConsumer from '../../drupal-oauth/withDrupalOauthConsumer';
 import { navigate } from 'gatsby';
 const LogoutLink = (props) => {
   if (props.drupalOauthClient) {

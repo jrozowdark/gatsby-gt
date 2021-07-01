@@ -1,13 +1,8 @@
 import React, { useState} from 'react';
-import { Link, navigate } from 'gatsby';
-import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-import styled, { createGlobalstyle } from "styled-components";
-import LogoutLink from '../LogoutLink/LogoutLink';
-import LogoGatorade from "../../images/logo-menu.png";
+import { navigate } from 'gatsby';
+import withDrupalOauthConsumer from '../../drupal-oauth/withDrupalOauthConsumer';
+import styled from "styled-components";
 import Footer from '../footer';
-  function disNone() {
-
-  }
 function NavigationMobile(props) {
   const [nav, showNav] = useState(false)
   console.log(props.base)
@@ -27,15 +22,15 @@ function NavigationMobile(props) {
       <a href={`${props.base}/#secundary-slider`}  onClick={() => showNav(!nav)}>Cómo funciona?</a>
     </li>
     <li>
-      <a href="#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
+      <a href="/#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
     </li>
     {props.userAuthenticated ?<>
       <li>
-        <a href="/user/profile"  onClick={() => showNav(!nav)}>Mi cuenta</a>
+        <a href={props.staff !== "" ? "/staff/zone":"/user/profile"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
       <li>
         <a
-        href="#"
+        href="/#"
         onClick={async () => {
           await props.drupalOauthClient.handleLogout();
           props.updateAuthenticatedUserState(false);
@@ -47,10 +42,10 @@ function NavigationMobile(props) {
       </li>
     </>:<>
       <li>
-        <a href={props.base != "" ? `${props.base}/user/login` : "/user/login"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
+        <a href={props.base !== "" ? `${props.base}/user/login` : "/user/login"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
       <li>
-        <a href={props.staff != "" ? `${props.base}/staff/zone`:"/user/profile"} onClick={() => showNav(!nav)}>Cuenta de staff</a>
+        <a href={props.staff !== "" ? `${props.base}/staff/login`:"/staff/login"} onClick={() => showNav(!nav)}>Cuenta de staff</a>
       </li>
 
     </>}
@@ -63,9 +58,6 @@ function NavigationMobile(props) {
 
 export default withDrupalOauthConsumer(NavigationMobile);
 
-const Modal= styled.div `
-  display: ${({nav}) => nav ? "flex": "none"};
-`
 const MenuLinks = styled.div `
   display: ${({nav}) => nav ? "flex": "none"};
 `

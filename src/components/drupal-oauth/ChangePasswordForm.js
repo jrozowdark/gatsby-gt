@@ -16,32 +16,32 @@ class ChangePasswordForm extends React.Component {
   validate = () => {
     let passwordConfirmError = "";
     let passwordError = "";
-
+    let match = "";
     if (!this.state.password) {
       passwordError = "El campo no puede ser vacio";
     }
     if (!this.state.new_password) {
       passwordConfirmError = "El campo no puede ser vacio";
     }
-    if (this.state.password != this.state.new_password && passwordConfirmError == '') {
+    if (this.state.password !== this.state.new_password && passwordConfirmError === '') {
       passwordConfirmError = "Las contraseñas son diferentes";
     }
-    if (passwordError == '' && this.state.password.length < 8) {
+    if (passwordError === '' && this.state.password.length < 8) {
         passwordError = "El campo debe tener minímo 8 caracteres";
     }
-    if (passwordConfirmError == '' && this.state.new_password.length < 8) {
+    if (passwordConfirmError === '' && this.state.new_password.length < 8) {
       passwordConfirmError = "El campo debe tener minímo 8 caracteres";
     }
-    var match = /^[A-Z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+    match = /^[A-Z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe al menos una mayúscula";
     }
-    var match = /[a-z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+    match = /[a-z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe al menos una minuscula";
     }
-    var match = /[^a-zA-Z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+    match = /[^a-zA-Z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe al menos un caracter Especial";
     }
     if (passwordConfirmError || passwordError) {

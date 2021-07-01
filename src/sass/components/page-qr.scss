@@ -135,13 +135,13 @@
       margin: auto;
       height: 10vw !important;
       width: 10vw !important;
-      max-width: 530px;
-      max-height: 530px;
+      max-width: 510px;
+      max-height: 510px;
       min-width: 180px;
       min-height: 180px;
       @media(min-width: 1024px) {
-        height: 34vw !important;
-        width: 34vw !important;
+        height: 25vw !important;
+        width: 25vw !important;
         transform: translateY(-14%);
       }
     }
@@ -610,7 +610,7 @@
       align-items: center;
       min-height: 34.4rem;
     }
-    &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
+    &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
       .background-image-ultimate {
         display: none;
       }

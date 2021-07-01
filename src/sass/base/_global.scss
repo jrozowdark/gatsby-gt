@@ -25,6 +25,28 @@ body, html {
 input[type=password] {
   text-transform: none;
 }
+// input[type=number]::-webkit-inner-spin-button,
+// input[type=number]::-webkit-outer-spin-button {
+//   opacity: 1;
+//   background: black;
+//   color: black;
+//   -webkit-appearance: inner-spin-button !important;
+//   display: block;
+//   position: relative;
+//   cursor: default;
+//   // height: 3em;
+//   flex-grow: 0;
+//   flex-shrink: 0;
+//   flex-basis: auto;
+//   -webkit-user-select: block;
+//   z-index: 99999;
+// }
+
+/* Spin Buttons modified */
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
 
 .font-line-orange {
     color: transparent;
@@ -101,32 +123,32 @@ html {
 }
 
 
-input[type='date']{
-  color:transparent;
-  position: relative;
-  &.not-empty{
-    &:after{
-    z-index: -1;
-    color: transparent;
-    }
-  }
-}
-input[type='date']:after {
-    color: #656161;
-    content: attr(placeholder);
-    width: 100%;
-    position: absolute;
-    background: white;
-    left: 0;
-    padding: 4% 1%;
-    top: 0;
-    height: 100%;
-}
+// input[type='date']{
+//   color:transparent;
+//   position: relative;
+//   &.not-empty{
+//     &:after{
+//     z-index: -1;
+//     color: transparent;
+//     }
+//   }
+// }
+// input[type='date']:after {
+//     color: #656161;
+//     content: attr(placeholder);
+//     width: 100%;
+//     position: absolute;
+//     background: white;
+//     left: 0;
+//     padding: 4% 1%;
+//     top: 0;
+//     height: 100%;
+// }
 
-input[type='date']:focus{
-  color: black;
-  &:after{
-    z-index: -1;
-    color: transparent;
-  }
-}
+// input[type='date']:focus{
+//   color: black;
+//   &:after{
+//     z-index: -1;
+//     color: transparent;
+//   }
+// }

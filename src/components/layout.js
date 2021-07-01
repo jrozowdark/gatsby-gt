@@ -8,12 +8,11 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./global/header"
+import Footer from "./global/footer"
 import "./layout.css"
 import drupalOauth from '../components/drupal-oauth/drupalOauth';
 import withDrupalOauthProvider from '../components/drupal-oauth/withDrupalOauthProvider';
-// import "bootstrap/dist/css/bootstrap.min.css"
 
 
 const drupalOauthClient = new drupalOauth({

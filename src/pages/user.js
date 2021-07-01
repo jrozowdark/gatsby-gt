@@ -5,11 +5,7 @@ import Profile from "../components/User/profile"
 import Login from "../components/User/login"
 import Register from "../components/User/Register"
 import Buy from "../components/User/buy"
-import PointSale from "../components/User/point-sale"
-
 import PrivateRoute from "../components/Utils/PrivateRoute"
-import PointSaleRedemption from "../components/User/point-sale-redemption";
-import LoginPoint from "../components/User/login-point";
 import Thanks from "../components/User/thanks";
 import AccountEnable from "../components/User/account-enable";
 import RecoveryPassword from "../components/User/recovery-password";
