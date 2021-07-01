@@ -33,34 +33,34 @@ class RegisterForm extends React.Component {
     let birthdateError = "";
     let phoneError = "";
     let modalityError = "";
-
+    let match = "";
     if (!this.state.username.includes("@", ".")) {
       usernameError = "Correo electronico invalido";
     }
     if (!this.state.field_name) {
       field_nameError = "Campo obligatorio";
     }
-    var match = /^[a-zA-Z ]+$/;
-    if (field_nameError == "" && !match.exec(this.state.field_name)) {
+     match = /^[a-zA-Z ]+$/;
+    if (field_nameError === "" && !match.exec(this.state.field_name)) {
       field_nameError = "El campo debe contener solo Letras";
     }
     if (!this.state.field_lastname) {
       field_lastnameError = "Campo obligatorio";
     }
-    if (field_lastnameError == "" && !match.exec(this.state.field_lastname)) {
+    if (field_lastnameError === "" && !match.exec(this.state.field_lastname)) {
       field_lastnameError = "El campo debe contener solo Letras";
     }
     if (!this.state.birthdate ) {
       birthdateError = "Campo obligatorio";
     }
-    if (!this.state.modality || this.state.modality == '') {
+    if (!this.state.modality || this.state.modality === '') {
       modalityError = "Campo obligatorio";
     }
     if (!this.state.phone || (this.state.phone.length < 7 || this.state.phone.length > 10)) {
       phoneError = "Debes ingresar un número de telefono fijo o celular";
     }
-    var match = /^[0-9]*$/;
-    if (phoneError == "" && !match.exec(this.state.phone)) {
+     match = /^[0-9]*$/;
+    if (phoneError === "" && !match.exec(this.state.phone)) {
       phoneError = "El campo debe contener solo Números";
     }
     if (!this.state.password) {
@@ -69,25 +69,25 @@ class RegisterForm extends React.Component {
     if (!this.state.repeat_password) {
       passwordConfirmError = "El campo no puede ser vacio";
     }
-    if (this.state.password != this.state.repeat_password && passwordConfirmError == '') {
+    if (this.state.password !== this.state.repeat_password && passwordConfirmError === '') {
       passwordConfirmError = "Las contraseñas son diferentes";
     }
-    if (passwordError == '' && this.state.password.length < 8) {
+    if (passwordError === '' && this.state.password.length < 8) {
         passwordError = "El campo debe tener minímo 8 caracteres";
     }
-    if (passwordConfirmError == '' && this.state.repeat_password.length < 8) {
+    if (passwordConfirmError === '' && this.state.repeat_password.length < 8) {
       passwordConfirmError = "El campo debe tener minímo 8 caracteres";
     }
-    var match = /^[a-zA-Z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+     match = /^[a-zA-Z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe tener al menos una mayúscula";
     }
-    var match = /[a-z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+     match = /[a-z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe tener al menos una minuscula";
     }
-    var match = /[^a-zA-Z]/;
-    if (passwordError == "" && !match.exec(this.state.password)) {
+     match = /[^a-zA-Z]/;
+    if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe tener al menos un caracter Especial";
     }
     if (usernameError || field_nameError || field_lastnameError || birthdateError || phoneError || passwordError || passwordConfirmError || modalityError) {
@@ -125,7 +125,7 @@ class RegisterForm extends React.Component {
     }
   }
   onKeyPressedLetters(e) {
-     if (!(e.keyCode >= 65 && e.keyCode <= 120) && e.keyCode !== 91 && e.keyCode !== 92 && e.keyCode !== 8 && e.keyCode !== 32 && e.keyCode !== 9 && e.keyCode != 0) {
+     if (!(e.keyCode >= 65 && e.keyCode <= 120) && e.keyCode !== 91 && e.keyCode !== 92 && e.keyCode !== 8 && e.keyCode !== 32 && e.keyCode !== 9 && e.keyCode !== 0) {
        e.preventDefault();
      }
   }

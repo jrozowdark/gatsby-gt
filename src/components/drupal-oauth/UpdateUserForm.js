@@ -64,7 +64,7 @@ class UpdateUserForm extends React.Component {
                   <Form.Group controlId="formBasicDate-one">
                     < Form.Control type = "date"
                     value = {
-                      this.state.birthdate == '' && data.field_born_date  != null ? data.field_born_date : ''
+                      this.state.birthdate === '' && data.field_born_date  != null ? data.field_born_date : ''
                     }
                     placeholder = "fecha de nacimiento"
                     format = "YYYY-MM-DD"
@@ -87,7 +87,7 @@ class UpdateUserForm extends React.Component {
                     as = "select"
                     name = "modality"
                     value = {
-                      this.state.modality == '' ? data.field_bike_type :''}
+                      this.state.modality === '' ? data.field_bike_type :''}
                     onChange = {
                         event =>
                       this.setState({ [event.target.name]: event.target.value })
@@ -99,7 +99,7 @@ class UpdateUserForm extends React.Component {
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlId="formBasicDate-two">
-                    <Form.Control type="tel" defaultValue={data.field_phone == 'null' ? '' : data.field_phone} placeholder="teléfono" name="phone" onChange={event =>
+                    <Form.Control type="tel" defaultValue={data.field_phone === 'null' ? '' : data.field_phone} placeholder="teléfono" name="phone" onChange={event =>
                       this.setState({ [event.target.name]: event.target.value })
                     } />
                   </Form.Group>
