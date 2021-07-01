@@ -314,8 +314,19 @@ header {
       width: 85vw;
       position: absolute;
       transform: translateY(-50%);
-      top: 40%;
+      top: 46%;
       @media (min-width: 360px) {
+      }
+      li {
+        &:last-child {
+          text-align: center;
+          margin-top: 5rem;
+          a {
+            font-size: 1rem;
+            text-decoration: underline;
+            letter-spacing: 0px;
+          }
+        }
       }
     }
     li {

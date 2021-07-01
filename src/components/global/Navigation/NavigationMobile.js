@@ -19,10 +19,10 @@ function NavigationMobile(props) {
       <a href="/">Inicio</a>
     </li>
     <li>
-      <a href={`${props.base}/#secundary-slider`}  onClick={() => showNav(!nav)}>Cómo funciona?</a>
+      <a href={`${props.base}/#secundary-slider`}  onClick={() => {showNav(!nav); document.getElementById('___gatsby').classList.toggle('heightvh')}}>Cómo funciona?</a>
     </li>
     <li>
-      <a href="/#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
+      <a href="/#buy-packs" onClick={(e) => {showNav(!nav); document.getElementById('___gatsby').classList.toggle('heightvh')}}>Comprar packs</a>
     </li>
     {props.userAuthenticated ?<>
       <li>
@@ -31,6 +31,7 @@ function NavigationMobile(props) {
       <li>
         <a
         href="/#"
+        className="logout-mobile"
         onClick={async () => {
           await props.drupalOauthClient.handleLogout();
           props.updateAuthenticatedUserState(false);
