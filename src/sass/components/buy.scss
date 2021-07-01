@@ -214,6 +214,9 @@
         @media(min-width: 992px) {
           min-width: 486px;
         }
+        @media(max-width: 456px) {
+          justify-content: center;
+        }
         .form-label {
           text-align: center;
           color: gray;
