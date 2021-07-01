@@ -40,29 +40,43 @@ export const SecondarySlider = ({ node }) => {
         <div className="title-component" id="secundary-slider" > <h2 className="font-line-black" dangerouslySetInnerHTML={{ __html: node.field_title}} /> </div>
 
     <Slider {...settings} >
-      {node.data_slide.field_slide.map((slide, i) => (
-        < div className = {
-          `container-slick position-${(i+1)%2 ? 'rigth': 'left'}`
+      {node.data_slide.field_slide.map((slide, i) => {
+        let imageDesk = slide.image.desktop !== null ? slide.image.desktop : JSON.stringify({});
+        let imageMob = slide.image.mobile !== null ? slide.image.mobile : JSON.stringify({});
+        const images = [];
+        if (Object.keys(imageDesk).length !== 0 && imageDesk.constructor === Object) {
+          imageDesk = slide.image.desktop.data.field_media_image.localFile.childImageSharp.fluid;
+          images.push(imageDesk);
+        } else {
+          imageDesk = {};
         }
-        key = {
-          i
-        } >
-          <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
-          <div className="bodySlider">
-            <div className="text-lateral-body">
-              <h2 className="h2-text-lateral regist" dangerouslySetInnerHTML={{ __html: slide.field_title_lateral_line}} />
+        if (Object.keys(imageMob).length !== 0 && imageMob.constructor === Object){
+          imageMob = {
+            ...slide.image.mobile.datamobile.field_media_image_1.localFile.childImageSharp.fluid,
+            media: `(max-width: 992px)`
+          };
+          images.push(imageMob);
+        }else{
+          imageMob = {};
+        }
+        return (
+          < div className = {`container-slick position-${(i+1)%2 ? 'rigth': 'left'}`} key = {i} >
+            <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
+            <div className="bodySlider">
+              <div className="text-lateral-body">
+                <h2 className="h2-text-lateral regist" dangerouslySetInnerHTML={{ __html: slide.field_title_lateral_line}} />
+              </div>
+              <div className="number-text">
+                <h2 className="regist font-line-orange" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
+                <h2 className="title-slider regist" dangerouslySetInnerHTML={{ __html: slide.field_title_second_line}} />
+              </div>
+              <div className="pagraph-slider" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
+              <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
             </div>
-            <div className="number-text">
-              <h2 className="regist font-line-orange" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
-              <h2 className="title-slider regist" dangerouslySetInnerHTML={{ __html: slide.field_title_second_line}} />
-            </div>
-            <div className="pagraph-slider" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
-            <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
+            <div className="image"><Img fluid={images} alt ={slide.image.desktop.data.field_media_image.filename}  /></div>
           </div>
-           <div className="image d-none d-lg-block"><Img fluid={slide.image.field_image.data.field_media_image.localFile.childImageSharp.fluid} /></div>
-          {/*<div className="image d-lg-none"><Img fluid={slide.image.field_image_mobile.data.field_media_image_1.localFile.childImageSharp.fluid} /></div> */}
-          </div>
-      ))}
+        );
+      })}
     </Slider>
     </div>
     );
@@ -87,9 +101,10 @@ export const fragment = graphql`
               uri
             }
             image: relationships{
-              field_image {
+              desktop: field_image {
                 data: relationships {
                   field_media_image {
+                    filename
                     localFile {
                       childImageSharp {
                         fluid{
@@ -100,9 +115,10 @@ export const fragment = graphql`
                   }
                 }
               }
-              field_image_mobile {
-                data: relationships {
+              mobile: field_image_mobile {
+                datamobile: relationships {
                   field_media_image_1 {
+                    filename
                     localFile {
                       childImageSharp {
                         fluid{
