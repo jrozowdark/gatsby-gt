@@ -29,7 +29,7 @@ function NavigationMobile(props) {
       <li>
         <a href={props.staff !== "" ? "/staff/zone":"/user/profile"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
-      <li className="logout-mobile">
+      <li className="logout-mobile" id="logout-mobile">
         <LogoutLink/>
       </li>
     </>:<>
