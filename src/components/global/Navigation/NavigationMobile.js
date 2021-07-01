@@ -22,11 +22,11 @@ function NavigationMobile(props) {
       <a href={`${props.base}/#secundary-slider`}  onClick={() => showNav(!nav)}>Cómo funciona?</a>
     </li>
     <li>
-      <a href="#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
+      <a href="/#buy-packs" onClick={(e) => showNav(!nav)}>Comprar packs</a>
     </li>
     {props.userAuthenticated ?<>
       <li>
-        <a href="/user/profile"  onClick={() => showNav(!nav)}>Mi cuenta</a>
+        <a href={props.staff !== "" ? "/staff/zone":"/user/profile"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
       <li>
         <a
@@ -45,7 +45,7 @@ function NavigationMobile(props) {
         <a href={props.base !== "" ? `${props.base}/user/login` : "/user/login"}  onClick={() => showNav(!nav)}>Mi cuenta</a>
       </li>
       <li>
-        <a href={props.staff !== "" ? `${props.base}/staff/zone`:"/user/profile"} onClick={() => showNav(!nav)}>Cuenta de staff</a>
+        <a href={props.staff !== "" ? `${props.base}/staff/login`:"/staff/login"} onClick={() => showNav(!nav)}>Cuenta de staff</a>
       </li>
 
     </>}
