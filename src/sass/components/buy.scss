@@ -271,9 +271,9 @@
               &::before {
                 content: "";
                 position: absolute;
-                width: 30px;
-                height: 30px;
-                background-image: url(../../images/avance-rapido-up.svg);
+                width: 32px;
+                height: 32px;
+                background-image: url(../../images/avance-rapido-up.png);
                 background-repeat: no-repeat;
                 z-index: 999999;
                 cursor: pointer;
@@ -294,9 +294,9 @@
               &::before {
                 content: "";
                 position: absolute;
-                width: 30px;
-                height: 30px;
-                background-image: url(../../images/avance-rapido-down.svg);
+                width: 32px;
+                height: 32px;
+                background-image: url(../../images/avance-rapido-down.png);
                 z-index: 999999;
                 cursor: pointer;
                 transform: translate(-50%, -50%);
