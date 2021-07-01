@@ -75,6 +75,7 @@ class drupalOauth {
   async handleLogout() {
     localStorage.removeItem('bottles-enable');
     localStorage.removeItem('data-products');
+    localStorage.removeItem('set-staff');
     return localStorage.removeItem('drupal-oauth-token');
   };
 
