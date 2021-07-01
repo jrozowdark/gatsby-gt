@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { navigate } from 'gatsby';
 import withDrupalOauthConsumer from '../../drupal-oauth/withDrupalOauthConsumer';
 import styled from "styled-components";
+import LogoutLink from '../LogoutLink/LogoutLink';
 import Footer from '../footer';
 function NavigationMobile(props) {
   const [nav, showNav] = useState(false)
