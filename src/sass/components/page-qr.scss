@@ -825,7 +825,8 @@
           }
         }
       }
-      .button-fifth {
+      //Button 
+      .button-nine {
         margin: 3rem 0 0 0;
         transform: skewX(-31deg) translate(-60%, -50%);
         width: 220px;
@@ -838,12 +839,10 @@
           transform: translate(-50%, -50%) skewX(-31deg);
           top: 80%;
           text-align: center;
-          background: #FB5030;
           width: 20rem;
           height: 3.5rem;
         }
         a {
-          color: white;
           padding: 0.8rem;
           font-size: 1.3rem;
         }

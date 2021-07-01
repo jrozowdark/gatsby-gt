@@ -1,8 +1,6 @@
 import React from "react"
 import LoginFormStaff from "../drupal-oauth/LoginFormStaff";
 import SEO from "../seo"
-import drupalOauth from '../drupal-oauth/drupalOauth';
-import withDrupalOauthProvider from '../drupal-oauth/withDrupalOauthProvider';
 class LoginPoint extends React.Component {
   state = {
     username: ``,

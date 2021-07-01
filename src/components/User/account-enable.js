@@ -1,7 +1,5 @@
 import React from "react"
-import SEO from "../seo"
 import { Link, navigate } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 class AccountEnable extends React.Component {
   state = {
     uid: false,

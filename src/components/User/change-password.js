@@ -1,5 +1,4 @@
 import React from "react"
-import LoginForm from "../drupal-oauth/LoginForm";
 import SEO from "../seo"
 import ChangePasswordForm from "../drupal-oauth/ChangePasswordForm";
 class ChangePassword extends React.Component {

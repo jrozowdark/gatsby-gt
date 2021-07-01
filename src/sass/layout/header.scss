@@ -321,10 +321,16 @@ header {
         &.logout-mobile {
           text-align: center;
           margin-top: 5rem;
-          a {
+          button {
             font-size: 1rem;
             text-decoration: underline;
             letter-spacing: 0px;
+            color: white;
+            text-transform: uppercase;
+            font-family: $px-black;
+            br {
+              display: none;
+            }
           }
         }
       }

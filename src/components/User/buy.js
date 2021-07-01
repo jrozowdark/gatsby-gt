@@ -12,7 +12,7 @@ class Buy extends React.Component {
       <SEO title="Compras" />
       <div className="row">
         <div className="col-12 col-lg-6 left-side">
-          <h2><span>tu </span>orden</h2>
+          <div className="text-title"><h2><span>tu </span>orden</h2></div>
           <div className="image-gatorade">
             <img src={GatoradeOne} alt="gatorade" title="gatorade" />
           </div>
@@ -27,3 +27,4 @@ class Buy extends React.Component {
 }
 
 export default Buy
+
