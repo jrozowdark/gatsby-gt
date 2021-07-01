@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import withDrupalOauthConsumer from './drupal-oauth/withDrupalOauthConsumer';
 
-import LogoutLink from './LogoutLink/LogoutLink';
+import LogoutLink from './global/LogoutLink/LogoutLink';
 
 function RedirectLoggedPacks(props) {
   return (

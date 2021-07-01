@@ -273,53 +273,57 @@ class drupalOauth {
    */
    async registerForm(field_name, field_lastname, birthdate, username, modality, phone, password, scope) {
 
-      const response = await fetch(this.config.register_url, {
-        method: 'post',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        }),
-        body: JSON.stringify({
-          "name": [{
-            "value": username
-          }],
-          "mail": [{
-            "value": username
-          }],
-          "pass": [{
-            "value": password
-          }],
-          "field_lastname": [{
-            "value": field_lastname
-          }],
-          "field_name": [{
-            "value": field_name
-          }],
-          "field_role": [{
-            "value": scope
-          }],
-          "field_bike_type": [{
-            "value": modality
-          }],
-          "field_phone": [{
-            "value": phone
-          }],
-          "field_born_date": [{
-            "value": birthdate
-          }]
-        }),
-      }).then(response => response.json())
-        .then(json => {
-          //throw new Error(text.message);
-          if (json.message) {
-            throw new Error(json.message);
-          } else {
-            return this.handleLogin(username, password, scope);
-            // return this.storeToken(json);
-          }
-        }).catch(err => {
-          throw new Error(err);
-        });
+    const response = await fetch(this.config.register_url, {
+      method: 'post',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+      body: JSON.stringify({
+        "name": [{
+          "value": username
+        }],
+        "mail": [{
+          "value": username
+        }],
+        "pass": [{
+          "value": password
+        }],
+        "field_lastname": [{
+          "value": field_lastname
+        }],
+        "field_name": [{
+          "value": field_name
+        }],
+        "field_role": [{
+          "value": scope
+        }],
+        "field_bike_type": [{
+          "value": modality
+        }],
+        "field_phone": [{
+          "value": phone
+        }],
+        "field_born_date": [{
+          "value": birthdate
+        }]
+      }),
+    }).then(response => response.json())
+    .then(json => {
+      //throw new Error(text.message);
+      if (json.message) {
+        return json;
+      } else {
+        return this.handleLogin(username, password, scope);
+        // return this.storeToken(json);
+      }
+    }).catch(err => {
+      return {
+        "message": err
+      };
+    });
+
+    return response;
   };
   /**
    * Exchange your refresh token for a new auth token.
@@ -353,18 +357,18 @@ class drupalOauth {
         body: JSON.stringify(data)
       }).then(response => response.json())
         .then(json => {
-          //throw new Error(text.message);
           if (json.error) {
-            throw new Error(json.message);
+            return json;
           } else {
             this.handleLogout();
             return true;
-            // return this.handleLogin(username, password, scope);
-            // return this.storeToken(json);
           }
         }).catch(err => {
-          throw new Error(err);
+          return {
+            "message": err
+          };
         });
+        return response
   };
   /**
    * Exchange your refresh token for a new auth token.
@@ -376,7 +380,7 @@ class drupalOauth {
    */
    async getUrlOrder(senData) {
     const token = this.isLoggedIn();
-    if (token != undefined) {
+    if (token !== undefined) {
       const service = await fetch(this.config.purchase_order_url, {
           method: 'POST',
           headers: new Headers({
@@ -409,7 +413,7 @@ class drupalOauth {
    */
    async setRedemption(senData) {
     const token = this.isLoggedIn();
-    if (token != undefined) {
+    if (token !== undefined) {
       const service = await fetch(this.config.redemption_url, {
           method: 'POST',
           headers: new Headers({
@@ -500,24 +504,8 @@ class drupalOauth {
         };
       });
     return service;
-    if (service.ok) {
-      const json = await service.json();
 
-      if (json.message) {
-        return json;
-      }
-
-      return true;
-    }
-
-    return null;
   }
-//   {
-// "uid" : {"value":6},
-// "timestamp" : {"value":1624432609},
-// "hash" : {"value":"cOyM0a6SDyW054tv6ZylpbpyIYippk8jnHKFg6il5TI"},
-// "pass": {"value":"master"}
-// }
 }
 
 export default drupalOauth;

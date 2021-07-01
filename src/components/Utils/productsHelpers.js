@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image"
 import RedirectLoggedPacks from "../RedirectLoggedPacks"
 export const getPack = node => {
-
+  console.log("node",node)
   // var containerBuy = document.getElementById('container-buy-id');
   // for(var i = 0; i < containerBuy; i += 2) {
   //   parentBuy.slice(i, i+2).wrapAll("<div class="parent"></div>");

@@ -1,16 +1,12 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Form, Button } from "react-bootstrap"
+import Seo from "../components/seo"
 import "../sass/base/_fonts.scss"
 import bgPrivacy from "../images/pollo1.png";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="tnaks" />
+    <Seo title="Terms & Conditions" />
     <div className="privacy">
       <div className="bg-privacy">
         <img src={bgPrivacy} alt="Background privacy" title="background privacy" />

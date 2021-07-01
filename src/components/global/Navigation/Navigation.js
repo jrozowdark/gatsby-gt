@@ -1,9 +1,9 @@
 import React, { useState} from 'react';
 import { Link } from 'gatsby';
-import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-import styled, { createGlobalstyle } from "styled-components";
+import withDrupalOauthConsumer from '../../drupal-oauth/withDrupalOauthConsumer';
+import styled from "styled-components";
 import LogoutLink from '../LogoutLink/LogoutLink';
-import LogoGatorade from "../../images/logo-menu.png";
+import LogoGatorade from "../../../images/logo-menu.png";
 
 function Navigation(props) {
   const [nav, showNav] = useState(false)
@@ -24,7 +24,7 @@ function Navigation(props) {
           <div className="links-section">
             {props.userAuthenticated ?<>
               <div className={`link-my-account ${props.bottles}`}>
-              <Link to={props.staff != "" ? "/staff/zone":"/user/profile"}></Link>
+              <Link to={props.staff !== "" ? "/staff/zone":"/user/profile"}></Link>
               </div>
               <LogoutLink/>
               </> :<>
@@ -32,7 +32,7 @@ function Navigation(props) {
                 <Link to="/user/register">Registrate</Link>
               </div>
               <div className="link-login" onClick={() => showNav(!nav)}>
-                <Link to="#"></Link>
+                <Link to="/#"></Link>
               </div>
               <Modal className="modal-menu" nav={nav}>
                <p>Ingresar como:</p>

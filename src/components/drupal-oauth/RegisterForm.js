@@ -148,7 +148,7 @@ class RegisterForm extends React.Component {
             :<>
             { this.state.error && <p className="text-error" >{this.state.error} </p>}
             <form onSubmit={ event => this.handleSubmit(event)}>
-              <Form.Group controlId="formBasicText">
+              <Form.Group controlId="formBasicTextName">
                 <Form.Control
                 type="text"
                 placeholder="nombres"
@@ -160,7 +160,7 @@ class RegisterForm extends React.Component {
                 />
                 <div className="text-error" >{this.state.field_nameError}</div>
               </Form.Group>
-              <Form.Group controlId="formBasicText">
+              <Form.Group controlId="formBasicTextLastName">
                 <Form.Control
                 type="text"
                 placeholder="apellidos"
@@ -171,7 +171,7 @@ class RegisterForm extends React.Component {
                 onKeyDown = {this.onKeyPressedLetters}/>
                 <div className="text-error" >{this.state.field_lastnameError}</div>
               </Form.Group>
-              <Form.Group controlId="formBasicDate">
+              <Form.Group controlId="formBasicBirthdate">
                 <Form.Control
                 type="date"
                 placeholder="fecha de nacimiento"
@@ -236,20 +236,22 @@ class RegisterForm extends React.Component {
               <Form.Group controlId="formBasicPassword">
                 <Form.Control
                 type="password"
-                minlength="8"
+                minLength= "8"
                 name="password"
+                autoComplete = "off"
                 placeholder="contraseña"
                 onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })
                 }/>
                 <div className="text-error" >{this.state.passwordError}</div>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicRepeatPassword">
                 <Form.Control
                 type="password"
                 name="repeat_password"
-                 placeholder="repetir contraseña"
-                 onChange={event =>
+                autoComplete = "off"
+                placeholder="repetir contraseña"
+                onChange={event =>
                   this.setState({ [event.target.name]: event.target.value })}
                   />
                  <div className="text-error" >{this.state.passwordConfirmError}</div>
