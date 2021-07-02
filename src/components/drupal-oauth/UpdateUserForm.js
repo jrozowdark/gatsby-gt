@@ -13,20 +13,14 @@ class UpdateUserForm extends React.Component {
     birthdate: ''
   };
   componentDidMount() {
-    // console.log("update",this.props.data)
-    // this.setState({
-    //   modality: this.props.data.field_bike_type != null ? this.props.data.field_bike_type : ""
-    // })
   }
   handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ processing: true });
     const { field_name, field_lastname, birthdate, username, modality, phone, password, new_password } = this.state;
-    console.log(new_password)
     try {
       await this.props.drupalOauthClient.handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
       this.setState({ processing: true });
-      // this.props.updateAuthenticatedUserState(true);
       navigate("/");
     } catch(err) {
       this.setState({

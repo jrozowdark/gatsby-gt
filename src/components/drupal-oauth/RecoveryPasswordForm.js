@@ -35,7 +35,6 @@ class RecoveryPasswordForm extends React.Component {
       try {
         await this.props.drupalOauthClient.handleRecoveryPassword(username).then(receive => receive)
           .then(json => {
-            console.log("json",json)
             if (json.message === undefined) {
               this.setState({ processing: false });
               this.setState({

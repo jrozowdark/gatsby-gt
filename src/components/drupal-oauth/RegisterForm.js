@@ -181,7 +181,6 @@ class RegisterForm extends React.Component {
                 }
                 name="birthdate"
                 onKeyDown={event =>{
-                  console.log("key")
                   event.target.classList.add("not-empty");
                 }}
                 onChange={event =>{
