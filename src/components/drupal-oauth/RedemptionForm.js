@@ -53,7 +53,6 @@ class RedemptionForm extends React.Component {
       });
       await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
         if(data.message){
-          console.log(data)
           this.setState({
             processing: false,
             error: data.message,

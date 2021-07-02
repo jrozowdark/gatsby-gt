@@ -14,7 +14,7 @@ class ThanksRedemption extends React.Component {
     const token = this.props.drupalOauthClient.isLoggedIn();
     if (token !== undefined) {
       if (localStorage.getItem('redem') !== null) {
-        // localStorage.removeItem('redem');
+        localStorage.removeItem('redem');
       }
       if (localStorage.getItem("product-redemption") === null){
         navigate("/staff/zone")
