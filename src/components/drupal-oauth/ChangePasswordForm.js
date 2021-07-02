@@ -65,7 +65,7 @@ class ChangePasswordForm extends React.Component {
               this.setState({ processing: false });
               this.setState({
                 processing: false,
-                error:'Hemos cambiado tú contraseña, por favor intenta ingresar a tú cuenta <a href="/user/login"> aquí</a>',
+                error: "Hemos cambiado tú contraseña, por favor intenta ingresar a tú cuenta {<a href="/user/login"> aquí</a>} ",
               });
               // this.props.updateAuthenticatedUserState(true);
                 // navigate(`${this.props.r}`)
@@ -95,7 +95,6 @@ class ChangePasswordForm extends React.Component {
           { processing ?
             <div>Loading ...</div>
             :<>
-            { error && <Form.Text >{error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <div className="title-form">
                 <h2>Recuperar contraseña</h2>
@@ -115,6 +114,7 @@ class ChangePasswordForm extends React.Component {
                 <div className="text-error error-authentication">{this.state.passwordConfirmError}</div>
               </Form.Group>
               <Link className="link-text" to="/user/login">¿Tienes Cuenta?</Link>
+              { error && <p className="text-error" >{error} </p>}
               <div className="link button-fifth">
                <input type="submit" value="ingresa" onClick={ event => this.handleSubmit(event)} />
               </div>
