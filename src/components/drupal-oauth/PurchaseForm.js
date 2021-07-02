@@ -37,7 +37,6 @@ class PurchaseForm extends React.Component {
   }
   componentDidMount() {
     const data = this.props.data;
-    console.log(data)
     if (this.props.pid !== 0){
       this.setState({PackGroup :this.props.pid});
     }
