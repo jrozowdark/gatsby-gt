@@ -134,9 +134,14 @@
         justify-content: center;
       }
       @media(min-width: 1024px) {
-        min-width: 52vw;
-        max-width: 52vw;
+        min-width: 44vw;
+        max-width: 44vw;
         position: absolute;
+        max-height: 6.2rem;
+        overflow: hidden;
+      }
+      @media(min-width: 1450px) {
+        max-height: 6.5rem;
       }
       @media(min-width: 2000px) {
         transform: translate(0%, 100%);
