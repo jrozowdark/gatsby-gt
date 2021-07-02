@@ -8,10 +8,12 @@ import { Link } from "gatsby"
 import Logocarlos from "../../../images/bg-ultimate-qr.png";
 import bgQr from "../../../images/bg-ultimate-qr.png";
 
+
 const UserInfo = (props) => {
   let packs = props.packs;
   const usr = props.user;
   let quantity = 0;
+  console.log(props.packs)
   return (
     <div className="container-profile">
       <div className="principal-banner-qr">
@@ -109,6 +111,7 @@ const UserInfo = (props) => {
                     )
                   })}
               </div>
+                {!props.packs[step].gift_pack ?
               <div className="button-nine">
                 <Link
                   to={`/user/buy/${props.packs[step].pack_buy}`}
@@ -120,6 +123,7 @@ const UserInfo = (props) => {
                   Recargar
               </Link>
               </div>
+                : ''}
             </div>
           </div>
         ))}
