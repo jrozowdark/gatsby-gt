@@ -93,7 +93,6 @@ class PurchaseForm extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("change")
     this.setState({ processing: true });
       let sum = 0;
       var items = [];

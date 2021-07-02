@@ -61,7 +61,6 @@ class ChangePasswordForm extends React.Component {
       try {
         await this.props.drupalOauthClient.handleChangePassword(id, time, hash,password).then(receive => receive)
           .then(json => {
-            console.log("json",json)
             if (json.message === undefined) {
               this.setState({ processing: false });
               this.setState({

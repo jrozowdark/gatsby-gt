@@ -140,7 +140,6 @@ class drupalOauth {
       body: formData,
     }).then(response => response.json())
     .then(json => {
-      console.log(json)
       if (json.error) {
         return json;
       }else{
@@ -514,7 +513,6 @@ class drupalOauth {
 
   async getUserRole(){
     const token = this.isLoggedIn();
-    console.log("Role")
     const service = fetch(`${process.env.GATSBY_DRUPAL_ROOT}/mp_transactions/validate?_format=json`, {
         method: 'GET',
         headers: new Headers({
@@ -522,7 +520,6 @@ class drupalOauth {
         })
       }).then(response => response.json())
       .then(json => {
-        console.log(json)
         if (json.error == false) {
           this.setState({
             access: false

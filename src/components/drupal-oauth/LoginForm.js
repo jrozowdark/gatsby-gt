@@ -39,7 +39,6 @@ class LoginForm extends React.Component {
       try {
         await this.props.drupalOauthClient.handleLogin(username, password, '').then(receive => receive)
           .then(json => {
-            console.log("json",json)
             if (json.message === undefined) {
               this.setState({ processing: false });
               this.props.updateAuthenticatedUserState(true);
