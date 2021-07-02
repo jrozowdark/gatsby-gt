@@ -40,9 +40,6 @@ class RedemptionForm extends React.Component {
     event.preventDefault();
     const {PackGroup} = this.state;
     let dataSend = JSON.stringify({"code": this.props.redem, "idp": PackGroup, "total": 1});
-    console.log(dataSend);
-    console.log(event)
-    console.log(this.state.input)
     let sendLocal = {}
     this.state.input.map(product =>{
         if (product.id === PackGroup) {
