@@ -54,13 +54,15 @@ export const getPack = node => {
                 />
               </div>
             </div>
-            <h2 className="font-gatorade-light bottle-shirt">12 botellas</h2>
+            <h2 className="font-gatorade-light bottle-shirt">{node.field_quantity_bottles} botellas</h2>
           </div>
           {/* <div className={[node.field_unique]}></div> */}
         </div>
         <RedirectLoggedPacks
           title={node.field_link.title}
           pid={node.drupal_internal__nid}
+          gift={node.field_gift_pack}
+          redirect={node.field_link.uri.replace('internal:','')}
         />
       </div>
     </div>
