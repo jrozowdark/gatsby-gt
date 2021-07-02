@@ -69,7 +69,6 @@ class RecoveryPasswordForm extends React.Component {
           { processing ?
             <div>Loading ...</div>
             :<>
-            { error && <Form.Text >{error} </Form.Text>}
             <form onSubmit={ event => this.handleSubmit(event)}>
               <div className="title-form">
                 <h2>Recuperar<br/>contraseña</h2>
@@ -81,6 +80,7 @@ class RecoveryPasswordForm extends React.Component {
                 <div className="text-error error-authentication">{this.state.usernameError}</div>
               </Form.Group>
               <Link className="link-text" to="/user/login">¿Tienes Cuenta?</Link>
+              { error && <p class="text-success" >{error} </p>}
               <div className="link button-fifth">
                <input type="submit" value="Enviar" onClick={ event => this.handleSubmit(event)} />
               </div>

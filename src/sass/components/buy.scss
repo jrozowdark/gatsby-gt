@@ -248,6 +248,7 @@
           display: block !important;
           flex: 0 0 22.33%;
           position: relative;
+          transition: all .5s;
           // min-width: 100px;
           @media(min-width: 556px) {
 
@@ -260,6 +261,9 @@
           }
           @media(min-width: 1450px) {
             
+          }
+          &:hover {
+            transform: scale(1.1);
           }
           input {
             font-size: 6rem;
@@ -297,8 +301,8 @@
                 background-repeat: no-repeat;
                 z-index: 999999;
                 cursor: pointer;
-                transform: translate(-50%, -50%);
-                left: 15%;
+                transform: translate(0, -50%);
+                left: 0;
                 top: 42%;
                 @media(min-width: 556px) {
                   
@@ -319,9 +323,9 @@
                 background-image: url(../../images/avance-rapido-down.png);
                 z-index: 999999;
                 cursor: pointer;
-                transform: translate(-50%, -50%);
+                transform: translate(0, -50%);
                 top: 42%;
-                right: -13%;
+                right: 0;
                 @media(min-width: 556px) {}
                 @media(min-width: 556px) {}
                 @media(min-width: 556px) {}
