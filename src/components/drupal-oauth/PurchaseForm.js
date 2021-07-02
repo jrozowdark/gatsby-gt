@@ -37,6 +37,7 @@ class PurchaseForm extends React.Component {
   }
   componentDidMount() {
     const data = this.props.data;
+    console.log(data)
     if (this.props.pid !== 0){
       this.setState({PackGroup :this.props.pid});
     }
@@ -93,7 +94,6 @@ class PurchaseForm extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("change")
     this.setState({ processing: true });
       let sum = 0;
       var items = [];

@@ -5,7 +5,7 @@ import PurchaseForm from '../drupal-oauth/PurchaseForm';
   const BuyFunctions = (props) => {
     const data = useStaticQuery(graphql `
       query {
-        packs: allNodePack (sort: {fields: field_weight})  {
+        packs: allNodePack (sort: {fields: field_weight} filter: {field_gift_pack: {eq: false}})  {
           nodes {
             drupal_internal__nid
             title
@@ -13,6 +13,7 @@ import PurchaseForm from '../drupal-oauth/PurchaseForm';
             field_title
             field_title_second_line
             field_quantity_bottles
+            field_gift_pack
           }
         }
         products: allNodeProduct {
