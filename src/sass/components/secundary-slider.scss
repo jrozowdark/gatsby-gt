@@ -17,9 +17,6 @@
       height: 10%;
       padding: 0rem 1rem 0rem 2rem;
     }
-    // @media(min-width: 1450px) {
-    //   height: 9rem;
-    // }
     .font-line-black {
       padding-left: 3rem;
       @media(max-width: 1023px) {
@@ -205,18 +202,6 @@
 
               }
             }
-
-            // .link.button-six {
-            //   position: absolute;
-            //   transform: skewX(-31deg) translate(0%, 0%);
-            //   left: 0;
-            //   bottom: -20%;
-            //   @media(max-width: 1023px) {
-            //     bottom: 0%;
-            //     transform: skewX(-31deg) translate(-50%, 50%);
-            //     left: 50%;
-            //   }
-            // }
             .link.button-six {
               margin: auto;
               @media(min-width: 1024px) {
@@ -303,75 +288,6 @@
               }
             }
           }
-
-          // &:nth-child(2) {
-          //   .bodySlider {
-          //     top: 50%;
-          //     right: unset;
-          //     left: 10%;
-
-          //     @media(max-width: 1023px) {
-          //       width: 80vw;
-          //       height: 27rem;
-          //       transform: translate(-50%, -50%);
-          //       top: 40%;
-          //       left: 50%;
-          //       right: unset;
-          //     }
-          //   }
-          // }
-
-          // &:nth-child(3) {
-          //   .bodySlider {
-          //     top: 46%;
-          //     right: 10%;
-          //     margin-top: 0;
-          //     @media(max-width: 1023px) {
-          //       width: 80vw;
-          //       height: 27rem;
-          //       transform: translate(-50%, -50%);
-          //       left: 50%;
-          //       top: 40%;
-          //       right: unset;
-          //     }
-          //   }
-          // }
-
-          // &:nth-child(4) {
-          //   .bodySlider {
-          //     top: 50%;
-          //     right: unset;
-          //     left: 10%;
-
-          //     @media(max-width: 1023px) {
-          //       width: 80vw;
-          //       height: 27rem;
-          //       transform: translate(-50%, -50%);
-          //       left: 50%;
-          //       top: 40%;
-          //       right: unset;
-          //     }
-          //   }
-          //   .image {
-          //     picture {
-          //       img {
-          //         @media(min-width: 1024px) {
-          //           left: 10px !important;
-          //         }
-          //         @media(min-width: 1640px) {
-          //           left: 0px;
-          //         }
-          //       }
-          //     }
-          //   }
-          // }
-
-          // &:nth-child(2) {
-          //   .bodySlider {
-          //     top: 50%;
-          //     right: 10%;
-          //   }
-          // }
         }
       }
     }

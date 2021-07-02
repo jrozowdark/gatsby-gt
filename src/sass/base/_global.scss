@@ -125,6 +125,11 @@ html {
   }
 }
 
+#___gatsby {
+  @media(min-width: 1024px) {
+    height: auto !important;
+  }
+}
 
 // input[type='date']{
 //   color:transparent;

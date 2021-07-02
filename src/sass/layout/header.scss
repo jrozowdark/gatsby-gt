@@ -317,23 +317,6 @@ header {
       top: 46%;
       @media (min-width: 360px) {
       }
-      // li {
-      //   &.logout-mobile, &#logout-mobile {
-      //     text-align: center;
-      //     margin-top: 5rem;
-      //     button {
-      //       font-size: 1rem;
-      //       text-decoration: underline;
-      //       letter-spacing: 0px;
-      //       color: white;
-      //       text-transform: uppercase;
-      //       font-family: $px-black;
-      //       br {
-      //         display: none;
-      //       }
-      //     }
-      //   }
-      // }
     }
     li {
       width: 100%;
@@ -358,6 +341,12 @@ header {
         color: black;
       }
     }
+    // button.btn-outlined {
+    //   @media(min-width: 1024px) {
+    //     color: transparent;
+    //     font-size: 1px;
+    //   }
+    // }
     .footer-principal  {
       background: #000000;
       text-align: center;
