@@ -19,6 +19,9 @@
   @media screen and (min-width: 1024px) and (max-width: 1300px) {
     min-height: 1060px;
   }
+  @media(min-width: 2000px) {
+    min-height: 1200px;
+  }
   .text-lateral {
     position: absolute;
     left: .5rem;
