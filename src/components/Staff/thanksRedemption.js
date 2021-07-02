@@ -47,26 +47,26 @@ class ThanksRedemption extends React.Component {
       let products = this.state.products;
 
     return (
-    <div class="redemption">
+    <div className="redemption">
       <Seo title="Thanks for you redemption" />
-      <div class="redemption-component-fisrt">
-        <div class="text-redemption">
-          <div class="text-one">
+      <div className="redemption-component-fisrt">
+        <div className="text-redemption">
+          <div className="text-one">
             <h2>¡Es hora de hidratarte con la bebida Nº 1 de deportistas!</h2>
           </div>
-          <div class="text-two">
+          <div className="text-two">
             <h2>resumen de la redención</h2>
           </div>
-          <div class="text-three">
-            <h2 class="text-number">01</h2>
+          <div className="text-three">
+            <h2 className="text-number">01</h2>
           </div>
-          <div class="text-four">
-            <div class="unit">
-              <h2 class="number-units">Sabor:</h2>
-              <h2 class="fruit">{products !== null ? products.title : ""}</h2>
+          <div className="text-four">
+            <div className="unit">
+              <h2 className="number-units">Sabor:</h2>
+              <h2 className="fruit">{products !== null ? products.title : ""}</h2>
             </div>
           </div>
-          <div class="button-second">
+          <div className="button-second">
             <Link to="/staff/zone">Finalizar</Link>
             </div>
         </div>

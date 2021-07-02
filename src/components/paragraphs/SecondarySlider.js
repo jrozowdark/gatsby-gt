@@ -4,8 +4,9 @@ import Img from "gatsby-image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AOS from "aos";
 export const SecondarySlider = ({ node }) => {
-
+    AOS.init();
     const settings = {
       customPaging: function (i) {
         return (
@@ -67,10 +68,10 @@ export const SecondarySlider = ({ node }) => {
                 <h2 className="h2-text-lateral regist" dangerouslySetInnerHTML={{ __html: slide.field_title_lateral_line}} />
               </div>
               <div className="number-text">
-                <h2 className="regist font-line-orange" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
-                <h2 className="title-slider regist" dangerouslySetInnerHTML={{ __html: slide.field_title_second_line}} />
+                <h2 className="regist font-line-orange" data-aos="fade-up" data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_title}} />
+                <h2 className="title-slider regist" data-aos="fade-up" data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_title_second_line}} />
               </div>
-              <div className="pagraph-slider" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
+              <div className="pagraph-slider" data-aos="zoom-in"  data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
               <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
             </div>
             <div className="image"><Img fluid={images} alt ={slide.image.desktop.data.field_media_image.filename}  /></div>

@@ -19,6 +19,9 @@
   @media screen and (min-width: 1024px) and (max-width: 1300px) {
     min-height: 1060px;
   }
+  @media(min-width: 2000px) {
+    min-height: 1200px;
+  }
   .text-lateral {
     position: absolute;
     left: .5rem;
@@ -72,6 +75,7 @@
     @media(min-width: 1024px) {
       flex: 0 0 100%;
       margin: 0rem 0 -3rem 0;
+      position: relative;
     }
     h2 {
       -webkit-text-stroke: unset;
@@ -93,32 +97,78 @@
     }
     .welcome-name {
       @media(max-width: 1024px) {
-        display: flex;
-        font-size: 4.4rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        line-height: 0.9;
+        // display: flex;
+        // font-size: 4.4rem;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        // line-height: 0.9;
       }
       @media(min-width: 1024px) {
+        // position: absolute;
+        // left: 55%;
+        // top: 30%;
+        // font-size: 5rem;
+        // line-height: 0.8;
+        // span {
+        //   font-size: 3.8rem;
+        //   position: absolute;
+        // }
+      }
+      // @media screen and (min-width: 1024px) and (max-width: 1880px) {
+      //   // display: flex;
+      //   span {
+      //     top: 100%;
+      //   }
+      // }
+      // span {
+      //   font-size: 2.2rem;
+      // }
+    }
+    .container-name {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      transform: translate(0%, 20%);
+      right: 1%;
+      top: 100%;
+      justify-content: flex-start;
+      @media(max-width: 1023px) {
+        justify-content: center;
+      }
+      @media(min-width: 1024px) {
+        min-width: 44vw;
+        max-width: 44vw;
         position: absolute;
-        left: 55%;
-        top: 30%;
-        font-size: 5rem;
+        max-height: 6.2rem;
+        overflow: hidden;
+      }
+      @media(min-width: 1450px) {
+        max-height: 6.5rem;
+      }
+      @media(min-width: 2000px) {
+        transform: translate(0%, 100%);
+      }
+      @media(min-width: 2400px) {
+        transform: translate(0%, 140%);
+      }
+      h3.welcome-name {
+        word-break: initial;
+        font-size: 4.3rem;
         line-height: 0.8;
-        span {
-          font-size: 3.8rem;
-          position: absolute;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 500;
+        text-align: center;
+        @media(min-width: 1024px) {
+          text-align: left;
+        }
+        @media(min-width: 1450px) {
+          font-size: 4.5rem;
         }
       }
-      @media screen and (min-width: 1024px) and (max-width: 1880px) {
-        display: flex;
-        span {
-          top: 100%;
-        }
-      }
-      span {
-        font-size: 2.2rem;
+      h3.welcome-lastname {
+        line-height: .8;
       }
     }
   }
@@ -131,6 +181,9 @@
       width: unset;
       padding-left: 7.7rem;
     }
+    @media(max-width: 1024px) {
+      padding-top: 4rem;
+    }
     canvas {
       margin: auto;
       height: 10vw !important;
@@ -142,7 +195,7 @@
       @media(min-width: 1024px) {
         height: 25vw !important;
         width: 25vw !important;
-        transform: translateY(-14%);
+        transform: translateY(-4%);
       }
     }
   }
@@ -155,6 +208,18 @@
       padding-left: 5.4%;
       position: relative;
       margin-top: 9%;
+    }
+    .welcome-name {
+      display: flex;
+      position: absolute;
+      top: -124%;
+      font-size: 5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      line-height: 0.8;
+      span {
+        font-size: 3rem;
+      }
     }
     .decription-title {
       padding: 1rem;

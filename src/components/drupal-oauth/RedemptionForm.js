@@ -40,9 +40,6 @@ class RedemptionForm extends React.Component {
     event.preventDefault();
     const {PackGroup} = this.state;
     let dataSend = JSON.stringify({"code": this.props.redem, "idp": PackGroup, "total": 1});
-    console.log(dataSend);
-    console.log(event)
-    console.log(this.state.input)
     let sendLocal = {}
     this.state.input.map(product =>{
         if (product.id === PackGroup) {
@@ -51,19 +48,27 @@ class RedemptionForm extends React.Component {
         return true;
     })
     try {
+      this.setState({
+        processing: true
+      });
       await this.props.drupalOauthClient.handleSendRedemption(dataSend).then(data => {
         if(data.message){
           this.setState({
             processing: false,
             error: data.message,
           });
+        }else{
+          navigate(data);
+          localStorage.setItem("product-redemption",JSON.stringify(sendLocal))
+          this.setState({
+            error: ''
+          });
         }
-        localStorage.setItem("product-redemption",JSON.stringify(sendLocal))
-        navigate(data);
+        this.setState({
+          processing: false
+        });
       });
-      this.setState({
-        processing: true
-      });
+
     } catch (err) {
       this.setState({
         processing: false,
@@ -77,6 +82,7 @@ class RedemptionForm extends React.Component {
       if(this.state.input !== null){
         let redem = this.props.redem;
         let {PackGroup,input} = this.state
+        const { error, processing } = this.state;
         return (
           <>
           <div className="box-zone">
@@ -111,11 +117,14 @@ class RedemptionForm extends React.Component {
                 </Form.Label>
                 )
               })}
-
               </Form.Group>
+              { error && !processing && <div className="text-error">{error} </div>}
+              {processing ?
+              <div className="loader">Realizando tú solicitud ...</div>:
               <div className="link button-first">
                 <input type="submit" value="Reclamar" onClick={ event => this.handleSubmit(event)} />
               </div>
+              }
             </form>
           </div>
             </>

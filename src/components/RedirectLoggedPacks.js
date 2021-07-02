@@ -7,11 +7,19 @@ function RedirectLoggedPacks(props) {
     <>
       {props.userAuthenticated ?<>
         <div className="button-six">
-          <Link to={`/user/buy/${props.pid}`}>{props.title}</Link>
+        {props.redirect != '/' &&  props.redirect != '#' ?
+        <a href={props.redirect} target="_blank">{props.title}</a>
+        :
+        <Link to={`/user/buy/${props.pid}`}>{props.title}</Link>
+        }
         </div>
         </> :
         <div className="button-six">
-          <Link to="/user/login">{props.title}</Link>
+          {props.redirect != '/' &&  props.redirect != '#' ?
+          <a href={props.redirect} target="_blank">{props.title}</a>
+          :
+          <Link to={"/user/login"}>{props.title}</Link>
+          }
         </div>}
       </>
   );

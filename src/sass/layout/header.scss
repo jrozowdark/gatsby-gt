@@ -317,29 +317,29 @@ header {
       top: 46%;
       @media (min-width: 360px) {
       }
-      li {
-        &.logout-mobile, &#logout-mobile {
-          text-align: center;
-          margin-top: 5rem;
-          button {
-            font-size: 1rem;
-            text-decoration: underline;
-            letter-spacing: 0px;
-            color: white;
-            text-transform: uppercase;
-            font-family: $px-black;
-            br {
-              display: none;
-            }
-          }
-        }
-      }
+      // li {
+      //   &.logout-mobile, &#logout-mobile {
+      //     text-align: center;
+      //     margin-top: 5rem;
+      //     button {
+      //       font-size: 1rem;
+      //       text-decoration: underline;
+      //       letter-spacing: 0px;
+      //       color: white;
+      //       text-transform: uppercase;
+      //       font-family: $px-black;
+      //       br {
+      //         display: none;
+      //       }
+      //     }
+      //   }
+      // }
     }
     li {
       width: 100%;
       margin: 0;
     }
-    a {
+    a, button {
       text-decoration: none;
       color: $white;
       transition: color 300ms;
@@ -347,9 +347,13 @@ header {
       text-transform: uppercase;
       font-size: 2.1rem;
       letter-spacing: 1px;
+      padding: 0;
       @media(min-width: 345px) {
         font-size: 2.5rem;
       }
+      br {
+                display: none;
+              }
       &:hover {
         color: black;
       }

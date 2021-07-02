@@ -8,10 +8,12 @@ import { Link } from "gatsby"
 import Logocarlos from "../../../images/bg-ultimate-qr.png";
 import bgQr from "../../../images/bg-ultimate-qr.png";
 
+
 const UserInfo = (props) => {
   let packs = props.packs;
   const usr = props.user;
   let quantity = 0;
+  console.log(props.packs)
   return (
     <div className="container-profile">
       <div className="principal-banner-qr">
@@ -24,8 +26,11 @@ const UserInfo = (props) => {
           </div>
         </div>
         <div className="welcome">
-          <h2><span className="text-welcome">Bienvenido</span>
-            <span className="welcome-name">{usr.field_name} <span>{usr.field_lastname}</span></span></h2>
+          <h2><span className="text-welcome">Bienvenido</span></h2>
+          <div className="container-name">
+          <h3 className="welcome-name">{usr.field_name}</h3>
+          <h3 className="welcome-lastname">{usr.field_lastname}</h3>
+          </div>
         </div>
         <div className="welcome-qr">
           <QRCode value={usr.field_qr_code != null ? usr.field_qr_code : ''} className="d-flex" size={900} includeMargin bgColor="#FFFFFF" fgColor="#FB5030" level='H' />
@@ -106,6 +111,7 @@ const UserInfo = (props) => {
                     )
                   })}
               </div>
+                {!props.packs[step].gift_pack ?
               <div className="button-nine">
                 <Link
                   to={`/user/buy/${props.packs[step].pack_buy}`}
@@ -117,6 +123,7 @@ const UserInfo = (props) => {
                   Recargar
               </Link>
               </div>
+                : ''}
             </div>
           </div>
         ))}
