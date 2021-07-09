@@ -46,12 +46,40 @@ export const SecondarySlider = ({ node }) => {
       {node.data_slide.field_slide.map((slide, i) => {
         let imageDesk = slide.image.desktop !== null ? slide.image.desktop : JSON.stringify({});
         let imageMob = slide.image.mobile !== null ? slide.image.mobile : JSON.stringify({});
+        let imageOne = slide.image.one !== null ? slide.image.one : JSON.stringify({});
+        let imageTwo = slide.image.two !== null ? slide.image.two : JSON.stringify({});
+        let imageThree = slide.image.three !== null ? slide.image.three : JSON.stringify({});
+        let imageFour = slide.image.four !== null ? slide.image.four : JSON.stringify({});
         const images = [];
         if (Object.keys(imageDesk).length !== 0 && imageDesk.constructor === Object) {
           imageDesk = slide.image.desktop.data.field_media_image.localFile.childImageSharp.fluid;
           images.push(imageDesk);
         } else {
           imageDesk = {};
+        }
+        if (Object.keys(imageOne).length !== 0 && imageOne.constructor === Object) {
+          imageOne = slide.image.one.data.field_media_image_2.localFile.childImageSharp.fluid;
+          images.push(imageOne);
+        } else {
+          imageOne = {};
+        }
+        if (Object.keys(imageTwo).length !== 0 && imageTwo.constructor === Object) {
+          imageTwo = slide.image.two.data.field_media_image_3.localFile.childImageSharp.fluid;
+          images.push(imageTwo);
+        } else {
+          imageTwo = {};
+        }
+        if (Object.keys(imageThree).length !== 0 && imageThree.constructor === Object) {
+          imageThree = slide.image.three.data.field_media_image_4.localFile.childImageSharp.fluid;
+          images.push(imageThree);
+        } else {
+          imageThree = {};
+        }
+        if (Object.keys(imageFour).length !== 0 && imageFour.constructor === Object) {
+          imageFour = slide.image.four.data.field_media_image_5.localFile.childImageSharp.fluid;
+          images.push(imageFour);
+        } else {
+          imageFour = {};
         }
         if (Object.keys(imageMob).length !== 0 && imageMob.constructor === Object){
           imageMob = {
@@ -121,6 +149,62 @@ export const fragment = graphql`
               mobile: field_image_mobile {
                 datamobile: relationships {
                   field_media_image_1 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imageOne: field_image_one {
+                datamobile: relationships {
+                  field_media_image_2 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imageTwo: field_image_two {
+                datamobile: relationships {
+                  field_media_image_3 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imageThree: field_image_three {
+                datamobile: relationships {
+                  field_media_image_4 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imagefour: field_image_four {
+                datamobile: relationships {
+                  field_media_image_5 {
                     filename
                     localFile {
                       childImageSharp {
