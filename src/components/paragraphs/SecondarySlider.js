@@ -44,28 +44,10 @@ export const SecondarySlider = ({ node }) => {
 
     <Slider {...settings} >
       {node.data_slide.field_slide.map((slide, i) => {
-        console.log(slide)
         let imageOne = slide.image.imageOne !== null ? slide.image.imageOne : JSON.stringify({});
         let imageTwo = slide.image.imageTwo !== null ? slide.image.imageTwo : JSON.stringify({});
         let imageThree = slide.image.imageThree !== null ? slide.image.imageThree : JSON.stringify({});
         let imageFour = slide.image.imageFour !== null ? slide.image.imageFour : JSON.stringify({});
-
-        const images = [];
-        // if (Object.keys(imageDesk).length !== 0 && imageDesk.constructor === Object) {
-        //   imageDesk = slide.image.desktop.data.field_media_image.localFile.childImageSharp.fluid;
-        //   images.push(imageDesk);
-        // } else {
-        //   imageDesk = {};
-        // }
-        // if (Object.keys(imageMob).length !== 0 && imageMob.constructor === Object){
-        //   imageMob = {
-        //     ...slide.image.mobile.datamobile.field_media_image_1.localFile.childImageSharp.fluid,
-        //     media: `(max-width: 992px)`
-        //   };
-        //   images.push(imageMob);
-        // }else{
-        //   imageMob = {};
-        // }
         return (
           < div className = {`container-slick position-${(i+1)%2 ? 'rigth': 'left'}`} key = {i} >
             <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
@@ -80,7 +62,7 @@ export const SecondarySlider = ({ node }) => {
               <div className="pagraph-slider" data-aos="zoom-in"  data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
               <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
             </div>
-            <div class="image">
+            <div class={slide.field_position_images}>
               {Object.keys(imageOne).length !== 0 && imageOne.constructor === Object ?
               <Img fluid={slide.image.imageOne.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageOne.data.image.filename} className="image-one"  />
               : ''}
@@ -120,6 +102,7 @@ export const fragment = graphql`
               title
               uri
             }
+            field_position_images
             image: relationships{
               imageOne: field_image_one {
                 data: relationships {
