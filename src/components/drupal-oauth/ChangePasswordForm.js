@@ -65,7 +65,7 @@ class ChangePasswordForm extends React.Component {
               this.setState({ processing: false });
               this.setState({
                 processing: false,
-                error: "Hemos cambiado tú contraseña, por favor intenta ingresar a tú cuenta {<a href="/user/login"> aquí</a>} ",
+                error: 'Hemos cambiado tú contraseña, por favor intenta ingresar a tú cuenta {<a href="/user/login"> aquí</a>}',
               });
               // this.props.updateAuthenticatedUserState(true);
                 // navigate(`${this.props.r}`)

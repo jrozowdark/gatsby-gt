@@ -44,42 +44,20 @@ export const SecondarySlider = ({ node }) => {
 
     <Slider {...settings} >
       {node.data_slide.field_slide.map((slide, i) => {
+        console.log(slide)
         let imageDesk = slide.image.desktop !== null ? slide.image.desktop : JSON.stringify({});
         let imageMob = slide.image.mobile !== null ? slide.image.mobile : JSON.stringify({});
-        let imageOne = slide.image.one !== null ? slide.image.one : JSON.stringify({});
-        let imageTwo = slide.image.two !== null ? slide.image.two : JSON.stringify({});
-        let imageThree = slide.image.three !== null ? slide.image.three : JSON.stringify({});
-        let imageFour = slide.image.four !== null ? slide.image.four : JSON.stringify({});
+        let imageOne = slide.image.imageOne !== null ? slide.image.imageOne : JSON.stringify({});
+        let imageTwo = slide.image.imageTwo !== null ? slide.image.imageTwo : JSON.stringify({});
+        let imageThree = slide.image.imageThree !== null ? slide.image.imageThree : JSON.stringify({});
+        let imageFour = slide.image.imageFour !== null ? slide.image.imageFour : JSON.stringify({});
+
         const images = [];
         if (Object.keys(imageDesk).length !== 0 && imageDesk.constructor === Object) {
           imageDesk = slide.image.desktop.data.field_media_image.localFile.childImageSharp.fluid;
           images.push(imageDesk);
         } else {
           imageDesk = {};
-        }
-        if (Object.keys(imageOne).length !== 0 && imageOne.constructor === Object) {
-          imageOne = slide.image.one.data.field_media_image_2.localFile.childImageSharp.fluid;
-          images.push(imageOne);
-        } else {
-          imageOne = {};
-        }
-        if (Object.keys(imageTwo).length !== 0 && imageTwo.constructor === Object) {
-          imageTwo = slide.image.two.data.field_media_image_3.localFile.childImageSharp.fluid;
-          images.push(imageTwo);
-        } else {
-          imageTwo = {};
-        }
-        if (Object.keys(imageThree).length !== 0 && imageThree.constructor === Object) {
-          imageThree = slide.image.three.data.field_media_image_4.localFile.childImageSharp.fluid;
-          images.push(imageThree);
-        } else {
-          imageThree = {};
-        }
-        if (Object.keys(imageFour).length !== 0 && imageFour.constructor === Object) {
-          imageFour = slide.image.four.data.field_media_image_5.localFile.childImageSharp.fluid;
-          images.push(imageFour);
-        } else {
-          imageFour = {};
         }
         if (Object.keys(imageMob).length !== 0 && imageMob.constructor === Object){
           imageMob = {
@@ -104,7 +82,12 @@ export const SecondarySlider = ({ node }) => {
               <div className="pagraph-slider" data-aos="zoom-in"  data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
               <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
             </div>
-            <div className="image"><Img fluid={images} alt ={slide.image.desktop.data.field_media_image.filename}  /></div>
+            {/* <div className="image"><Img fluid={images} alt ={slide.image.desktop.data.field_media_image.filename}  /></div> */}
+            <div class="image">
+            {Object.keys(imageOne).length !== 0 && imageOne.constructor === Object ?
+            <Img fluid={slide.image.imageOne.data.field_media_image_2.localFile.childImageSharp.fluid} alt ={slide.image.desktop.data.field_media_image.filename}  />
+            : ''}
+            </div>
           </div>
         );
       })}
@@ -161,7 +144,7 @@ export const fragment = graphql`
                 }
               }
               imageOne: field_image_one {
-                datamobile: relationships {
+                data: relationships {
                   field_media_image_2 {
                     filename
                     localFile {
@@ -175,7 +158,7 @@ export const fragment = graphql`
                 }
               }
               imageTwo: field_image_two {
-                datamobile: relationships {
+                data: relationships {
                   field_media_image_3 {
                     filename
                     localFile {
@@ -189,7 +172,7 @@ export const fragment = graphql`
                 }
               }
               imageThree: field_image_three {
-                datamobile: relationships {
+                data: relationships {
                   field_media_image_4 {
                     filename
                     localFile {
@@ -202,8 +185,8 @@ export const fragment = graphql`
                   }
                 }
               }
-              imagefour: field_image_four {
-                datamobile: relationships {
+              imageFour: field_image_four {
+                data: relationships {
                   field_media_image_5 {
                     filename
                     localFile {
