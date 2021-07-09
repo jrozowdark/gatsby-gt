@@ -403,3 +403,42 @@
     }
   }
 }
+
+
+
+
+.secundary-slider .slick-slider div.slick-list .slick-track .slick-slide .container-slick .image {
+  position: relative;
+}
+
+.img-one.gatsby-image-wrapper {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 36%;
+  height: 100%;
+}
+
+.img-two.gatsby-image-wrapper {
+  position: absolute !important;
+  width: 30%;
+  height: 28% !important;
+  top: 75%;
+  left: 39%;
+}
+
+.img-three.gatsby-image-wrapper {
+  position: absolute !important;
+  width: 38%;
+  height: 35% !important;
+  top: 0%;
+  left: 44%;
+}
+
+.img-four.gatsby-image-wrapper {
+  position: absolute !important;
+  width: 38%;
+  height: 39% !important;
+  top: 21%;
+  left: 61%;
+}
