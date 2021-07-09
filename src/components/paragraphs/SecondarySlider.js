@@ -44,24 +44,10 @@ export const SecondarySlider = ({ node }) => {
 
     <Slider {...settings} >
       {node.data_slide.field_slide.map((slide, i) => {
-        let imageDesk = slide.image.desktop !== null ? slide.image.desktop : JSON.stringify({});
-        let imageMob = slide.image.mobile !== null ? slide.image.mobile : JSON.stringify({});
-        const images = [];
-        if (Object.keys(imageDesk).length !== 0 && imageDesk.constructor === Object) {
-          imageDesk = slide.image.desktop.data.field_media_image.localFile.childImageSharp.fluid;
-          images.push(imageDesk);
-        } else {
-          imageDesk = {};
-        }
-        if (Object.keys(imageMob).length !== 0 && imageMob.constructor === Object){
-          imageMob = {
-            ...slide.image.mobile.datamobile.field_media_image_1.localFile.childImageSharp.fluid,
-            media: `(max-width: 992px)`
-          };
-          images.push(imageMob);
-        }else{
-          imageMob = {};
-        }
+        let imageOne = slide.image.imageOne !== null ? slide.image.imageOne : JSON.stringify({});
+        let imageTwo = slide.image.imageTwo !== null ? slide.image.imageTwo : JSON.stringify({});
+        let imageThree = slide.image.imageThree !== null ? slide.image.imageThree : JSON.stringify({});
+        let imageFour = slide.image.imageFour !== null ? slide.image.imageFour : JSON.stringify({});
         return (
           < div className = {`container-slick position-${(i+1)%2 ? 'rigth': 'left'}`} key = {i} >
             <div className="text-lateral"> <h2 className="h2-lateral" dangerouslySetInnerHTML={{ __html: node.field_lateral_text}} /> </div>
@@ -76,7 +62,20 @@ export const SecondarySlider = ({ node }) => {
               <div className="pagraph-slider" data-aos="zoom-in"  data-aos-offset="0" dangerouslySetInnerHTML={{ __html: slide.field_description.processed}} />
               <div className="link button-six"><Link to={slide.field_link.uri.replace('internal:/','')}>{slide.field_link.title}</Link></div>
             </div>
-            <div className="image"><Img fluid={images} alt ={slide.image.desktop.data.field_media_image.filename}  /></div>
+            <div class={slide.field_position_images}>
+              {Object.keys(imageOne).length !== 0 && imageOne.constructor === Object ?
+              <Img fluid={slide.image.imageOne.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageOne.data.image.filename} className="image-one"  />
+              : ''}
+              {Object.keys(imageTwo).length !== 0 && imageTwo.constructor === Object ?
+              <Img fluid={slide.image.imageTwo.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageTwo.data.image.filename} className="image-two"  />
+              : ''}
+              {Object.keys(imageThree).length !== 0 && imageThree.constructor === Object ?
+              <Img fluid={slide.image.imageThree.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageThree.data.image.filename} className="image-three"  />
+              : ''}
+              {Object.keys(imageFour).length !== 0 && imageFour.constructor === Object ?
+              <Img fluid={slide.image.imageFour.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageFour.data.image.filename} className="image-four"  />
+              : ''}
+            </div>
           </div>
         );
       })}
@@ -103,10 +102,11 @@ export const fragment = graphql`
               title
               uri
             }
+            field_position_images
             image: relationships{
-              desktop: field_image {
+              imageOne: field_image_one {
                 data: relationships {
-                  field_media_image {
+                  image: field_media_image_2 {
                     filename
                     localFile {
                       childImageSharp {
@@ -118,9 +118,37 @@ export const fragment = graphql`
                   }
                 }
               }
-              mobile: field_image_mobile {
-                datamobile: relationships {
-                  field_media_image_1 {
+              imageTwo: field_image_two {
+                data: relationships {
+                  image: field_media_image_3 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imageThree: field_image_three {
+                data: relationships {
+                  image: field_media_image_4 {
+                    filename
+                    localFile {
+                      childImageSharp {
+                        fluid{
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              imageFour: field_image_four {
+                data: relationships {
+                  image: field_media_image_5 {
                     filename
                     localFile {
                       childImageSharp {
