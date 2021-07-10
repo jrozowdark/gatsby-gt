@@ -47,6 +47,30 @@ exports.createPages = async ({
       }
     });
   });
+  //create terms and conditions
+  const tpll = path.resolve(`src/templates/TermsConditions.js`);
+  const resul = await graphql(`{
+    articlesTerms: allNodeArticle {
+      nodes {
+        drupal_internal__nid
+        title
+        body {
+          value
+        }
+      }
+    }
+  }`); 
+  resul.data.articlesTerms.nodes.forEach(({
+    node
+  }) => {
+    createTerms ({
+      path: node.path.alias == '/terms-and-condition' ? '/terms' : node.path.alias,
+      component: tpll,
+      context: {
+        slug: node.fields.slug
+      }
+    });
+  });
 };
 
 exports.onCreateNode = ({
