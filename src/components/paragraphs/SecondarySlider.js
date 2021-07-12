@@ -28,6 +28,11 @@ export const SecondarySlider = ({ node }) => {
       slidesToScroll: 1,
       className: "secundarySlider",
       lazyLoad: 'ondemand',
+      beforeChange: (current, next) => {
+        var d = document.querySelector("#secundary-slider ul.slick-list");
+        //element.classList.remove("my-class");
+        d.setAttribute('active',"active"+next);
+      }
     }
 
     const animate =  e => {
@@ -64,16 +69,16 @@ export const SecondarySlider = ({ node }) => {
             </div>
             <div class={slide.field_position_images}>
               {Object.keys(imageOne).length !== 0 && imageOne.constructor === Object ?
-              <Img fluid={slide.image.imageOne.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageOne.data.image.filename} className="image-one"  />
+              <Img fluid={slide.image.imageOne.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageOne.data.image.filename}  data-aos="zoom-in" className="image-one"  />
               : ''}
               {Object.keys(imageTwo).length !== 0 && imageTwo.constructor === Object ?
-              <Img fluid={slide.image.imageTwo.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageTwo.data.image.filename} className="image-two"  />
+              <Img fluid={slide.image.imageTwo.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageTwo.data.image.filename} data-aos="zoom-in" className="image-two"  />
               : ''}
               {Object.keys(imageThree).length !== 0 && imageThree.constructor === Object ?
-              <Img fluid={slide.image.imageThree.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageThree.data.image.filename} className="image-three"  />
+              <Img fluid={slide.image.imageThree.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageThree.data.image.filename} data-aos="zoom-in" className="image-three"  />
               : ''}
               {Object.keys(imageFour).length !== 0 && imageFour.constructor === Object ?
-              <Img fluid={slide.image.imageFour.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageFour.data.image.filename} className="image-four"  />
+              <Img fluid={slide.image.imageFour.data.image.localFile.childImageSharp.fluid} alt ={slide.image.imageFour.data.image.filename} data-aos="zoom-in" className="image-four"  />
               : ''}
             </div>
           </div>

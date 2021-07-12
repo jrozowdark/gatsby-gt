@@ -47,6 +47,33 @@ exports.createPages = async ({
       }
     });
   });
+  const tpll = path.resolve(`src/templates/TermsConditions.js`);
+  const resul = await graphql(`{
+    articlesTerms: allNodeArticle {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          path {
+            alias
+          }
+          drupal_internal__nid
+        }
+      }
+    }
+  }`);
+  resul.data.articlesTerms.edges.forEach(({
+    node
+  }) => {
+    createPage({
+      path: node.path.alias,
+      component: tpll,
+      context: {
+        slug: node.fields.slug
+      }
+    });
+  });
 };
 
 exports.onCreateNode = ({
@@ -58,6 +85,7 @@ exports.onCreateNode = ({
     createNodeField
   } = actions;
   // Use the type of your own paragraph page
+  console.log(node.internal.type);
   if (node.internal.type == `node__principal_page`) {
     const slug = `/${node.drupal_internal__nid}/`;
     createNodeField({
@@ -66,8 +94,15 @@ exports.onCreateNode = ({
       value: slug
     });
   }
+  if (node.internal.type == `node__article`) {
+    const slug = `/${node.drupal_internal__nid}/`;
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    });
+  }
 };
-
 /**
   * Implements the onCreatePage node API.
   */
