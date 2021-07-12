@@ -47,7 +47,19 @@ exports.createPages = async ({
       }
     });
   });
-  //create terms and conditions
+};
+
+//create terms and conditions
+exports.createTerm = async ({
+  graphql,
+  actions
+}) => {
+  const {
+    createTerms
+  } = actions;
+  const {
+    createRedirect
+  } = actions;
   const tpll = path.resolve(`src/templates/TermsConditions.js`);
   const resul = await graphql(`{
     articlesTerms: allNodeArticle {
@@ -71,9 +83,28 @@ exports.createPages = async ({
       }
     });
   });
-};
+}
 
 exports.onCreateNode = ({
+  node,
+  getNode,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions;
+  // Use the type of your own paragraph page
+  if (node.internal.type == `node__principal_page`) {
+    const slug = `/${node.drupal_internal__nid}/`;
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    });
+  }
+};
+
+exports.onCreateTerms = ({
   node,
   getNode,
   actions

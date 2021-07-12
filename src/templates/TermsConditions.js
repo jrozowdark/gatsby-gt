@@ -13,6 +13,7 @@ const TermsPage = ({data}) => {
   return (
     <Layout>
       <SEO title="terms and conditions" />
+      <h1>{data.terms.title}</h1>
       { terms }
     </Layout>
   );
@@ -21,7 +22,7 @@ const TermsPage = ({data}) => {
 export default TermsPage
 
 export const termsQuery = graphql`
-  query ($slug: Int!){
+  query {
     terms: allNodeArticle {
         nodes {
             drupal_internal__nid
