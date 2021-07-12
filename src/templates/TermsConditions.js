@@ -2,19 +2,26 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { getTerms } from "../components/Utils/termsHelpers";
 import AOS from 'aos';
 
 const TermsPage = ({data}) => {
-  const terms = data.terms.nodes.map(getTerms);
-  setTimeout (function(){
-    AOS.init();
-  },1000)
+  console.log(data);
+  // const terms = data.page.map(getTerms);
+  // setTimeout (function(){
+  //   AOS.init();
+  // },1000)
   return (
     <Layout>
-      <SEO title="terms and conditions" />
-      <h1>{data.terms.title}</h1>
-      { terms }
+      <SEO title={data.page.title} />
+      <h1 dangerouslySetInnerHTML={{
+            __html: data.page.title,
+          }}></h1>
+        <div
+          className="data-article"
+          dangerouslySetInnerHTML={{
+            __html: data.page.body.value,
+          }}
+        />
     </Layout>
   );
 };
@@ -22,15 +29,13 @@ const TermsPage = ({data}) => {
 export default TermsPage
 
 export const termsQuery = graphql`
-  query {
-    terms: allNodeArticle {
-        nodes {
-            drupal_internal__nid
-            title
-            body {
-                value
-            }
-        }
-    }
+  query($slug: String!) {
+      page: nodeArticle(fields: { slug: { eq: $slug } }) {
+          id
+          title
+          body {
+            value
+          }
+      }
   }
 `;

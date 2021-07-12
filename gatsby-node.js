@@ -47,43 +47,34 @@ exports.createPages = async ({
       }
     });
   });
-};
-
-//create terms and conditions
-exports.createTerm = async ({
-  graphql,
-  actions
-}) => {
-  const {
-    createTerms
-  } = actions;
-  const {
-    createRedirect
-  } = actions;
   const tpll = path.resolve(`src/templates/TermsConditions.js`);
   const resul = await graphql(`{
     articlesTerms: allNodeArticle {
-      nodes {
-        drupal_internal__nid
-        title
-        body {
-          value
+      edges {
+        node {
+          fields {
+            slug
+          }
+          path {
+            alias
+          }
+          drupal_internal__nid
         }
       }
     }
-  }`); 
-  resul.data.articlesTerms.nodes.forEach(({
+  }`);
+  resul.data.articlesTerms.edges.forEach(({
     node
   }) => {
-    createTerms ({
-      path: node.path.alias == '/terms-and-condition' ? '/terms' : node.path.alias,
+    createPage({
+      path: node.path.alias,
       component: tpll,
       context: {
         slug: node.fields.slug
       }
     });
   });
-}
+};
 
 exports.onCreateNode = ({
   node,
@@ -94,6 +85,7 @@ exports.onCreateNode = ({
     createNodeField
   } = actions;
   // Use the type of your own paragraph page
+  console.log(node.internal.type);
   if (node.internal.type == `node__principal_page`) {
     const slug = `/${node.drupal_internal__nid}/`;
     createNodeField({
@@ -102,18 +94,7 @@ exports.onCreateNode = ({
       value: slug
     });
   }
-};
-
-exports.onCreateTerms = ({
-  node,
-  getNode,
-  actions
-}) => {
-  const {
-    createNodeField
-  } = actions;
-  // Use the type of your own paragraph page
-  if (node.internal.type == `node__principal_page`) {
+  if (node.internal.type == `node__article`) {
     const slug = `/${node.drupal_internal__nid}/`;
     createNodeField({
       node,
@@ -122,7 +103,6 @@ exports.onCreateTerms = ({
     });
   }
 };
-
 /**
   * Implements the onCreatePage node API.
   */
