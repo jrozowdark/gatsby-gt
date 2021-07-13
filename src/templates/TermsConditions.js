@@ -12,11 +12,14 @@ const TermsPage = ({data}) => {
   // setTimeout (function(){
   //   AOS.init();
   // },1000)
+  let imageOne = data.page.background.imageBackground !== null ? data.page.background.imageBackground : JSON.stringify({});
   return (
     <Layout>
       <SEO title={data.page.title} className="terms-conditions" />
       <div className="container-terms">
-      <Img fluid={data.page.background.imageBackground.data.image.localFile.childImageSharp.fluid} className="bg-terms" alt="Background privacy" title="background privacy" />
+        {Object.keys(imageOne).length !== 0 && imageOne.constructor === Object ?
+        <Img fluid={data.page.background.imageBackground.data.image.localFile.childImageSharp.fluid} className="bg-terms" alt="Background privacy" title="background privacy" />
+        : ''}
         <h1 className="text-terms" dangerouslySetInnerHTML={{
               __html: data.page.title,
             }}></h1>
@@ -25,7 +28,7 @@ const TermsPage = ({data}) => {
             dangerouslySetInnerHTML={{
               __html: data.page.body.value,
             }}
-            
+
           />
       </div>
     </Layout>
