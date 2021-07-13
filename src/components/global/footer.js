@@ -39,7 +39,7 @@ const Footer = ({ siteTitle }) => (
       <Link to="/privacy/"> Política de privacidad</Link>
       </div>
       <div className="terms-Conditions">
-      <Link to="/"> Términos y condiciones</Link>
+      <Link to="/terminos-y-condiciones-de-la-actividadactiva-tu-codigo-e-hidratate-con-gatorade/"> Términos y condiciones</Link>
       </div>
       <div className="copyright">
       <Link to="/"> Copyright © {new Date().getFullYear()}</Link>
