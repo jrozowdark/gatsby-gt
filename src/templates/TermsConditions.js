@@ -3,15 +3,8 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
-import AOS from 'aos';
-import bgPrivacy from "../images/pollo1.png";
 
 const TermsPage = ({data}) => {
-  console.log(data);
-  // const terms = data.page.map(getTerms);
-  // setTimeout (function(){
-  //   AOS.init();
-  // },1000)
   let imageOne = data.page.background.imageBackground !== null ? data.page.background.imageBackground : JSON.stringify({});
   return (
     <Layout>

@@ -89,8 +89,8 @@ class drupalOauth {
   /**
    *
    */
-  async handleRegister(field_name, field_lastname, birthdate, username, modality, phone, password, scope) {
-    return this.registerForm(field_name, field_lastname, birthdate, username, modality, phone, password, scope);
+  async handleRegister(field_name, field_lastname, birthdate, username, modality, phone, password, scope, code) {
+    return this.registerForm(field_name, field_lastname, birthdate, username, modality, phone, password, scope, code);
   };
   async handleUpdateRegister(field_name, field_lastname, birthdate, username, modality, phone, password, new_password) {
     return this.updateUserForm(field_name, field_lastname, birthdate, username, modality, phone, password, new_password);
@@ -275,7 +275,7 @@ class drupalOauth {
    * @returns {Promise<void>}
    *  Returns a Promise that resolves with the new token retrieved from Drupal.
    */
-   async registerForm(field_name, field_lastname, birthdate, username, modality, phone, password, scope) {
+   async registerForm(field_name, field_lastname, birthdate, username, modality, phone, password, scope, code) {
 
     const response = await fetch(this.config.register_url, {
       method: 'post',
@@ -310,21 +310,36 @@ class drupalOauth {
         }],
         "field_born_date": [{
           "value": birthdate
+        }],
+        "field_qr_code": [{
+          "value": code
         }]
       }),
     }).then(response => response.json())
     .then(json => {
+      console.log(json)
       //throw new Error(text.message);
       if (json.message) {
+        if (json.message.includes('failed')) {
+          return {
+            "error": json.message
+          };
+        }
         return json;
-      } else {
-        return this.handleLogin(username, password, scope);
+      } else if (json.error) {
+        return {
+          "error": "fail"
+        };
+
+        //return this.handleLogin(username, password, scope);
         // return this.storeToken(json);
+      }else{
+        return json;
       }
     }).catch(err => {
-      return {
-        "message": err
-      };
+        return {
+          "error": "fail"
+        };
     });
 
     return response;

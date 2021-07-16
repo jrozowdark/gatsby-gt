@@ -22,6 +22,7 @@ class RegisterForm extends React.Component {
     phone: '',
     phoneError: '',
     error: null,
+    code: null
   };
 
   validate = () => {
@@ -78,7 +79,8 @@ class RegisterForm extends React.Component {
     if (passwordConfirmError === '' && this.state.repeat_password.length < 8) {
       passwordConfirmError = "El campo debe tener minímo 8 caracteres";
     }
-     match = /^[a-zA-Z]/;
+     match = /[A-Z]/;
+     console.log(this.state.password)
     if (passwordError === "" && !match.exec(this.state.password)) {
       passwordError = "El campo debe tener al menos una mayúscula";
     }
@@ -101,19 +103,23 @@ class RegisterForm extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      this.setState({ processing: true });
+      const code = this.props.code;
       const { field_name, field_lastname, birthdate, username, modality, phone, password } = this.state;
       try {
-        await this.props.drupalOauthClient.handleRegister(field_name.toUpperCase(), field_lastname.toUpperCase(), birthdate, username.toUpperCase(), modality, phone, password, 'cliente');
+          const oauth = await this.props.drupalOauthClient.handleRegister(field_name.toUpperCase(), field_lastname.toUpperCase(), birthdate, username.toUpperCase(), modality, phone, password, 'cliente', code);
+          console.log(oauth)
         this.setState({ processing: false });
-        // this.props.updateAuthenticatedUserState(true);
-        //navigate("/regist-full");
-        this.setState({error: 'Te hemos enviado un correo eléctronico por favor confirmalo'});
+        this.setState({usernameError: true, field_nameError: true, field_lastnameError: true, birthdateError: true, phoneError: true, modalityError: true, passwordError: true, passwordConfirmError:true});
+        if (oauth.error){
+          this.setState({
+            processing: false,
+            error: 'Tu usuario ya existe o no tenemos códigos QR para asignarte',
+          });
+        }else{
+          this.setState({error: 'Te hemos enviado un correo eléctronico por favor confirmalo'});
+        }
       } catch(err) {
-        this.setState({
-          processing: false,
-          error: 'Tu usuario ya existe o no tenemos códigos QR para asignarte',
-        });
+
       }
     }
   };
