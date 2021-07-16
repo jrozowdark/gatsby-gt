@@ -36,10 +36,10 @@ const Footer = ({ siteTitle }) => (
     </div>
     <div className="footer-link-informative ">
       <div className="privacy-Policy">
-      <Link to="/politica-de-privacidad-de-la-actividad-activa-tu-codigo-e-hidratate-con-gatorade/"> Política de privacidad</Link>
+      <Link to="/politica-de-privacidad/"> Política de privacidad</Link>
       </div>
       <div className="terms-Conditions">
-      <Link to="/terminos-y-condiciones-de-la-actividadactiva-tu-codigo-e-hidratate-con-gatorade/"> Términos y condiciones</Link>
+      <Link to="/terminos-y-condiciones/"> Términos y condiciones</Link>
       </div>
       <div className="copyright">
       <Link to="/"> Copyright © {new Date().getFullYear()}</Link>
