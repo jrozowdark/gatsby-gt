@@ -215,12 +215,13 @@
       .container-principalSlider {
         img {
           min-width: 516px;
-          transform: translateX(17%);
-          @media(min-width: 556px) {
-            object-fit: contain !important;
-          }
+          transform: translateX(0);
+          object-fit: cover;
+          // @media(min-width: 556px) {
+          //   object-fit: contain !important;
+          // }
           @media(min-width: 1024px) {
-            transform: translateX(20%);
+            transform: translateX(0);
           }
         }
       }
